@@ -1,0 +1,51 @@
+package com.Path.DefinedVertex;
+
+/**
+ * Created by Panda on 2015/5/26.
+ */
+public enum F2SubCenter {
+
+    SC1,
+    SC2,
+    SC3,
+    C1,
+    C2,
+    C3,
+    C4,
+    C5,
+    C6,
+    EL5,
+    ES5,
+    ES6,
+    EL6,
+    X3,
+    U3,
+    V3,
+    w3,
+    Y3,
+    Z3,
+    A4,
+    P3,
+    T3,
+    s3,
+    R3,
+    Q3,
+    O3,
+    N3,
+    M3,
+    L3,
+    J3,
+    I3,
+    K3,
+    start_position,
+    end_position,
+    start_auxiliary_pos,
+    end_auxiliary_pos,
+    start_auxiliary_pos2,
+    end_auxiliary_pos2,
+    start_auxiliary_pos3,
+    end_auxiliary_pos3,
+    start_auxiliary_pos4,
+    end_auxiliary_pos4,
+
+}
