@@ -17,6 +17,7 @@ public class Floor_1 {
 
 
     public Floor_1(Vertex s, Vertex e) {
+        //传入参数起点s 和终点e
         V_start = s;
         V_end = e;
     }
@@ -81,7 +82,7 @@ public class Floor_1 {
         if(start.GetSubNO().equals(SubNumber.F1SubLeft)&&end.GetSubNO().equals(SubNumber.F1SubRight)
                 ||start.GetSubNO().equals(SubNumber.F1SubRight)&&end.GetSubNO().equals(SubNumber.F1SubLeft))
         {
-            //??????????????????????
+            //左子图与右子图的公共点
             commonList.add(new Vertex("K1",0.4992,0.6942,1));
             commonList.add(new Vertex("I",0.4992,0.9155,1));
             commonList.add(new Vertex("L1",0.4992,0.6288,1));
@@ -91,13 +92,13 @@ public class Floor_1 {
         else if((start.GetSubNO().equals(SubNumber.F1SubLeft)&&end.GetSubNO().equals(SubNumber.F1SubBottom)
                 ||start.GetSubNO().equals(SubNumber.F1SubBottom)&&end.GetSubNO().equals(SubNumber.F1SubLeft)))
         {
-            //?????????????????????
+            //左子图与底子图的公共点
             commonList.add(new Vertex("Z3",0.4992,0.3806,1));
         }
         else if ((start.GetSubNO().equals(SubNumber.F1SubRight)&&end.GetSubNO().equals(SubNumber.F1SubBottom)
                 ||start.GetSubNO().equals(SubNumber.F1SubBottom)&&end.GetSubNO().equals(SubNumber.F1SubRight)))
         {
-            //?????????????????????
+            //右子图与底子图的公共点
             commonList.add(new Vertex("Z3",0.4992,0.3806,1));
         }
         return  commonList;

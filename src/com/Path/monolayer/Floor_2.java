@@ -54,13 +54,18 @@ public class Floor_2 {
             }
 
             String path_TtoM_1, path_TtoM_2;
+
+            //顶子图部分路线规划
             Floor  sub_top=new F2SubTopFloor(2);
             sub_top.AnalyzeVertex(V_start.GetString(), 0);
             sub_top.AnalyzeVertex(min_TtoM.GetString(), 1);
             sub_top.InitializeStartEnd();
             path_TtoM_1 = sub_top.GetArrList();
 
-            Floor_2 Route_TtoM=new Floor_2(min_TtoM,V_end);
+
+            //中子图部分和底子图部分路线规划
+            Vertex TinM = GoToMiddile(min_TtoM);
+            Floor_2 Route_TtoM=new Floor_2(TinM,V_end);
             path_TtoM_2=Route_TtoM.RoutePlan();
 
             final_Output=path_TtoM_1+path_TtoM_2;
@@ -86,13 +91,16 @@ public class Floor_2 {
             }
 
             String path_BtoM_1, path_BtoM_2;
+            //底子图部分路线规划
             Floor  sub_top=new F2SubBottumFloor(2);
             sub_top.AnalyzeVertex(V_start.GetString(), 0);
             sub_top.AnalyzeVertex(min_BtoM.GetString(), 1);
             sub_top.InitializeStartEnd();
             path_BtoM_1 = sub_top.GetArrList();
 
-            Floor_2 Route_BtoM=new Floor_2(min_BtoM,V_end);
+            //中子图部分和顶子图部分路线规划
+            Vertex BinM = GoToMiddile(min_BtoM);
+            Floor_2 Route_BtoM=new Floor_2(BinM,V_end);
             path_BtoM_2=Route_BtoM.RoutePlan();
 
             final_Output=path_BtoM_1+path_BtoM_2;
@@ -169,6 +177,26 @@ public class Floor_2 {
         }
         return  commonList;
     }
+    Vertex GoToMiddile(Vertex borderVertex){
+
+        Vertex middleVertex;
+
+        if(borderVertex.equals(new Vertex("SC2",0.4953,0.8039,2))){
+            middleVertex = new Vertex("SC2_mid",0.4953,0.8,2);
+        }
+        else if(borderVertex.equals(new Vertex("SC1",0.1971,0.5056,2))){
+            middleVertex = new Vertex("SC1_mid",0.198,0.5056,2);
+        }
+        else if(borderVertex.equals(new Vertex("SC3",0.7975,0.5018,2))){
+            middleVertex = new Vertex("SC3_mid",0.79,0.5018,2);
+        }
+        else {
+            middleVertex = new Vertex("bottomInMid", borderVertex.GetX(), borderVertex.GetY()+0.001, 2);
+        }
+
+        return middleVertex;
+    }
+
     double GetDistance(Vertex v1, Vertex v2)
     {
         return Math.sqrt(Math.pow(v1.GetX()-v2.GetX(),2) + Math.pow(v1.GetY()-v2.GetY(),2));
