@@ -5,7 +5,7 @@ package com.Path.DefinedVertex;
  */
 public enum F1SubRight {
 
-
+    //basic points defined
 
     S24,
     S21,
@@ -18,7 +18,7 @@ public enum F1SubRight {
     E16,
     E15,
     WT8,
-    EL14,
+    E14,
     E13,
     WT10,
     W8,
@@ -84,6 +84,8 @@ public enum F1SubRight {
     R2,
     s2,
 
+   //necessary points defined
+
     start_position,
     end_position,
     start_auxiliary_pos,
@@ -94,5 +96,26 @@ public enum F1SubRight {
     end_auxiliary_pos3,
     start_auxiliary_pos4,
     end_auxiliary_pos4,
+
+    //extend points defined
+
+    ER1,        //("ER1", 0.8860,0.4210)
+    ER2,        //("ER2", 0.5793, 0.5018)
+    EBP1,        //("EBP1", 0.4992, 0.5018)
+    ER3,        //("ER3", 0.8436, 0.6942)
+    ER4,        //("ER4", 0.7878, 0.6942)
+    ER5,        //("ER5", 0.7436, 0.6942)
+    ER6,        //("ER6", 0.7423, 0.6942)
+    ER7,        //("ER7", 0.8436, 0.9155)
+    ER8,        //("ER8", 0.7436, 0.9155)
+    ER9,        //("ER9", 0.6666, 0.8636)
+    ER10,       //("ER10",0.5492, 0.8636)
+    ER11,       //("ER11", 0.5492, 0.9155)
+    EBP2,       //("EBP2",0.4492, 0.8636)
+    ER12,      //("EBP12",0.9283,0.6942)
+
+
+
+
 
 }

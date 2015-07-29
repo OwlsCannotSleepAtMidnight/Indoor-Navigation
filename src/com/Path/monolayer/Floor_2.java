@@ -92,7 +92,7 @@ public class Floor_2 {
 
             String path_BtoM_1, path_BtoM_2;
             //底子图部分路线规划
-            Floor  sub_top=new F2SubBottumFloor(2);
+            Floor  sub_top=new F2SubBottomFloor(2);
             sub_top.AnalyzeVertex(V_start.GetString(), 0);
             sub_top.AnalyzeVertex(min_BtoM.GetString(), 1);
             sub_top.InitializeStartEnd();
@@ -141,10 +141,10 @@ public class Floor_2 {
             return new F2SubTopFloor(2);
         }
         else if (sn.equals(SubNumber.F2SubCenter)) {
-            return new F2SubMiddleFloor(2);
+            return new F2SubCenterFloor(2);
         }
         else
-            return new F2SubBottumFloor(2);
+            return new F2SubBottomFloor(2);
     }
 
     ArrayList<Vertex> CommonPoint(Floor start, Floor end)

@@ -72,7 +72,7 @@ public class Floor_1 {
             return new F1SubLeftFloor(1);
         }
         else
-            return new F1SubBottumFloor(1);
+            return new F1SubBottomFloor(1);
     }
 
     ArrayList<Vertex> CommonPoint(Floor start, Floor end)
@@ -87,7 +87,8 @@ public class Floor_1 {
             commonList.add(new Vertex("I",0.4992,0.9155,1));
             commonList.add(new Vertex("L1",0.4992,0.6288,1));
             commonList.add(new Vertex("M1",0.4992,0.4152,1));
-            commonList.add(new Vertex("Z3",0.4992,0.3806,1));
+            commonList.add(new Vertex("EBP1", 0.4992, 0.5018,1));
+            commonList.add(new Vertex ("EBP2",0.4492, 0.8636, 1));
         }
         else if((start.GetSubNO().equals(SubNumber.F1SubLeft)&&end.GetSubNO().equals(SubNumber.F1SubBottom)
                 ||start.GetSubNO().equals(SubNumber.F1SubBottom)&&end.GetSubNO().equals(SubNumber.F1SubLeft)))

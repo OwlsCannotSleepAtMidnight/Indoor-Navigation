@@ -5,6 +5,8 @@ package com.Path.DefinedVertex;
  */
 public enum F2SubTop {
 
+   //basic points defined
+
     SC2,
     E9,
     WT11,
@@ -33,6 +35,33 @@ public enum F2SubTop {
     S25,
     S28,
     S29,
+    S33,
+    S34,
+    S30,
+    S31,
+    S32,
+    SC3,
+    S24,
+    S21,
+    S22,
+    S23,
+    W4,
+    E18,
+    WT4,
+    E17,
+    E16,
+    E15,
+    WT8,
+    E14,
+    E13,
+    WT10,
+    W8,
+    ES8,
+    EL8,
+    E12,
+    E11,
+    WT12,
+    E10,
     c1,
     K,
     D,
@@ -61,34 +90,6 @@ public enum F2SubTop {
     R,
     B4,
     S,
-
-    S33,
-    S34,
-    S30,
-    S31,
-    S32,
-    SC3,
-    S24,
-    S21,
-    S22,
-    S23,
-    W4,
-    E18,
-    WT4,
-    E17,
-    E16,
-    E15,
-    WT8,
-    E14,
-    E13,
-    WT10,
-    W8,
-    ES8,
-    EL8,
-    E12,
-    E11,
-    WT12,
-    E10,
     d1,
     e1,
     F1,
@@ -118,11 +119,7 @@ public enum F2SubTop {
     Z1,
     e4,
 
-
-
-
-
-
+    //necessary points defined
     start_position,
     end_position,
     start_auxiliary_pos,
@@ -133,6 +130,18 @@ public enum F2SubTop {
     end_auxiliary_pos3,
     start_auxiliary_pos4,
     end_auxiliary_pos4,
+
+
+    //extend points defined
+
+    ET1,        //("ET1",0.1797,0.6808)
+    ET2,        //("ET2",0.1797,0.5018)
+    ET3,        //("ET3",0.8186,0.6808)
+    ET4,        //("ET4",0.8186,0.6211)
+    ET5,        //("ET5",0.4992,0.8520)
+    ET6,        //("ET6",0.1797,0.6211)
+    ET7,        //("ET7", 0.8860,0.3960)
+
 
 
 

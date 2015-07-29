@@ -6,6 +6,7 @@ package com.Path.DefinedVertex;
 public enum F1SubLeft {
 
 
+   //basic points defined
     E9,
     WT11,
     E8,
@@ -68,7 +69,7 @@ public enum F1SubLeft {
     Z,
     X,
     F4,
-    G4,
+    H4,
     P,
     J,
     K,
@@ -84,6 +85,9 @@ public enum F1SubLeft {
     V,
     W,
 
+
+   //necessary points defined
+
     start_position,
     end_position,
     start_auxiliary_pos,
@@ -94,4 +98,26 @@ public enum F1SubLeft {
     end_auxiliary_pos3,
     start_auxiliary_pos4,
     end_auxiliary_pos4,
+
+
+
+    //extend points defined
+
+    LE1,        //("LE1",0.1085,0.4210)
+    LE2,        //("LE2",0.3895,0.5018)
+    EBP1,       //("EBP1", 0.4992, 0.5018)
+    LE3,        //("LE3", 0.0604, 0.6942)
+    LE4,        //("LE4" ,0.1509, 0.6942)
+    LE6,        //("LE6", 0.2086, 0.6942)
+    LE7,        //("LE7", 0.2702, 0.6942)
+    LE8,        //("LE8", 0.1509,0.9155)
+    LE9,        //("LE9", 0.2529,0.9155)
+    LE10,       //("LE10", 0.3279, 0.8636)
+    LE11,       //("LE11", 0.4511, 0.8636)
+    EBP2,       //("EBP2", 0.4992, 0.8636)
+    LE12,       //("LE12", 0.4511, 0.9155)
+
+
+
+
 }

@@ -5,6 +5,8 @@ package com.Path.DefinedVertex;
  */
 public enum F1SubBottom {
 
+    //basic points defined
+
     WT5,
     W5,
     EL3,
@@ -78,6 +80,9 @@ public enum F1SubBottom {
     I3,
     J3,
     K3,
+
+    //necessary points defined
+
     start_position,
     end_position,
     start_auxiliary_pos,
@@ -88,5 +93,22 @@ public enum F1SubBottom {
     end_auxiliary_pos3,
     start_auxiliary_pos4,
     end_auxiliary_pos4,
+
+    //extend points defined
+    EB1,        //("EB1", 0.1836,0.0900)
+    EB2,        //("EB2", 0.3087,0.0900)
+    EB3,        //("EB3", 0.4511,0.0900)
+    EB4,        //("EB4", 0.5473,0.0900)
+    EB5,        //("EB5", 0.6916,0.0900)
+    EB6,        //("EB6", 0.6916,0.1535)
+    EB7,        //("EB7", 0.5473,0.1535)
+    EB8,        //("EB8", 0.4511,0.1535)
+    EB9,        //("EB9", 0.3087,0.1535)
+    EB10,       //("EB10",0.4511,0.2497)
+    EB11,       //("EB11",0.5473,0.2497)
+    EB12,       //("EB12",0.5473,0.2882)
+    EB13,       //("EB13",0.4511,0.2882)
+
+
 
 }
