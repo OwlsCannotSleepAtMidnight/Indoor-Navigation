@@ -1,5 +1,10 @@
 package com.soft.MyHTTP;
 
+import com.GetPositionClient.GetPositionClient;
+import com.Path.Dijkstra.SubGraph.B1SubFloor;
+import com.Path.Dijkstra.SubGraph.Floor;
+import com.Path.Dijkstra.SubGraph.Vertex;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,14 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-
-import com.GetPositionClient.*;
-import com.Path.Dijkstra.SubGraph.B1SubFloor;
-import com.Path.Dijkstra.SubGraph.Floor;
-import com.Path.Dijkstra.SubGraph.Vertex;
-import com.Path.monolayer.Floor_1;
-import com.Path.monolayer.Floor_2;
-import com.Path.monolayer.Floor_G1;
 
 /**
  * Created by toy on 15-4-6.
