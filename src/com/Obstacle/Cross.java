@@ -46,23 +46,23 @@ public class Cross {
             vertex1 = vertex2;
             vertex2 = tmp;
         }
-        if(vertex1.GetY()<=path.GetVertex(B1Vertex.ES1.ordinal()).GetY()&&vertex2.GetY()<=path.GetVertex(B1Vertex.ES1.ordinal()).GetY()) {
-            if (vertex1.GetX() <= path.GetVertex(B1Vertex.ES1.ordinal()).GetX()&&vertex2.GetX() > path.GetVertex(B1Vertex.ES1.ordinal()).GetX()) {
+        if(vertex1.GetY()<path.GetVertex(B1Vertex.ES1.ordinal()).GetY()&&vertex2.GetY()<path.GetVertex(B1Vertex.ES1.ordinal()).GetY()) {
+            if (vertex1.GetX() < path.GetVertex(B1Vertex.ES1.ordinal()).GetX()&&vertex2.GetX() > path.GetVertex(B1Vertex.ES1.ordinal()).GetX()) {
                 return true;
             }
         }
-        if(vertex1.GetY()<=path.GetVertex(B1Vertex.ES2.ordinal()).GetY()&&vertex2.GetY()<=path.GetVertex(B1Vertex.ES2.ordinal()).GetY()) {
-            if (vertex1.GetX() <= path.GetVertex(B1Vertex.ES2.ordinal()).GetX()&&vertex2.GetX() > path.GetVertex(B1Vertex.ES2.ordinal()).GetX()) {
+        if(vertex1.GetY()<path.GetVertex(B1Vertex.ES2.ordinal()).GetY()&&vertex2.GetY()<path.GetVertex(B1Vertex.ES2.ordinal()).GetY()) {
+            if (vertex1.GetX() < path.GetVertex(B1Vertex.ES2.ordinal()).GetX()&&vertex2.GetX() > path.GetVertex(B1Vertex.ES2.ordinal()).GetX()) {
                 return true;
             }
         }
-        if(vertex1.GetY()>=path.GetVertex(B1Vertex.ES3.ordinal()).GetY()&&vertex2.GetY()>=path.GetVertex(B1Vertex.ES3.ordinal()).GetY()) {
-            if (vertex1.GetX() <= path.GetVertex(B1Vertex.ES3.ordinal()).GetX()&&vertex2.GetX() > path.GetVertex(B1Vertex.ES3.ordinal()).GetX()) {
+        if(vertex1.GetY()>path.GetVertex(B1Vertex.ES3.ordinal()).GetY()&&vertex2.GetY()>path.GetVertex(B1Vertex.ES3.ordinal()).GetY()) {
+            if (vertex1.GetX() < path.GetVertex(B1Vertex.ES3.ordinal()).GetX()&&vertex2.GetX() > path.GetVertex(B1Vertex.ES3.ordinal()).GetX()) {
                 return true;
             }
         }
-        if(vertex1.GetY()>=path.GetVertex(B1Vertex.ES4.ordinal()).GetY()&&vertex2.GetY()>=path.GetVertex(B1Vertex.ES4.ordinal()).GetY()) {
-            if (vertex1.GetX() <= path.GetVertex(B1Vertex.ES4.ordinal()).GetX()&&vertex2.GetX() > path.GetVertex(B1Vertex.ES4.ordinal()).GetX()) {
+        if(vertex1.GetY()>path.GetVertex(B1Vertex.ES4.ordinal()).GetY()&&vertex2.GetY()>path.GetVertex(B1Vertex.ES4.ordinal()).GetY()) {
+            if (vertex1.GetX() < path.GetVertex(B1Vertex.ES4.ordinal()).GetX()&&vertex2.GetX() > path.GetVertex(B1Vertex.ES4.ordinal()).GetX()) {
                 return true;
             }
         }
@@ -75,36 +75,36 @@ public class Cross {
             vertex1 = vertex2;
             vertex2 = tmp;
         }
-        if(vertex1.GetY()<=0.85&&vertex1.GetY()>=0.72&&vertex2.GetY()<=0.85&&vertex2.GetY()>=0.72){
-            if(vertex1.GetX()<=0.2&&vertex2.GetX()>=0.2){//s25
+        if(vertex1.GetY()<0.85&&vertex1.GetY()>0.72&&vertex2.GetY()<0.85&&vertex2.GetY()>0.72){
+            if(vertex1.GetX()<0.2&&vertex2.GetX()>0.2){//s25
                 return true;
             }
-            if(vertex1.GetX()<=0.49&&vertex2.GetX()>=0.49){//s31
+            if(vertex1.GetX()<0.49&&vertex2.GetX()>0.49){//s31
                 return true;
             }
         }
 
-        if(vertex1.GetY()>=0.92&&vertex2.GetY()>=0.92){
-            if(vertex1.GetX()<=0.13&&vertex2.GetX()>=0.13)
+        if(vertex1.GetY()>0.92&&vertex2.GetY()>0.92){
+            if(vertex1.GetX()<0.13&&vertex2.GetX()>0.13)
                 return true;
         }
-        if(vertex1.GetY()<=0.68&&vertex1.GetY()>0.62&&vertex2.GetY()<=0.68&&vertex2.GetY()>0.62){//es5
-            if(vertex1.GetX()<=0.32&&vertex2.GetX()>=0.32)
+        if(vertex1.GetY()<0.68&&vertex1.GetY()>0.62&&vertex2.GetY()<0.68&&vertex2.GetY()>0.62){//es5
+            if(vertex1.GetX()<0.32&&vertex2.GetX()>0.32)
                 return true;
         }
-        if(vertex1.GetY()<=0.56&&vertex1.GetY()>=0.44&&vertex2.GetY()<=0.56&&vertex2.GetY()>=0.44){//b1b2
-            if(vertex1.GetX()<=0.2&&vertex2.GetX()>=0.2)
+        if(vertex1.GetY()<0.56&&vertex1.GetY()>0.44&&vertex2.GetY()<0.56&&vertex2.GetY()>0.44){//b1b2
+            if(vertex1.GetX()<0.2&&vertex2.GetX()>0.2)
                 return true;
-            if(vertex1.GetX()<=0.33&&vertex2.GetX()>=0.33)
+            if(vertex1.GetX()<0.33&&vertex2.GetX()>0.33)
                 return true;
         }
-        if(vertex1.GetY()<=0.62&&vertex1.GetY()>=0.5&&vertex2.GetY()<=0.62&&vertex2.GetY()>=0.5) {
-            if (vertex1.GetX() <= 0.45 && vertex2.GetX() >= 0.45) {
+        if(vertex1.GetY()<0.62&&vertex1.GetY()>0.5&&vertex2.GetY()<0.62&&vertex2.GetY()>0.5) {
+            if (vertex1.GetX() < 0.45 && vertex2.GetX() > 0.45) {
                 return true;
             }
         }
-        if(vertex1.GetY()<=0.38&&vertex1.GetY()>=0.27&&vertex2.GetY()<=0.38&&vertex2.GetY()>=0.27) {
-            if(vertex1.GetX()<=0.14&&vertex2.GetX()>=0.14){
+        if(vertex1.GetY()<0.38&&vertex1.GetY()>0.27&&vertex2.GetY()<0.38&&vertex2.GetY()>0.27) {
+            if(vertex1.GetX()<0.14&&vertex2.GetX()>0.14){
                 return true;
             }
         }
@@ -113,29 +113,29 @@ public class Cross {
             vertex1 = vertex2;
             vertex2 = tmp;
         }
-        if(vertex1.GetX()>=0.16&&vertex1.GetX()<=0.24&&vertex2.GetX()>=0.16&&vertex2.GetX()<=0.24)
-            if(vertex1.GetY()<=0.78&&vertex2.GetY()>=0.78)
+        if(vertex1.GetX()>0.16&&vertex1.GetX()<0.24&&vertex2.GetX()>0.16&&vertex2.GetX()<0.24)
+            if(vertex1.GetY()<0.78&&vertex2.GetY()>0.78)
                 return true;
-        if(vertex1.GetX()>=0.46&&vertex1.GetX()<=0.5&&vertex2.GetX()>=0.46&&vertex2.GetX()<=0.5)
-            if(vertex1.GetY()<=0.46&&vertex2.GetY()>=0.46)
+        if(vertex1.GetX()>0.46&&vertex1.GetX()<0.5&&vertex2.GetX()>0.46&&vertex2.GetX()<0.5)
+            if(vertex1.GetY()<0.46&&vertex2.GetY()>0.46)
                 return true;
-        if(vertex1.GetX()>=0.3&&vertex1.GetX()<=0.34&&vertex2.GetX()>=0.3&&vertex2.GetX()<=0.34)
-            if(vertex1.GetY()<=0.65&&vertex2.GetY()>=0.65)
+        if(vertex1.GetX()>0.3&&vertex1.GetX()<0.34&&vertex2.GetX()>0.3&&vertex2.GetX()<0.34)
+            if(vertex1.GetY()<0.65&&vertex2.GetY()>0.65)
                 return true;
-        if(vertex1.GetX()>=0.2&&vertex1.GetX()<=0.22&&vertex2.GetX()>=0.2&&vertex2.GetX()<=0.22)
-            if(vertex1.GetY()<=0.5&&vertex2.GetY()>=0.5)
+        if(vertex1.GetX()>0.2&&vertex1.GetX()<0.22&&vertex2.GetX()>0.2&&vertex2.GetX()<0.22)
+            if(vertex1.GetY()<0.5&&vertex2.GetY()>0.5)
                 return true;
-        if(vertex1.GetX()>=0.32&&vertex1.GetX()<=0.34&&vertex2.GetX()>=0.32&&vertex2.GetX()<=0.34)
-            if(vertex1.GetY()<=0.5&&vertex2.GetY()>=0.5)
+        if(vertex1.GetX()>0.32&&vertex1.GetX()<0.34&&vertex2.GetX()>0.32&&vertex2.GetX()<0.34)
+            if(vertex1.GetY()<0.5&&vertex2.GetY()>0.5)
                 return true;
-        if(vertex1.GetX()>=0.12&&vertex1.GetX()<=0.16&&vertex2.GetX()>=0.12&&vertex2.GetX()<=0.16)
-            if(vertex1.GetY()<=0.38&&vertex2.GetY()>=0.38)
+        if(vertex1.GetX()>0.12&&vertex1.GetX()<0.16&&vertex2.GetX()>0.12&&vertex2.GetX()<0.16)
+            if(vertex1.GetY()<0.38&&vertex2.GetY()>0.38)
                 return true;
-        if(vertex1.GetX()>=0.16&&vertex1.GetX()<=0.2&&vertex2.GetX()>=0.16&&vertex2.GetX()<=0.2)
-            if(vertex1.GetY()<=0.37&&vertex2.GetY()>=0.37)
+        if(vertex1.GetX()>0.16&&vertex1.GetX()<0.2&&vertex2.GetX()>0.16&&vertex2.GetX()<0.2)
+            if(vertex1.GetY()<0.37&&vertex2.GetY()>0.37)
                 return true;
-        if(vertex1.GetX()>=0.44&&vertex1.GetX()<=0.46&&vertex2.GetX()>=0.44&&vertex2.GetX()<=0.46)
-            if(vertex1.GetY()<=0.56&&vertex2.GetY()>=0.56)
+        if(vertex1.GetX()>0.44&&vertex1.GetX()<0.46&&vertex2.GetX()>0.44&&vertex2.GetX()<0.46)
+            if(vertex1.GetY()<0.56&&vertex2.GetY()>0.56)
                 return true;
         return false;
     }
@@ -145,36 +145,36 @@ public class Cross {
             vertex1 = vertex2;
             vertex2 = tmp;
         }
-        if(vertex1.GetY()<=0.85&&vertex1.GetY()>=0.72&&vertex2.GetY()<=0.85&&vertex2.GetY()>=0.72){
-            if(vertex1.GetX()<=0.8&&vertex2.GetX()>=0.8){//s40
+        if(vertex1.GetY()<0.85&&vertex1.GetY()>0.72&&vertex2.GetY()<0.85&&vertex2.GetY()>0.72){
+            if(vertex1.GetX()<0.8&&vertex2.GetX()>0.8){//s40
                 return true;
             }
-            if(vertex1.GetX()<=0.51&&vertex2.GetX()>=0.51){//s31
+            if(vertex1.GetX()<0.51&&vertex2.GetX()>0.51){//s31
                 return true;
             }
         }
 
-        if(vertex1.GetY()>=0.92&&vertex2.GetY()>=0.92){//el8
-            if(vertex1.GetX()<=0.87&&vertex2.GetX()>=0.87)
+        if(vertex1.GetY()>0.92&&vertex2.GetY()>0.92){//el8
+            if(vertex1.GetX()<0.87&&vertex2.GetX()>0.87)
                 return true;
         }
-        if(vertex1.GetY()<=0.68&&vertex1.GetY()>0.62&&vertex2.GetY()<=0.68&&vertex2.GetY()>0.62){//es5
-            if(vertex1.GetX()<=0.68&&vertex2.GetX()>=0.68)
+        if(vertex1.GetY()<0.68&&vertex1.GetY()>0.62&&vertex2.GetY()<0.68&&vertex2.GetY()>0.62){//es5
+            if(vertex1.GetX()<0.68&&vertex2.GetX()>0.68)
                 return true;
         }
-        if(vertex1.GetY()<=0.56&&vertex1.GetY()>=0.44&&vertex2.GetY()<=0.56&&vertex2.GetY()>=0.44){//b1b2
-            if(vertex1.GetX()<=0.8&&vertex2.GetX()>=0.8)
+        if(vertex1.GetY()<0.56&&vertex1.GetY()>0.44&&vertex2.GetY()<0.56&&vertex2.GetY()>0.44){//b1b2
+            if(vertex1.GetX()<0.8&&vertex2.GetX()>0.8)
                 return true;
-            if(vertex1.GetX()<=0.67&&vertex2.GetX()>=0.67)
+            if(vertex1.GetX()<0.67&&vertex2.GetX()>0.67)
                 return true;
         }
-        if(vertex1.GetY()<=0.62&&vertex1.GetY()>=0.5&&vertex2.GetY()<=0.62&&vertex2.GetY()>=0.5) {
-            if (vertex1.GetX() <= 0.55 && vertex2.GetX() >= 0.55) {
+        if(vertex1.GetY()<0.62&&vertex1.GetY()>0.5&&vertex2.GetY()<0.62&&vertex2.GetY()>0.5) {
+            if (vertex1.GetX() < 0.55 && vertex2.GetX() > 0.55) {
                 return true;
             }
         }
-        if(vertex1.GetY()<=0.38&&vertex1.GetY()>=0.27&&vertex2.GetY()<=0.38&&vertex2.GetY()>=0.27) {
-            if(vertex1.GetX()<=0.86&&vertex2.GetX()>=0.86){
+        if(vertex1.GetY()<0.38&&vertex1.GetY()>0.27&&vertex2.GetY()<0.38&&vertex2.GetY()>0.27) {
+            if(vertex1.GetX()<0.86&&vertex2.GetX()>0.86){
                 return true;
             }
         }
@@ -183,29 +183,29 @@ public class Cross {
             vertex1 = vertex2;
             vertex2 = tmp;
         }
-        if(vertex1.GetX()>=0.76&&vertex1.GetX()<=0.84&&vertex2.GetX()>=0.76&&vertex2.GetX()<=0.84)//s37s40
-            if(vertex1.GetY()<=0.78&&vertex2.GetY()>=0.78)
+        if(vertex1.GetX()>0.76&&vertex1.GetX()<0.84&&vertex2.GetX()>0.76&&vertex2.GetX()<0.84)//s37s40
+            if(vertex1.GetY()<0.78&&vertex2.GetY()>0.78)
                 return true;
-        if(vertex1.GetX()>=0.5&&vertex1.GetX()<=0.54&&vertex2.GetX()>=0.5&&vertex2.GetX()<=0.54)
-            if(vertex1.GetY()<=0.46&&vertex2.GetY()>=0.46)
+        if(vertex1.GetX()>0.5&&vertex1.GetX()<0.54&&vertex2.GetX()>0.5&&vertex2.GetX()<0.54)
+            if(vertex1.GetY()<0.46&&vertex2.GetY()>0.46)
                 return true;
-        if(vertex1.GetX()>=0.66&&vertex1.GetX()<=0.7&&vertex2.GetX()>=0.66&&vertex2.GetX()<=0.7)
-            if(vertex1.GetY()<=0.65&&vertex2.GetY()>=0.65)
+        if(vertex1.GetX()>0.66&&vertex1.GetX()<0.7&&vertex2.GetX()>0.66&&vertex2.GetX()<0.7)
+            if(vertex1.GetY()<0.65&&vertex2.GetY()>0.65)
                 return true;
-        if(vertex1.GetX()>=0.78&&vertex1.GetX()<=0.8&&vertex2.GetX()>=0.78&&vertex2.GetX()<=0.8)
-            if(vertex1.GetY()<=0.5&&vertex2.GetY()>=0.5)
+        if(vertex1.GetX()>0.78&&vertex1.GetX()<0.8&&vertex2.GetX()>0.78&&vertex2.GetX()<0.8)
+            if(vertex1.GetY()<0.5&&vertex2.GetY()>0.5)
                 return true;
-        if(vertex1.GetX()>=0.66&&vertex1.GetX()<=0.68&&vertex2.GetX()>=0.66&&vertex2.GetX()<=0.68)
-            if(vertex1.GetY()<=0.5&&vertex2.GetY()>=0.5)
+        if(vertex1.GetX()>0.66&&vertex1.GetX()<0.68&&vertex2.GetX()>0.66&&vertex2.GetX()<0.68)
+            if(vertex1.GetY()<0.5&&vertex2.GetY()>0.5)
                 return true;
-        if(vertex1.GetX()>=0.84&&vertex1.GetX()<=0.88&&vertex2.GetX()>=0.84&&vertex2.GetX()<=0.88)
-            if(vertex1.GetY()<=0.38&&vertex2.GetY()>=0.38)
+        if(vertex1.GetX()>0.84&&vertex1.GetX()<0.88&&vertex2.GetX()>0.84&&vertex2.GetX()<0.88)
+            if(vertex1.GetY()<0.38&&vertex2.GetY()>0.38)
                 return true;
-        if(vertex1.GetX()>=0.8&&vertex1.GetX()<=0.84&&vertex2.GetX()>=0.8&&vertex2.GetX()<=0.84)
-            if(vertex1.GetY()<=0.37&&vertex2.GetY()>=0.37)
+        if(vertex1.GetX()>0.8&&vertex1.GetX()<0.84&&vertex2.GetX()>0.8&&vertex2.GetX()<0.84)
+            if(vertex1.GetY()<0.37&&vertex2.GetY()>0.37)
                 return true;
-        if(vertex1.GetX()>=0.54&&vertex1.GetX()<=0.56&&vertex2.GetX()>=0.54&&vertex2.GetX()<=0.56)
-            if(vertex1.GetY()<=0.56&&vertex2.GetY()>=0.56)
+        if(vertex1.GetX()>0.54&&vertex1.GetX()<0.56&&vertex2.GetX()>0.54&&vertex2.GetX()<0.56)
+            if(vertex1.GetY()<0.56&&vertex2.GetY()>0.56)
                 return true;
         return false;
     }
@@ -215,29 +215,29 @@ public class Cross {
             vertex1 = vertex2;
             vertex2 = tmp;
         }
-        if(vertex1.GetY()<=0.08&&vertex2.GetY()<=0.08) {
-            if (vertex1.GetX() <= 0.12 && vertex2.GetX() >= 0.12)
+        if(vertex1.GetY()<0.08&&vertex2.GetY()<0.08) {
+            if (vertex1.GetX() < 0.12 && vertex2.GetX() > 0.12)
                 return true;
-            if(vertex1.GetX()<=0.88&&vertex2.GetX()>=0.88){
+            if(vertex1.GetX()<0.88&&vertex2.GetX()>0.88){
                 return true;
             }
         }
-        if(vertex1.GetY()<=0.06&&vertex2.GetY()<=0.06) {
-            if (vertex1.GetX() <= 0.38 && vertex2.GetX() >= 0.38)
+        if(vertex1.GetY()<0.06&&vertex2.GetY()<0.06) {
+            if (vertex1.GetX() < 0.38 && vertex2.GetX() > 0.38)
                 return true;
-            if (vertex1.GetX() <= 0.62 && vertex2.GetX() >= 0.62)
-                return true;
-        }
-        if(vertex1.GetY()<=0.24&&vertex2.GetY()<=0.24&&vertex1.GetY()>=0.18&&vertex2.GetY()>=0.18) {
-            if (vertex1.GetX() <= 0.38 && vertex2.GetX() >= 0.38)
-                return true;
-            if (vertex1.GetX() <= 0.62 && vertex2.GetX() >= 0.62)
+            if (vertex1.GetX() < 0.62 && vertex2.GetX() > 0.62)
                 return true;
         }
-        if(vertex1.GetY()<=0.32&&vertex2.GetY()<=0.38&&vertex1.GetY()>=0.32&&vertex2.GetY()>=0.38) {
-            if (vertex1.GetX() <= 0.32 && vertex2.GetX() >= 0.32)
+        if(vertex1.GetY()<0.24&&vertex2.GetY()<0.24&&vertex1.GetY()>0.18&&vertex2.GetY()>0.18) {
+            if (vertex1.GetX() < 0.38 && vertex2.GetX() > 0.38)
                 return true;
-            if (vertex1.GetX() <= 0.68 && vertex2.GetX() >= 0.68)
+            if (vertex1.GetX() < 0.62 && vertex2.GetX() > 0.62)
+                return true;
+        }
+        if(vertex1.GetY()<0.32&&vertex2.GetY()<0.38&&vertex1.GetY()>0.32&&vertex2.GetY()>0.38) {
+            if (vertex1.GetX() < 0.32 && vertex2.GetX() > 0.32)
+                return true;
+            if (vertex1.GetX() < 0.68 && vertex2.GetX() > 0.68)
                 return true;
         }
         if(vertex1.GetY()>vertex2.GetY()){
@@ -245,28 +245,28 @@ public class Cross {
             vertex1 = vertex2;
             vertex2 = tmp;
         }
-        if(vertex1.GetX()>=0.34&&vertex1.GetX()<=0.42&&vertex2.GetX()>=0.34&&vertex2.GetX()<=0.42){
-            if(vertex1.GetY()<=0.21&&vertex2.GetY()>=0.21){
+        if(vertex1.GetX()>0.34&&vertex1.GetX()<0.42&&vertex2.GetX()>0.34&&vertex2.GetX()<0.42){
+            if(vertex1.GetY()<0.21&&vertex2.GetY()>0.21){
                 return true;
             }
         }
-        if(vertex1.GetX()>=0.58&&vertex1.GetX()<=0.66&&vertex2.GetX()>=0.58&&vertex2.GetX()<=0.66){
-            if(vertex1.GetY()<=0.21&&vertex2.GetY()>=0.21){
+        if(vertex1.GetX()>0.58&&vertex1.GetX()<0.66&&vertex2.GetX()>0.58&&vertex2.GetX()<0.66){
+            if(vertex1.GetY()<0.21&&vertex2.GetY()>0.21){
                 return true;
             }
         }
-        if(vertex1.GetX()>=0.2&&vertex1.GetX()<=0.24&&vertex2.GetX()>=0.2&&vertex2.GetX()<=0.24){
-            if(vertex1.GetY()<=0.21&&vertex2.GetY()>=0.21){
+        if(vertex1.GetX()>0.2&&vertex1.GetX()<0.24&&vertex2.GetX()>0.2&&vertex2.GetX()<0.24){
+            if(vertex1.GetY()<0.21&&vertex2.GetY()>0.21){
                 return true;
             }
         }
-        if(vertex1.GetX()>=0.76&&vertex1.GetX()<=0.8&&vertex2.GetX()>=0.76&&vertex2.GetX()<=0.8){
-            if(vertex1.GetY()<=0.21&&vertex2.GetY()>=0.21){
+        if(vertex1.GetX()>0.76&&vertex1.GetX()<0.8&&vertex2.GetX()>0.76&&vertex2.GetX()<0.8){
+            if(vertex1.GetY()<0.21&&vertex2.GetY()>0.21){
                 return true;
             }
         }
-        if(vertex1.GetX()>=0.42&&vertex1.GetX()<=0.58&&vertex2.GetX()>=0.42&&vertex2.GetX()<=0.58){
-            if(vertex1.GetY()<=0.34&&vertex2.GetY()>=0.34){
+        if(vertex1.GetX()>0.42&&vertex1.GetX()<0.58&&vertex2.GetX()>0.42&&vertex2.GetX()<0.58){
+            if(vertex1.GetY()<0.34&&vertex2.GetY()>0.34){
                 return true;
             }
         }
@@ -279,37 +279,37 @@ public class Cross {
             vertex2 = tmp;
         }
 
-        if(vertex1.GetY()<=0.8){
-            if(vertex1.GetX()<=0.2&&vertex2.GetX()>=0.2)
+        if(vertex1.GetY()<0.8){
+            if(vertex1.GetX()<0.2&&vertex2.GetX()>0.2)
                 return true;
         }
 
-        if(vertex2.GetY()<=0.8){
-            if(vertex1.GetX()<=0.8&&vertex2.GetX()>=0.8)
+        if(vertex2.GetY()<0.8){
+            if(vertex1.GetX()<0.8&&vertex2.GetX()>0.8)
                 return true;
         }
         
-        if(vertex1.GetY()>=0.92&&vertex2.GetY()>=0.92){
-            if(vertex1.GetX()<=0.12&&vertex2.GetX()>=0.12){
+        if(vertex1.GetY()>0.92&&vertex2.GetY()>0.92){
+            if(vertex1.GetX()<0.12&&vertex2.GetX()>0.12){
                 return true;
             }
 
-            if(vertex1.GetX()<=0.88&&vertex2.GetX()>=0.88){
+            if(vertex1.GetX()<0.88&&vertex2.GetX()>0.88){
                 return true;
             }
         }
 
-        if(vertex1.GetY()<=0.84&&vertex1.GetY()>=0.8&&vertex2.GetY()<=0.84&&vertex2.GetY()>=0.8)
+        if(vertex1.GetY()<0.84&&vertex1.GetY()>0.8&&vertex2.GetY()<0.84&&vertex2.GetY()>0.8)
         {
-            if(vertex1.GetX()<= 0.22&&vertex2.GetX()>=0.22)
+            if(vertex1.GetX()< 0.22&&vertex2.GetX()>0.22)
                 return true;
-            if(vertex1.GetX()<=0.78&&vertex2.GetX() >=0.78)
+            if(vertex1.GetX()<0.78&&vertex2.GetX() >0.78)
                 return true;
         }
-        if(vertex1.GetY()<=0.38&&vertex1.GetY()>=0.26&&vertex2.GetY()<=0.38&&vertex2.GetY()>=0.26){
-            if(vertex1.GetX()<=0.15&&vertex2.GetX()>=0.15)
+        if(vertex1.GetY()<0.38&&vertex1.GetY()>0.26&&vertex2.GetY()<0.38&&vertex2.GetY()>0.26){
+            if(vertex1.GetX()<0.15&&vertex2.GetX()>0.15)
                 return true;
-            if(vertex1.GetX()<=0.85&&vertex2.GetX()>=0.85)
+            if(vertex1.GetX()<0.85&&vertex2.GetX()>0.85)
                 return true;
         }
 
@@ -321,23 +321,23 @@ public class Cross {
         }
 
 
-        if(vertex1.GetX()>=0.16&&vertex1.GetX()<=0.2&&vertex2.GetX()>=0.16&&vertex2.GetX()<=0.2){
-            if(vertex1.GetY()<= 0.78&& vertex2.GetY()>=0.78) {
+        if(vertex1.GetX()>0.16&&vertex1.GetX()<0.2&&vertex2.GetX()>0.16&&vertex2.GetX()<0.2){
+            if(vertex1.GetY()< 0.78&& vertex2.GetY()>0.78) {
                 return true;
             }
         }
-        if(vertex1.GetX()>=0.8&&vertex1.GetX()<=0.84&&vertex2.GetX()>=0.8&&vertex2.GetX()<=0.84){
-            if(vertex1.GetY()<= 0.78&& vertex2.GetY()>=0.78) {
+        if(vertex1.GetX()>0.8&&vertex1.GetX()<0.84&&vertex2.GetX()>0.8&&vertex2.GetX()<0.84){
+            if(vertex1.GetY()< 0.78&& vertex2.GetY()>0.78) {
                 return true;
             }
         }
-        if(vertex1.GetX()>=0.12&&vertex1.GetX()<=0.2&&vertex2.GetX()>=0.12&&vertex2.GetX()<=0.2){
-            if(vertex1.GetY()<= 0.36&& vertex2.GetY()>=0.36) {
+        if(vertex1.GetX()>0.12&&vertex1.GetX()<0.2&&vertex2.GetX()>0.12&&vertex2.GetX()<0.2){
+            if(vertex1.GetY()< 0.36&& vertex2.GetY()>0.36) {
                 return true;
             }
         }
-        if(vertex1.GetX()>=0.8&&vertex1.GetX()<=0.88&&vertex2.GetX()>=0.8&&vertex2.GetX()<=0.88){
-            if(vertex1.GetY()<= 0.36&& vertex2.GetY()>=0.36) {
+        if(vertex1.GetX()>0.8&&vertex1.GetX()<0.88&&vertex2.GetX()>0.8&&vertex2.GetX()<0.88){
+            if(vertex1.GetY()< 0.36&& vertex2.GetY()>0.36) {
                 return true;
             }
         }
@@ -349,20 +349,20 @@ public class Cross {
             vertex1 = vertex2;
             vertex2 = tmp;
         }
-        if(vertex1.GetY()<=0.68&&vertex1.GetY()>0.62&&vertex2.GetY()<=0.68&&vertex2.GetY()>0.62){//es5
-            if(vertex1.GetX()<=0.32&&vertex2.GetX()>=0.32)
+        if(vertex1.GetY()<0.68&&vertex1.GetY()>0.62&&vertex2.GetY()<0.68&&vertex2.GetY()>0.62){//es5
+            if(vertex1.GetX()<0.32&&vertex2.GetX()>0.32)
                 return true;
-            if(vertex1.GetX()<=0.68&&vertex2.GetX()>=0.68)
+            if(vertex1.GetX()<0.68&&vertex2.GetX() >0.68)
                 return true;
         }
-        if(vertex1.GetY()<=0.56&&vertex1.GetY()>0.44&&vertex2.GetY()<=0.56&&vertex2.GetY()>0.44){
-            if(vertex1.GetX()<=0.33&&vertex2.GetX()>=0.33)
+        if(vertex1.GetY()<0.56&&vertex1.GetY()>0.44&&vertex2.GetY()<0.56&&vertex2.GetY()>0.44){
+            if(vertex1.GetX()<0.33&&vertex2.GetX() >0.33)
                 return true;
-            if(vertex1.GetX()<=0.44&&vertex2.GetX()>=0.44)
+            if(vertex1.GetX()<0.44&&vertex2.GetX() >0.44)
                 return true;
-            if(vertex1.GetX()<=0.56&&vertex2.GetX()>=0.56)
+            if(vertex1.GetX()<0.56&&vertex2.GetX() >0.56)
                 return true;
-            if(vertex1.GetX()<=0.67&&vertex2.GetX()>=0.67)
+            if(vertex1.GetX()<0.67&&vertex2.GetX() >0.67)
                 return true;
         }
 
@@ -371,20 +371,20 @@ public class Cross {
             vertex1 = vertex2;
             vertex2 = tmp;
         }
-        if(vertex1.GetX()>=0.3&&vertex1.GetX()<=0.34&&vertex2.GetX()>=0.3&&vertex2.GetX()<=0.34)
-            if(vertex1.GetY()<=0.65&&vertex2.GetY()>=0.65)
+        if(vertex1.GetX() >0.3&&vertex1.GetX()<0.34&&vertex2.GetX() >0.3&&vertex2.GetX()<0.34)
+            if(vertex1.GetY()<0.65&&vertex2.GetY() >0.65)
                 return true;
-        if(vertex1.GetX()>=0.66&&vertex1.GetX()<=0.7&&vertex2.GetX()>=0.66&&vertex2.GetX()<=0.7)
-            if(vertex1.GetY()<=0.65&&vertex2.GetY()>=0.65)
+        if(vertex1.GetX() >0.66&&vertex1.GetX()<0.7&&vertex2.GetX() >0.66&&vertex2.GetX()<0.7)
+            if(vertex1.GetY()<0.65&&vertex2.GetY() >0.65)
                 return true;
-        if(vertex1.GetY()<=0.5&&vertex2.GetY()>=0.5){
-            if(vertex1.GetX()>=0.32&&vertex1.GetX()<=0.34&&vertex2.GetX()>=0.32&&vertex2.GetX()<=0.34)
+        if(vertex1.GetY()<0.5&&vertex2.GetY() >0.5){
+            if(vertex1.GetX() >0.32&&vertex1.GetX()<0.34&&vertex2.GetX() >0.32&&vertex2.GetX()<0.34)
                 return true;
-            if(vertex1.GetX()>=0.42&&vertex1.GetX()<=0.46&&vertex2.GetX()>=0.42&&vertex2.GetX()<=0.46)
+            if(vertex1.GetX() >0.42&&vertex1.GetX()<0.46&&vertex2.GetX() >0.42&&vertex2.GetX()<0.46)
                 return true;
-            if(vertex1.GetX()>=0.54&&vertex1.GetX()<=0.58&&vertex2.GetX()>=0.54&&vertex2.GetX()<=0.58)
+            if(vertex1.GetX() >0.54&&vertex1.GetX()<0.58&&vertex2.GetX() >0.54&&vertex2.GetX()<0.58)
                 return true;
-            if(vertex1.GetX()>=0.66&&vertex1.GetX()<=0.68&&vertex2.GetX()>=0.66&&vertex2.GetX()<=0.68)
+            if(vertex1.GetX() >0.66&&vertex1.GetX()<0.68&&vertex2.GetX() >0.66&&vertex2.GetX()<0.68)
                 return true;
 
         }
@@ -397,29 +397,29 @@ public class Cross {
             vertex1 = vertex2;
             vertex2 = tmp;
         }
-        if(vertex1.GetY()<=0.08&&vertex2.GetY()<=0.08) {
-            if (vertex1.GetX() <= 0.12 && vertex2.GetX() >= 0.12)
+        if(vertex1.GetY()<0.08&&vertex2.GetY()<0.08) {
+            if (vertex1.GetX() < 0.12 && vertex2.GetX()  > 0.12)
                 return true;
-            if(vertex1.GetX()<=0.88&&vertex2.GetX()>=0.88){
+            if(vertex1.GetX()<0.88&&vertex2.GetX() >0.88){
                 return true;
             }
         }
-        if(vertex1.GetY()<=0.06&&vertex2.GetY()<=0.06) {
-            if (vertex1.GetX() <= 0.38 && vertex2.GetX() >= 0.38)
+        if(vertex1.GetY()<0.06&&vertex2.GetY()<0.06) {
+            if (vertex1.GetX() < 0.38 && vertex2.GetX()  > 0.38)
                 return true;
-            if (vertex1.GetX() <= 0.62 && vertex2.GetX() >= 0.62)
-                return true;
-        }
-        if(vertex1.GetY()<=0.24&&vertex2.GetY()<=0.24&&vertex1.GetY()>=0.18&&vertex2.GetY()>=0.18) {
-            if (vertex1.GetX() <= 0.38 && vertex2.GetX() >= 0.38)
-                return true;
-            if (vertex1.GetX() <= 0.62 && vertex2.GetX() >= 0.62)
+            if (vertex1.GetX() < 0.62 && vertex2.GetX()  > 0.62)
                 return true;
         }
-        if(vertex1.GetY()<=0.32&&vertex2.GetY()<=0.38&&vertex1.GetY()>=0.32&&vertex2.GetY()>=0.38) {
-            if (vertex1.GetX() <= 0.32 && vertex2.GetX() >= 0.32)
+        if(vertex1.GetY()<0.24&&vertex2.GetY()<0.24&&vertex1.GetY() >0.18&&vertex2.GetY() >0.18) {
+            if (vertex1.GetX() < 0.38 && vertex2.GetX()  > 0.38)
                 return true;
-            if (vertex1.GetX() <= 0.68 && vertex2.GetX() >= 0.68)
+            if (vertex1.GetX() < 0.62 && vertex2.GetX()  > 0.62)
+                return true;
+        }
+        if(vertex1.GetY()<0.32&&vertex2.GetY()<0.38&&vertex1.GetY() >0.32&&vertex2.GetY() >0.38) {
+            if (vertex1.GetX() < 0.32 && vertex2.GetX()  > 0.32)
+                return true;
+            if (vertex1.GetX() < 0.68 && vertex2.GetX()  > 0.68)
                 return true;
         }
         if(vertex1.GetY()>vertex2.GetY()){
@@ -427,23 +427,23 @@ public class Cross {
             vertex1 = vertex2;
             vertex2 = tmp;
         }
-        if(vertex1.GetX()>=0.34&&vertex1.GetX()<=0.42&&vertex2.GetX()>=0.34&&vertex2.GetX()<=0.42){
-            if(vertex1.GetY()<=0.21&&vertex2.GetY()>=0.21){
+        if(vertex1.GetX() >0.34&&vertex1.GetX()<0.42&&vertex2.GetX() >0.34&&vertex2.GetX()<0.42){
+            if(vertex1.GetY()<0.21&&vertex2.GetY() >0.21){
                 return true;
             }
         }
-        if(vertex1.GetX()>=0.58&&vertex1.GetX()<=0.66&&vertex2.GetX()>=0.58&&vertex2.GetX()<=0.66){
-            if(vertex1.GetY()<=0.21&&vertex2.GetY()>=0.21){
+        if(vertex1.GetX() >0.58&&vertex1.GetX()<0.66&&vertex2.GetX() >0.58&&vertex2.GetX()<0.66){
+            if(vertex1.GetY()<0.21&&vertex2.GetY() >0.21){
                 return true;
             }
         }
-        if(vertex1.GetX()>=0.2&&vertex1.GetX()<=0.24&&vertex2.GetX()>=0.2&&vertex2.GetX()<=0.24){
-            if(vertex1.GetY()<=0.21&&vertex2.GetY()>=0.21){
+        if(vertex1.GetX() >0.2&&vertex1.GetX()<0.24&&vertex2.GetX() >0.2&&vertex2.GetX()<0.24){
+            if(vertex1.GetY()<0.21&&vertex2.GetY() >0.21){
                 return true;
             }
         }
-        if(vertex1.GetX()>=0.76&&vertex1.GetX()<=0.8&&vertex2.GetX()>=0.76&&vertex2.GetX()<=0.8){
-            if(vertex1.GetY()<=0.21&&vertex2.GetY()>=0.21){
+        if(vertex1.GetX() >0.76&&vertex1.GetX()<0.8&&vertex2.GetX() >0.76&&vertex2.GetX()<0.8){
+            if(vertex1.GetY()<0.21&&vertex2.GetY() >0.21){
                 return true;
             }
         }
