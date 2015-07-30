@@ -89,7 +89,7 @@ public class Floor_2 {
                     min_BtoM=temp2.get(i);
                 }
             }
-
+             //commit by mo
             String path_BtoM_1, path_BtoM_2;
             //底子图部分路线规划
             Floor  sub_top=new F2SubBottomFloor(2);
