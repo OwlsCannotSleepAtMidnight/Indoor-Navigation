@@ -279,6 +279,16 @@ public class Cross {
             vertex2 = tmp;
         }
 
+        if(vertex1.GetY()<=0.8){
+            if(vertex1.GetX()<=0.2&&vertex2.GetX()>=0.2)
+                return true;
+        }
+
+        if(vertex2.GetY()<=0.8){
+            if(vertex1.GetX()<=0.8&&vertex2.GetX()>=0.8)
+                return true;
+        }
+        
         if(vertex1.GetY()>=0.92&&vertex2.GetY()>=0.92){
             if(vertex1.GetX()<=0.12&&vertex2.GetX()>=0.12){
                 return true;
