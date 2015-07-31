@@ -12,28 +12,25 @@ public class Division {
     public static SubNumber GetSubGraphNum(Vertex v){
         if(v.GetZ()== 0)//µØÏÂÒ»²ã`
             return SubNumber.B1Sub;
-        if(v.GetY()>0.38){
+        if(v.GetY()>0.3806){
             if(IsInF1(v)){
-                if(v.GetX()<0.5) {
+                if(v.GetX()<0.4992) {
                     return SubNumber.F1SubLeft;
                 }
                 return SubNumber.F1SubRight;
             }
-            if(v.GetY()>0.8){
-                // if(v.GetX()<0.5){
-              /*      return SubNumber.F2SubTop;
-                }*/
+            if(v.GetY()>0.8001){
                 return SubNumber.F2SubTop;
             }
-            if(v.GetX()<0.2){
+            if(v.GetX()<0.2009){
                 return SubNumber.F2SubTop;
             }
-            if(v.GetX()>0.8){
+            if(v.GetX()>0.7975){
                 return SubNumber.F2SubTop;
             }
             return SubNumber.F2SubCenter;
         }
-        if(v.GetX()<0.2&&v.GetY()>0.14) {
+        if(v.GetX()<0.2009&&v.GetY()>0.1414) {
             if(v.GetY()>=3.4){
                 if(IsInF1(v))
                     return SubNumber.F1SubLeft;
@@ -49,7 +46,7 @@ public class Division {
             }
             return SubNumber.F2SubBottom;
         }
-        if(v.GetX()>0.8&&v.GetY()>0.14) {
+        if(v.GetX()>0.7975&&v.GetY()>0.1414) {
             if(v.GetY()>=3.4){
                 if(IsInF1(v))
                     return SubNumber.F1SubRight;
