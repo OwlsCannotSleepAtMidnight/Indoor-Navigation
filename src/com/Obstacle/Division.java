@@ -28,10 +28,16 @@ public class Division {
             if(v.GetX()>0.7975){
                 return SubNumber.F2SubTop;
             }
+            if(v.GetY() > 0.8001){
+                if(v.GetX()>=0.2009 && v.GetX()<= 0.7975){
+                    return  SubNumber.F2SubTop;
+                }
+            }
             return SubNumber.F2SubCenter;
         }
+
         if(v.GetX()<0.2009&&v.GetY()>0.1414) {
-            if(v.GetY()>=3.4){
+            if(v.GetY()>=0.34){
                 if(IsInF1(v))
                     return SubNumber.F1SubLeft;
                 return SubNumber.F2SubTop;
@@ -47,7 +53,7 @@ public class Division {
             return SubNumber.F2SubBottom;
         }
         if(v.GetX()>0.7975&&v.GetY()>0.1414) {
-            if(v.GetY()>=3.4){
+            if(v.GetY()>=0.34){
                 if(IsInF1(v))
                     return SubNumber.F1SubRight;
                 return SubNumber.F2SubTop;
@@ -83,12 +89,12 @@ public class Division {
         else{
             c_x = 0;
         }
-        double c_y = 3.4;
+        double c_y = 0.34;
         return Math.sqrt(Math.pow(c_x-v.GetX(),2)+Math.pow(c_y-v.GetY(),2));
     }
 
     public static void main(String[] args) {
-        Vertex v = new Vertex("sb",0.2,0.3,1);
+        Vertex v = new Vertex("sb",0.0749,0.2573,1);
         SubNumber sub = Division.GetSubGraphNum(v);
         System.out.println(sub.ordinal());
     }

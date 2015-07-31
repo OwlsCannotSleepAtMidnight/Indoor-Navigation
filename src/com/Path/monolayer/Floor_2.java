@@ -21,7 +21,7 @@ public class Floor_2 {
         V_end = e;
     }
 
-    public String RoutePlan() {
+    public  String RoutePlan() {
 
         if (Division.GetSubGraphNum(V_start).equals(Division.GetSubGraphNum(V_end))) {
             //起点和终点在同一个子图上的路线规划
@@ -151,27 +151,27 @@ public class Floor_2 {
     {
         ArrayList<Vertex>  commonList=new ArrayList<Vertex>();
 
-        if(start.GetSubNO().equals(SubNumber.F2SubTop)&&end.equals(SubNumber.F2SubCenter)
-                ||start.GetSubNO().equals(SubNumber.F2SubCenter)&&end.equals(SubNumber.F2SubTop))
+        if(start.GetSubNO().equals(SubNumber.F2SubTop)&&end.GetSubNO().equals(SubNumber.F2SubCenter)
+                ||start.GetSubNO().equals(SubNumber.F2SubCenter)&&end.GetSubNO().equals(SubNumber.F2SubTop))
         {
             //添加顶子图和中子图的公共点
             commonList.add(new Vertex("SC1" , 0.2009, 0.5018,2));
             commonList.add(new Vertex("SC2" , 0.4992, 0.8001,2));
             commonList.add(new Vertex("SC3" , 0.7975, 0.5018,2));
         }
-        else if((start.GetSubNO().equals(SubNumber.F2SubTop)&&end.equals(SubNumber.F1SubBottom)
-                ||start.GetSubNO().equals(SubNumber.F1SubBottom)&&end.equals(SubNumber.F2SubTop)))
+        else if((start.GetSubNO().equals(SubNumber.F2SubTop)&&end.GetSubNO().equals(SubNumber.F1SubBottom)
+                ||start.GetSubNO().equals(SubNumber.F1SubBottom)&&end.GetSubNO().equals(SubNumber.F2SubTop)))
         {
             //由于顶子图与底子图没有公共点，要想从顶子图到底子图，必须经过中子图
             commonList.add(new Vertex("SC1" , 0.2009, 0.5018,2));
             commonList.add(new Vertex("SC2" , 0.4992, 0.8001,2));
             commonList.add(new Vertex("SC3" , 0.7975, 0.5018,2));
         }
-        else if ((start.GetSubNO().equals(SubNumber.F2SubCenter)&&end.equals(SubNumber.F2SubBottom)
-                ||start.GetSubNO().equals(SubNumber.F2SubBottom)&&end.equals(SubNumber.F2SubCenter)))
+        else if ((start.GetSubNO().equals(SubNumber.F2SubCenter)&&end.GetSubNO().equals(SubNumber.F2SubBottom)
+                ||start.GetSubNO().equals(SubNumber.F2SubBottom)&&end.GetSubNO().equals(SubNumber.F2SubCenter)))
         {
             //添加中子图和底子图的公共点
-            commonList.add(new Vertex("J3",0.4992,0.3806,2));
+            commonList.add(new Vertex("J3",0.4992 ,0.3806,2));
             commonList.add(new Vertex("I3",0.3760,0.3806,2));
             commonList.add(new Vertex("K3",0.6185,0.3806,2));
         }
@@ -200,5 +200,13 @@ public class Floor_2 {
     double GetDistance(Vertex v1, Vertex v2)
     {
         return Math.sqrt(Math.pow(v1.GetX()-v2.GetX(),2) + Math.pow(v1.GetY()-v2.GetY(),2));
+    }
+
+    public static void main(String[] args) {
+        Vertex D1 = new Vertex("D1" , 0.2606,0.0419,2);
+        Vertex start =  new Vertex("S27" , 0.1509, 0.7404, 2);
+         Floor_2 fl2 = new Floor_2(start,D1);
+        String line = fl2.RoutePlan();
+        System.out.println(line);
     }
 }
