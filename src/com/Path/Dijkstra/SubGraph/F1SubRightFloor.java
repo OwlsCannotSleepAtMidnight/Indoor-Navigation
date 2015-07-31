@@ -93,6 +93,9 @@ public class F1SubRightFloor extends Floor{
         _path.AddVertex(F1SubRight.q2.ordinal(), new Vertex("q2" , 0.6666, 0.8212, _stair));
         _path.AddVertex(F1SubRight.R2.ordinal(), new Vertex("R2" , 0.6666, 0.7808, _stair));
         _path.AddVertex(F1SubRight.s2.ordinal(), new Vertex("s2" , 0.6666, 0.7404, _stair));
+        _path.AddVertex(F1SubRight.Z3.ordinal(), new Vertex("Z3" , 0.4992,0.3806 , _stair));
+
+
 
 
         //necessary points added
@@ -110,7 +113,7 @@ public class F1SubRightFloor extends Floor{
 
         //extend points added
         _path.AddVertex(F1SubRight.ER1.ordinal(), new Vertex ("ER1", 0.8860,0.4210, _stair));
-        _path.AddVertex(F1SubRight.ER2.ordinal(), new Vertex ("ER2", 0.5793, 0.5018, _stair));
+        _path.AddVertex(F1SubRight.ER2.ordinal(), new Vertex ("ER2", 0.5973, 0.5018, _stair));
         _path.AddVertex(F1SubRight.EBP1.ordinal(), new Vertex ("EBP1", 0.4992, 0.5018, _stair));
         _path.AddVertex(F1SubRight.ER3.ordinal(), new Vertex("ER3", 0.8436, 0.6942, _stair) );
         _path.AddVertex(F1SubRight.ER4.ordinal(), new Vertex ("ER4", 0.7878, 0.6942, _stair));
@@ -282,6 +285,7 @@ public class F1SubRightFloor extends Floor{
         _path.AddRoute(_path.GetVertex(F1SubRight.s2.ordinal()), _path.GetVertex(F1SubRight.S39.ordinal()), Math.abs(_path.GetVertex(F1SubRight.s2.ordinal()).GetX()-_path.GetVertex(F1SubRight.S39.ordinal()).GetX()));
         _path.AddRoute(_path.GetVertex(F1SubRight.w1.ordinal()), _path.GetVertex(F1SubRight.V1.ordinal()), Math.abs(_path.GetVertex(F1SubRight.w1.ordinal()).GetY()-_path.GetVertex(F1SubRight.V1.ordinal()).GetY()));
         _path.AddRoute(_path.GetVertex(F1SubRight.w1.ordinal()), _path.GetVertex(F1SubRight.X1.ordinal()), Math.abs(_path.GetVertex(F1SubRight.w1.ordinal()).GetY()-_path.GetVertex(F1SubRight.X1.ordinal()).GetY()));
+        _path.AddRoute(_path.GetVertex(F1SubRight.Z3.ordinal()), _path.GetVertex(F1SubRight.M1.ordinal()), Math.abs(_path.GetVertex(F1SubRight.Z3.ordinal()).GetY()-_path.GetVertex(F1SubRight.M1.ordinal()).GetY()));
 
 
         //extend edges added

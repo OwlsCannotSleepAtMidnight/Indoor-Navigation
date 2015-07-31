@@ -83,6 +83,7 @@ public enum F1SubRight {
     q2,
     R2,
     s2,
+    Z3,
 
    //necessary points defined
 

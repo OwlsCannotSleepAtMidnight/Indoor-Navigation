@@ -103,7 +103,7 @@ public class Cross {
                 return true;
             }
         }
-        if(vertex1.GetY()<0.38&&vertex1.GetY()>0.27&&vertex2.GetY()<0.38&&vertex2.GetY()>0.27) {
+        if(vertex1.GetY()<0.3806&&vertex1.GetY()>0.27&&vertex2.GetY()<0.3806&&vertex2.GetY()>0.27) {
             if(vertex1.GetX()<0.14&&vertex2.GetX()>0.14){
                 return true;
             }
@@ -129,7 +129,7 @@ public class Cross {
             if(vertex1.GetY()<0.5&&vertex2.GetY()>0.5)
                 return true;
         if(vertex1.GetX()>0.12&&vertex1.GetX()<0.16&&vertex2.GetX()>0.12&&vertex2.GetX()<0.16)
-            if(vertex1.GetY()<0.38&&vertex2.GetY()>0.38)
+            if(vertex1.GetY()<0.3806&&vertex2.GetY()>0.3806)
                 return true;
         if(vertex1.GetX()>0.16&&vertex1.GetX()<0.2&&vertex2.GetX()>0.16&&vertex2.GetX()<0.2)
             if(vertex1.GetY()<0.37&&vertex2.GetY()>0.37)
@@ -173,7 +173,7 @@ public class Cross {
                 return true;
             }
         }
-        if(vertex1.GetY()<0.38&&vertex1.GetY()>0.27&&vertex2.GetY()<0.38&&vertex2.GetY()>0.27) {
+        if(vertex1.GetY()<0.3806&&vertex1.GetY()>0.27&&vertex2.GetY()<0.3806&&vertex2.GetY()>0.27) {
             if(vertex1.GetX()<0.86&&vertex2.GetX()>0.86){
                 return true;
             }
@@ -199,7 +199,7 @@ public class Cross {
             if(vertex1.GetY()<0.5&&vertex2.GetY()>0.5)
                 return true;
         if(vertex1.GetX()>0.84&&vertex1.GetX()<0.88&&vertex2.GetX()>0.84&&vertex2.GetX()<0.88)
-            if(vertex1.GetY()<0.38&&vertex2.GetY()>0.38)
+            if(vertex1.GetY()<0.3806&&vertex2.GetY()>0.3806)
                 return true;
         if(vertex1.GetX()>0.8&&vertex1.GetX()<0.84&&vertex2.GetX()>0.8&&vertex2.GetX()<0.84)
             if(vertex1.GetY()<0.37&&vertex2.GetY()>0.37)
@@ -223,18 +223,18 @@ public class Cross {
             }
         }
         if(vertex1.GetY()<0.06&&vertex2.GetY()<0.06) {
-            if (vertex1.GetX() < 0.38 && vertex2.GetX() > 0.38)
+            if (vertex1.GetX() < 0.3806 && vertex2.GetX() > 0.3806)
                 return true;
             if (vertex1.GetX() < 0.62 && vertex2.GetX() > 0.62)
                 return true;
         }
         if(vertex1.GetY()<0.24&&vertex2.GetY()<0.24&&vertex1.GetY()>0.18&&vertex2.GetY()>0.18) {
-            if (vertex1.GetX() < 0.38 && vertex2.GetX() > 0.38)
+            if (vertex1.GetX() < 0.3806 && vertex2.GetX() > 0.3806)
                 return true;
             if (vertex1.GetX() < 0.62 && vertex2.GetX() > 0.62)
                 return true;
         }
-        if(vertex1.GetY()<0.32&&vertex2.GetY()<0.38&&vertex1.GetY()>0.32&&vertex2.GetY()>0.38) {
+        if(vertex1.GetY()<0.32&&vertex2.GetY()<0.3806&&vertex1.GetY()>0.32&&vertex2.GetY()>0.3806) {
             if (vertex1.GetX() < 0.32 && vertex2.GetX() > 0.32)
                 return true;
             if (vertex1.GetX() < 0.68 && vertex2.GetX() > 0.68)
@@ -306,7 +306,7 @@ public class Cross {
             if(vertex1.GetX()<0.78&&vertex2.GetX() >0.78)
                 return true;
         }
-        if(vertex1.GetY()<0.38&&vertex1.GetY()>0.26&&vertex2.GetY()<0.38&&vertex2.GetY()>0.26){
+        if(vertex1.GetY()<.03806&&vertex1.GetY()>0.26&&vertex2.GetY()<0.3806&&vertex2.GetY()>0.26){
             if(vertex1.GetX()<0.15&&vertex2.GetX()>0.15)
                 return true;
             if(vertex1.GetX()<0.85&&vertex2.GetX()>0.85)
@@ -405,18 +405,18 @@ public class Cross {
             }
         }
         if(vertex1.GetY()<0.06&&vertex2.GetY()<0.06) {
-            if (vertex1.GetX() < 0.38 && vertex2.GetX()  > 0.38)
+            if (vertex1.GetX() < 0.3806 && vertex2.GetX()  > 0.3806)
                 return true;
             if (vertex1.GetX() < 0.62 && vertex2.GetX()  > 0.62)
                 return true;
         }
         if(vertex1.GetY()<0.24&&vertex2.GetY()<0.24&&vertex1.GetY() >0.18&&vertex2.GetY() >0.18) {
-            if (vertex1.GetX() < 0.38 && vertex2.GetX()  > 0.38)
+            if (vertex1.GetX() < 0.3806 && vertex2.GetX()  > 0.3806)
                 return true;
             if (vertex1.GetX() < 0.62 && vertex2.GetX()  > 0.62)
                 return true;
         }
-        if(vertex1.GetY()<0.32&&vertex2.GetY()<0.38&&vertex1.GetY() >0.32&&vertex2.GetY() >0.38) {
+        if(vertex1.GetY()<0.32&&vertex2.GetY()<0.3806&&vertex1.GetY() >0.32&&vertex2.GetY() >0.3806) {
             if (vertex1.GetX() < 0.32 && vertex2.GetX()  > 0.32)
                 return true;
             if (vertex1.GetX() < 0.68 && vertex2.GetX()  > 0.68)

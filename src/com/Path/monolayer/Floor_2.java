@@ -39,9 +39,9 @@ public class Floor_2 {
         {
             //从顶子图到底子图的路线规划
             ArrayList<Vertex>  temp1=new ArrayList<Vertex>();
-            temp1.add(new Vertex("SC1",0.1971,0.5056,2));
-            temp1.add(new Vertex("SC2",0.4953,0.8039,2));
-            temp1.add(new Vertex("SC3",0.7975,0.5018,2));
+            temp1.add(new Vertex("SC1" , 0.2009, 0.5018,2));
+            temp1.add(new Vertex("SC2" , 0.4992, 0.8001,2));
+            temp1.add(new Vertex("SC3" , 0.7975, 0.5018,2));
 
             double minDistance_TtoM=9999;
             Vertex min_TtoM=new Vertex();
@@ -76,7 +76,7 @@ public class Floor_2 {
         {
             //从底子图到顶子图的路线规划
             ArrayList<Vertex>  temp2=new ArrayList<Vertex>();
-            temp2.add(new Vertex("J3",0.4953,0.3806,2));
+            temp2.add(new Vertex("J3",0.4992,0.3806,2));
             temp2.add(new Vertex("I3",0.3760,0.3806,2));
             temp2.add(new Vertex("K3",0.6185,0.3806,2));
 
@@ -155,23 +155,23 @@ public class Floor_2 {
                 ||start.GetSubNO().equals(SubNumber.F2SubCenter)&&end.equals(SubNumber.F2SubTop))
         {
             //添加顶子图和中子图的公共点
-            commonList.add(new Vertex("SC1",0.1971,0.5056,2));
-            commonList.add(new Vertex("SC2",0.4953,0.8039,2));
-            commonList.add(new Vertex("SC3",0.7975,0.5018,2));
+            commonList.add(new Vertex("SC1" , 0.2009, 0.5018,2));
+            commonList.add(new Vertex("SC2" , 0.4992, 0.8001,2));
+            commonList.add(new Vertex("SC3" , 0.7975, 0.5018,2));
         }
         else if((start.GetSubNO().equals(SubNumber.F2SubTop)&&end.equals(SubNumber.F1SubBottom)
                 ||start.GetSubNO().equals(SubNumber.F1SubBottom)&&end.equals(SubNumber.F2SubTop)))
         {
             //由于顶子图与底子图没有公共点，要想从顶子图到底子图，必须经过中子图
-            commonList.add(new Vertex("SC1",0.1971,0.5056,2));
-            commonList.add(new Vertex("SC2",0.4953,0.8039,2));
-            commonList.add(new Vertex("SC3",0.7975,0.5018,2));
+            commonList.add(new Vertex("SC1" , 0.2009, 0.5018,2));
+            commonList.add(new Vertex("SC2" , 0.4992, 0.8001,2));
+            commonList.add(new Vertex("SC3" , 0.7975, 0.5018,2));
         }
         else if ((start.GetSubNO().equals(SubNumber.F2SubCenter)&&end.equals(SubNumber.F2SubBottom)
                 ||start.GetSubNO().equals(SubNumber.F2SubBottom)&&end.equals(SubNumber.F2SubCenter)))
         {
             //添加中子图和底子图的公共点
-            commonList.add(new Vertex("J3",0.4953,0.3806,2));
+            commonList.add(new Vertex("J3",0.4992,0.3806,2));
             commonList.add(new Vertex("I3",0.3760,0.3806,2));
             commonList.add(new Vertex("K3",0.6185,0.3806,2));
         }
@@ -181,14 +181,14 @@ public class Floor_2 {
 
         Vertex middleVertex;
 
-        if(borderVertex.equals(new Vertex("SC2",0.4953,0.8039,2))){
+        if(borderVertex.equals(new Vertex("SC2" , 0.4992, 0.8001,2))){
             middleVertex = new Vertex("SC2_mid",0.4953,0.8,2);
         }
-        else if(borderVertex.equals(new Vertex("SC1",0.1971,0.5056,2))){
-            middleVertex = new Vertex("SC1_mid",0.198,0.5056,2);
+        else if(borderVertex.equals(new Vertex("SC1" , 0.2009, 0.5018,2))){
+            middleVertex = new Vertex("SC1_mid",0.2,0.5018,2);
         }
-        else if(borderVertex.equals(new Vertex("SC3",0.7975,0.5018,2))){
-            middleVertex = new Vertex("SC3_mid",0.79,0.5018,2);
+        else if(borderVertex.equals(new Vertex("SC3" , 0.7975, 0.5018,2))){
+            middleVertex = new Vertex("SC3_mid",0.797,0.5018,2);
         }
         else {
             middleVertex = new Vertex("bottomInMid", borderVertex.GetX(), borderVertex.GetY()+0.001, 2);

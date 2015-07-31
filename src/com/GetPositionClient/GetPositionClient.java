@@ -17,7 +17,7 @@ public class GetPositionClient {
 
     public String GetPosition() throws IOException {
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        String url = "http://172.18.4.43:8001/loc";
+        String url = "http://10.18.18.92:8001/loc";
 
         try {
 
