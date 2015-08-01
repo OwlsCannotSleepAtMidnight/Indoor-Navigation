@@ -30,13 +30,12 @@ public class Floor_2 {
             subfloor.AnalyzeVertex(V_end.GetString(), 1);
             subfloor.InitializeStartEnd();
             path = subfloor.GetArrList();
-
-            System.out.print(path);
             final_Output = path;
         }
         else if(Division.GetSubGraphNum(V_start).equals(SubNumber.F2SubTop)
                 && Division.GetSubGraphNum(V_end).equals(SubNumber.F2SubBottom) )
         {
+
             //从顶子图到底子图的路线规划
             ArrayList<Vertex>  temp1=new ArrayList<Vertex>();
             temp1.add(new Vertex("SC1" , 0.2009, 0.5018,2));
@@ -54,7 +53,6 @@ public class Floor_2 {
             }
 
             String path_TtoM_1, path_TtoM_2;
-
             //顶子图部分路线规划
             Floor  sub_top=new F2SubTopFloor(2);
             sub_top.AnalyzeVertex(V_start.GetString(), 0);
@@ -182,16 +180,18 @@ public class Floor_2 {
         Vertex middleVertex;
 
         if(borderVertex.equals(new Vertex("SC2" , 0.4992, 0.8001,2))){
-            middleVertex = new Vertex("SC2_mid",0.4953,0.8,2);
+            middleVertex = new Vertex("SC2_mid",0.4992,0.8,2);
+
         }
         else if(borderVertex.equals(new Vertex("SC1" , 0.2009, 0.5018,2))){
-            middleVertex = new Vertex("SC1_mid",0.2,0.5018,2);
+            middleVertex = new Vertex("SC1_mid",0.201,0.5018,2);
         }
         else if(borderVertex.equals(new Vertex("SC3" , 0.7975, 0.5018,2))){
             middleVertex = new Vertex("SC3_mid",0.797,0.5018,2);
         }
         else {
-            middleVertex = new Vertex("bottomInMid", borderVertex.GetX(), borderVertex.GetY()+0.001, 2);
+            middleVertex = new Vertex("bottomInMid", borderVertex.GetX(), borderVertex.GetY()+0.0001, 2);
+
         }
 
         return middleVertex;
@@ -204,7 +204,7 @@ public class Floor_2 {
 
     public static void main(String[] args) {
         Vertex D1 = new Vertex("D1" , 0.2606,0.0419,2);
-        Vertex start =  new Vertex("S27" , 0.1509, 0.7404, 2);
+        Vertex start =  new Vertex("S27" , 0.68, 0.8404, 2);
          Floor_2 fl2 = new Floor_2(start,D1);
         String line = fl2.RoutePlan();
         System.out.println(line);

@@ -28,11 +28,11 @@ public class Division {
             if(v.GetX()>0.7975){
                 return SubNumber.F2SubTop;
             }
-            if(v.GetY() > 0.8001){
+            /*if(v.GetY() > 0.8001){
                 if(v.GetX()>=0.2009 && v.GetX()<= 0.7975){
                     return  SubNumber.F2SubTop;
                 }
-            }
+            }*/
             return SubNumber.F2SubCenter;
         }
 
@@ -94,7 +94,7 @@ public class Division {
     }
 
     public static void main(String[] args) {
-        Vertex v = new Vertex("sb",0.0749,0.2573,1);
+        Vertex v = new Vertex("sb",0.67,0.8,2);
         SubNumber sub = Division.GetSubGraphNum(v);
         System.out.println(sub.ordinal());
     }

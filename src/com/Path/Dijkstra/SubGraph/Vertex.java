@@ -79,5 +79,8 @@ public class Vertex {
     public String GetString(){
         return X+","+Y+","+Z;
     }
+    public boolean equals(Vertex v){
+        return (v.GetX() == X && v.GetY() == Y && v.GetZ() == Z && v.GetName().equals(name));
+    }
 
 }
