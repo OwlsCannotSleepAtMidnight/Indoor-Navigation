@@ -12,7 +12,7 @@ import com.sun.org.apache.bcel.internal.generic.SWAP;
  */
 public class Cross {
     public static boolean IsOverObstacle(SubNumber sub_no,Graph path,Vertex vertex1,Vertex vertex2){
-        if(sub_no == SubNumber.B1Sub){
+        /*if(sub_no == SubNumber.B1Sub){
             return IsOverObstacleB1Sub(path, vertex1, vertex2);
         }
         if(sub_no == SubNumber.F1SubLeft){
@@ -32,7 +32,7 @@ public class Cross {
         }
         if(sub_no == SubNumber.F2SubTop){
             return IsOverObstacleF2SubTop(path, vertex1, vertex2);
-        }
+        }*/
         return false;
     }
 
