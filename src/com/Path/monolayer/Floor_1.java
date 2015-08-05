@@ -14,6 +14,8 @@ public class Floor_1 {
     String path;
     String final_Output;
     ArrayList<Vertex>  CommonList;
+    ArrayList<Vertex> tmpInside = new ArrayList<Vertex>();
+
 
 
     public Floor_1(Vertex s, Vertex e) {
@@ -43,11 +45,27 @@ public class Floor_1 {
             Vertex EssentialPoint=new Vertex();
             for(int i=0;i<CommonList.size();i++ )
             {
+                if (inRectangle(CommonList.get(i), V_start, V_end))
+                    tmpInside.add(CommonList.get(i));
+
                 if(GetDistance(V_start,CommonList.get(i))< min) {
                     min = GetDistance(V_start, CommonList.get(i));
                     EssentialPoint=CommonList.get(i);
                 }
             }
+
+            if (!tmpInside.isEmpty()) {
+                double insideMin = 999;
+                for (int i = 0; i < tmpInside.size(); i++) {
+                    if (GetDistance(V_start, tmpInside.get(i)) < insideMin) {
+                        insideMin = GetDistance(V_start, tmpInside.get(i));
+                        EssentialPoint = tmpInside.get(i);
+                    }
+                }
+            }
+
+
+
             String path_1, path_2;
             S_subfloor.AnalyzeVertex(V_start.GetString(), 0);
             S_subfloor.AnalyzeVertex( EssentialPoint.GetString(), 1);
@@ -104,6 +122,30 @@ public class Floor_1 {
         }
         return  commonList;
     }
+
+    boolean inRectangle(Vertex v, Vertex s, Vertex e){
+
+        boolean inside = false;
+
+        if(s.GetX() <= e.GetX()){
+            if(v.GetX()>s.GetX() && v.GetX()<e.GetX() && v.GetY()>s.GetY() && v.GetY()<e.GetY()){
+                inside = true;
+            }
+            else if(v.GetX()>s.GetX() && v.GetX()<e.GetX() && v.GetY()<s.GetY() && v.GetY()>e.GetY() ){
+                inside =true;
+            }
+        }
+        else if(s.GetX()>e.GetX()) {
+            if (v.GetX() > e.GetX() && v.GetX() < s.GetX() && v.GetY() < s.GetY() && v.GetY() > e.GetY()) {
+                inside = true;
+            } else if (v.GetX() > e.GetX() && v.GetX() < s.GetX() && v.GetY() < e.GetY() && v.GetY() > s.GetY()) {
+                inside = true;
+            }
+        }
+        return inside;
+    }
+
+
     double GetDistance(Vertex v1, Vertex v2)
     {
         return Math.sqrt(Math.pow(v1.GetX()-v2.GetX(),2) + Math.pow(v1.GetY()-v2.GetY(),2));

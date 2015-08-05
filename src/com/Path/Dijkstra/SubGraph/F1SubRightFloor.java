@@ -195,6 +195,8 @@ public class F1SubRightFloor extends Floor{
         _path.AddRoute(_path.GetVertex(F1SubRight.L2.ordinal()), _path.GetVertex(F1SubRight.K2.ordinal()), Math.abs(_path.GetVertex(F1SubRight.L2.ordinal()).GetX()-_path.GetVertex(F1SubRight.K2.ordinal()).GetX()));
         _path.AddRoute(_path.GetVertex(F1SubRight.L2.ordinal()), _path.GetVertex(F1SubRight.W8.ordinal()), Math.abs(_path.GetVertex(F1SubRight.L2.ordinal()).GetY()-_path.GetVertex(F1SubRight.W8.ordinal()).GetY()));
         _path.AddRoute(_path.GetVertex(F1SubRight.M1.ordinal()), _path.GetVertex(F1SubRight.L1.ordinal()), Math.abs(_path.GetVertex(F1SubRight.M1.ordinal()).GetY()-_path.GetVertex(F1SubRight.L1.ordinal()).GetY()));
+        _path.AddRoute(_path.GetVertex(F1SubRight.M1.ordinal()), _path.GetVertex(F1SubRight.q1.ordinal()), Math.abs(_path.GetVertex(F1SubRight.M1.ordinal()).GetX()-_path.GetVertex(F1SubRight.q1.ordinal()).GetX()));
+
         _path.AddRoute(_path.GetVertex(F1SubRight.M2.ordinal()), _path.GetVertex(F1SubRight.C2.ordinal()), Math.abs(_path.GetVertex(F1SubRight.M2.ordinal()).GetY()-_path.GetVertex(F1SubRight.C2.ordinal()).GetY()));
         _path.AddRoute(_path.GetVertex(F1SubRight.M2.ordinal()), _path.GetVertex(F1SubRight.EL8.ordinal()), Math.abs(_path.GetVertex(F1SubRight.M2.ordinal()).GetY()-_path.GetVertex(F1SubRight.EL8.ordinal()).GetY()));
         _path.AddRoute(_path.GetVertex(F1SubRight.M2.ordinal()), _path.GetVertex(F1SubRight.ES8.ordinal()), Math.abs(_path.GetVertex(F1SubRight.M2.ordinal()).GetX()-_path.GetVertex(F1SubRight.ES8.ordinal()).GetX()));
@@ -322,6 +324,9 @@ public class F1SubRightFloor extends Floor{
         _path.AddRoute(_path.GetVertex(F1SubRight.ER11.ordinal()), _path.GetVertex(F1SubRight.U2.ordinal()), Math.abs(_path.GetVertex(F1SubRight.ER11.ordinal()).GetX()-_path.GetVertex(F1SubRight.U2.ordinal()).GetX()));
         _path.AddRoute(_path.GetVertex(F1SubRight.ER12.ordinal()), _path.GetVertex(F1SubRight.G2.ordinal()), Math.abs(_path.GetVertex(F1SubRight.ER12.ordinal()).GetY() - _path.GetVertex(F1SubRight.G2.ordinal()).GetY()));
         _path.AddRoute(_path.GetVertex(F1SubRight.ER12.ordinal()), _path.GetVertex(F1SubRight.F2.ordinal()), Math.abs(_path.GetVertex(F1SubRight.ER12.ordinal()).GetY()-_path.GetVertex(F1SubRight.F2.ordinal()).GetY()));
+
+        _path.AddRoute(_path.GetVertex(F1SubRight.EBP1.ordinal()), _path.GetVertex(F1SubRight.M1.ordinal()), Math.abs(_path.GetVertex(F1SubRight.EBP1.ordinal()).GetY()-_path.GetVertex(F1SubRight.M1.ordinal()).GetY()));
+        _path.AddRoute(_path.GetVertex(F1SubRight.EBP1.ordinal()), _path.GetVertex(F1SubRight.L1.ordinal()), Math.abs(_path.GetVertex(F1SubRight.EBP1.ordinal()).GetY()-_path.GetVertex(F1SubRight.L1.ordinal()).GetY()));
 
 
     }
