@@ -132,7 +132,7 @@ public abstract class Floor {
     protected void SetAuxR(Vertex v1, Vertex v2, boolean is_x) {
         if (v1 == null || v2 == null)
             return;
-        if (!Cross.IsOverObstacle(GetSubNO(),_path,v1, v2)) {
+        if (!Cross.IsOverObstacle(v1, v2)) {
             _path.AddRoute(v1, v2, Distance(v1, v2));
         }
     }
@@ -201,7 +201,7 @@ public abstract class Floor {
                 }
                 break;
             }
-            //¾àÀëstart×óÉÏ×î½üµãµã
+            //ï¿½ï¿½ï¿½ï¿½startï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             double tmp = Math.abs(v.GetX() - vertex.GetX()) + Math.abs(v.GetY() - vertex.GetY());
             if (vertex.GetX() < v.GetX()) {
                 if (vertex.GetY() >= v.GetY()) {
@@ -210,7 +210,7 @@ public abstract class Floor {
                         nearest_vertex[left_up] = vertex;
                     }
                 }
-                //¾àÀëstart×óÏÂµÄµã
+                //ï¿½ï¿½ï¿½ï¿½startï¿½ï¿½ï¿½ÂµÄµï¿½
                 else {
                     if (sum[left_down] > tmp) {
                         sum[left_down] = tmp;
@@ -218,7 +218,7 @@ public abstract class Floor {
                     }
                 }
             }
-            //¾àÀëstartÓÒÉÏµÄµã
+            //ï¿½ï¿½ï¿½ï¿½startï¿½ï¿½ï¿½ÏµÄµï¿½
             else {
                 if (vertex.GetY() >= v.GetY()) {
                     if (sum[right_up] > tmp) {
@@ -226,7 +226,7 @@ public abstract class Floor {
                         nearest_vertex[right_up] = vertex;
                     }
                 }
-                //¾àÀëstartÓÒÏÂµÄµã
+                //ï¿½ï¿½ï¿½ï¿½startï¿½ï¿½ï¿½ÂµÄµï¿½
                 else {
                     if (sum[right_down] > tmp) {
                         sum[right_down] = tmp;
