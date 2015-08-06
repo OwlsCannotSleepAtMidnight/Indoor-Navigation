@@ -18,17 +18,17 @@ public class B1SubFloor extends Floor{
 
     public void InitializeVertex() {
 
-        _path.AddVertex(B1Vertex.ES1.ordinal(), new Vertex("ES1", 0.11, 0.1, _stair));
-        _path.AddVertex(B1Vertex.EL1.ordinal(), new Vertex("EL1", 0.17, 0.05, _stair));
-        _path.AddVertex(B1Vertex.D1.ordinal(), new Vertex("D1", 0.27, 0.05, _stair));
-        _path.AddVertex(B1Vertex.D2.ordinal(), new Vertex("D2", 0.5, 0.05, _stair));
-        _path.AddVertex(B1Vertex.D3.ordinal(), new Vertex("D3", 0.72, 0.05, _stair));
-        _path.AddVertex(B1Vertex.EL2.ordinal(), new Vertex("EL2", 0.83, 0.05, _stair));
-        _path.AddVertex(B1Vertex.ES2.ordinal(), new Vertex("ES2", 0.87, 0.1, _stair));
-        _path.AddVertex(B1Vertex.EL3.ordinal(), new Vertex("EL3", 0.27, 0.37, _stair));
-        _path.AddVertex(B1Vertex.ES3.ordinal(), new Vertex("ES3", 0.33, 0.3, _stair));
-        _path.AddVertex(B1Vertex.ES4.ordinal(), new Vertex("ES4", 0.61, 0.3, _stair));
-        _path.AddVertex(B1Vertex.EL4.ordinal(), new Vertex("EL4", 0.72, 0.37, _stair));
+        _path.AddVertex(B1Vertex.ES1.ordinal(), new Vertex("ES1" ,0.1220,0.0900, _stair));
+        _path.AddVertex(B1Vertex.EL1.ordinal(), new Vertex("EL1", 0.1393,0.0553, _stair));
+        _path.AddVertex(B1Vertex.D1.ordinal(), new Vertex("D1",  0.2606,0.0419, _stair));
+        _path.AddVertex(B1Vertex.D2.ordinal(), new Vertex("D2", 0.4992, 0.0419, _stair));
+        _path.AddVertex(B1Vertex.D3.ordinal(), new Vertex("D3", 0.7378, 0.0419, _stair));
+        _path.AddVertex(B1Vertex.EL2.ordinal(), new Vertex("EL2", 0.8552,0.0553, _stair));
+        _path.AddVertex(B1Vertex.ES2.ordinal(), new Vertex("ES2", 0.8764,0.0900, _stair));
+        _path.AddVertex(B1Vertex.EL3.ordinal(), new Vertex("EL3",0.3087,0.3344, _stair));
+        _path.AddVertex(B1Vertex.ES3.ordinal(), new Vertex("ES3", 0.3298,0.3151, _stair));
+        _path.AddVertex(B1Vertex.ES4.ordinal(), new Vertex("ES4",  0.6666,0.3151, _stair));
+        _path.AddVertex(B1Vertex.EL4.ordinal(), new Vertex("EL4", 0.6916,0.3344, _stair));
         _path.AddVertex(B1Vertex.ES1EL1.ordinal(), new Vertex("ES1EL1", 0.17, 0.1, _stair));
         _path.AddVertex(B1Vertex.ES1D1.ordinal(), new Vertex("ES1D1", 0.27, 0.1, _stair));
         _path.AddVertex(B1Vertex.ES1D2.ordinal(), new Vertex("ES1D2", 0.5, 0.1, _stair));

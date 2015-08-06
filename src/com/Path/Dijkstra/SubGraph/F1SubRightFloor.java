@@ -292,7 +292,7 @@ public class F1SubRightFloor extends Floor{
 
         //extend edges added
 
-        _path.AddRoute(_path.GetVertex(F1SubRight.ER1.ordinal()), _path.GetVertex(F1SubRight.U1.ordinal()), Math.abs(_path.GetVertex(F1SubRight.ER1.ordinal()).GetY() - _path.GetVertex(F1SubRight.U1.ordinal()).GetY()));
+        _path.AddRoute(_path.GetVertex(F1SubRight.ER1.ordinal()), _path.GetVertex(F1SubRight.S21.ordinal()), Math.abs(_path.GetVertex(F1SubRight.ER1.ordinal()).GetY() - _path.GetVertex(F1SubRight.S21.ordinal()).GetY()));
         _path.AddRoute(_path.GetVertex(F1SubRight.ER1.ordinal()), _path.GetVertex(F1SubRight.s1.ordinal()), Math.abs(_path.GetVertex(F1SubRight.ER1.ordinal()).GetX() - _path.GetVertex(F1SubRight.s1.ordinal()).GetX()));
         _path.AddRoute(_path.GetVertex(F1SubRight.ER1.ordinal()), _path.GetVertex(F1SubRight.T1.ordinal()), Math.abs(_path.GetVertex(F1SubRight.ER1.ordinal()).GetX()-_path.GetVertex(F1SubRight.T1.ordinal()).GetX()));
         _path.AddRoute(_path.GetVertex(F1SubRight.ER2.ordinal()), _path.GetVertex(F1SubRight.q1.ordinal()), Math.abs(_path.GetVertex(F1SubRight.ER2.ordinal()).GetY() - _path.GetVertex(F1SubRight.q1.ordinal()).GetY()));
