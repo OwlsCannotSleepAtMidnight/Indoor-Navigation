@@ -1,6 +1,7 @@
 package com.Path.monolayer;
 
 import com.Obstacle.Division;
+import com.Path.DefinedVertex.F2SubTop;
 import com.Path.DefinedVertex.SubNumber;
 import com.Path.Dijkstra.SubGraph.*;
 
@@ -25,19 +26,20 @@ public class Floor_2 {
     public  String RoutePlan() {
 
         if (Division.GetSubGraphNum(V_start).equals(Division.GetSubGraphNum(V_end))) {
-            //ÆðµãºÍÖÕµãÔÚÍ¬Ò»¸ö×ÓÍ¼ÉÏµÄÂ·Ïß¹æ»®
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½ï¿½ï¿½Í¼ï¿½Ïµï¿½Â·ï¿½ß¹æ»®
             Floor subfloor = CreateSubFloor(Division.GetSubGraphNum(V_start));
-            subfloor.AnalyzeVertex(V_start.GetString(), 0);
-            subfloor.AnalyzeVertex(V_end.GetString(), 1);
-            subfloor.InitializeStartEnd();
-            path = subfloor.GetArrList();
+            //subfloor.AnalyzeVertex(V_start.GetString(), 0);
+            //subfloor.AnalyzeVertex(V_end.GetString(), 1);
+            //subfloor.InitializeStartEnd();
+            //path = subfloor.GetArrList();
+            path = subfloor.showPath(V_start, V_end);
             final_Output = path;
         }
         else if(Division.GetSubGraphNum(V_start).equals(SubNumber.F2SubTop)
                 && Division.GetSubGraphNum(V_end).equals(SubNumber.F2SubBottom) )
         {
 
-            //´Ó¶¥×ÓÍ¼µ½µ××ÓÍ¼µÄÂ·Ïß¹æ»®
+            //ï¿½Ó¶ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½Â·ï¿½ß¹æ»®
             ArrayList<Vertex>  temp1=new ArrayList<Vertex>();
             temp1.add(new Vertex("SC1" , 0.2009, 0.5018,2));
             temp1.add(new Vertex("SC2" , 0.4992, 0.8001,2));
@@ -69,15 +71,17 @@ public class Floor_2 {
 
 
             String path_TtoM_1, path_TtoM_2;
-            //¶¥×ÓÍ¼²¿·ÖÂ·Ïß¹æ»®
-            Floor  sub_top=new F2SubTopFloor(2);
-            sub_top.AnalyzeVertex(V_start.GetString(), 0);
-            sub_top.AnalyzeVertex(min_TtoM.GetString(), 1);
-            sub_top.InitializeStartEnd();
-            path_TtoM_1 = sub_top.GetArrList();
+            //ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½Â·ï¿½ß¹æ»®
+            //Floor  sub_top=new F2SubTopFloor(2);
+            Floor sub_top = Floor.getFloor(SubNumber.F2SubTop);
+           // sub_top.AnalyzeVertex(V_start.GetString(), 0);
+           // sub_top.AnalyzeVertex(min_TtoM.GetString(), 1);
+          //  sub_top.InitializeStartEnd();
+            path_TtoM_1 = sub_top.showPath(V_start, min_TtoM);
+            //path_TtoM_1 = sub_top.GetArrList();
 
 
-            //ÖÐ×ÓÍ¼²¿·ÖºÍµ××ÓÍ¼²¿·ÖÂ·Ïß¹æ»®
+            //ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ÖºÍµï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½Â·ï¿½ß¹æ»®
             Vertex TinM = GoToMiddile(min_TtoM);
             Floor_2 Route_TtoM=new Floor_2(TinM,V_end);
             path_TtoM_2=Route_TtoM.RoutePlan();
@@ -88,7 +92,7 @@ public class Floor_2 {
         else if(Division.GetSubGraphNum(V_start).equals(SubNumber.F2SubBottom)
                 && Division.GetSubGraphNum(V_end).equals(SubNumber.F2SubTop) )
         {
-            //´Óµ××ÓÍ¼µ½¶¥×ÓÍ¼µÄÂ·Ïß¹æ»®
+            //ï¿½Óµï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½Â·ï¿½ß¹æ»®
             ArrayList<Vertex>  temp2=new ArrayList<Vertex>();
             temp2.add(new Vertex("J3",0.4992,0.3806,2));
             temp2.add(new Vertex("I3",0.3760,0.3806,2));
@@ -119,14 +123,16 @@ public class Floor_2 {
 
              //commit by mo
             String path_BtoM_1, path_BtoM_2;
-            //µ××ÓÍ¼²¿·ÖÂ·Ïß¹æ»®
-            Floor  sub_top=new F2SubBottomFloor(2);
-            sub_top.AnalyzeVertex(V_start.GetString(), 0);
+            //ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½Â·ï¿½ß¹æ»®
+            //Floor  sub_top=new F2SubBottomFloor(2);
+            Floor sub_top = Floor.getFloor(SubNumber.F2SubTop);
+           /* sub_top.AnalyzeVertex(V_start.GetString(), 0);
             sub_top.AnalyzeVertex(min_BtoM.GetString(), 1);
-            sub_top.InitializeStartEnd();
-            path_BtoM_1 = sub_top.GetArrList();
+            sub_top.InitializeStartEnd();*/
+            path_BtoM_1 = sub_top.showPath(V_start, min_BtoM);
+           // path_BtoM_1 = sub_top.GetArrList();
 
-            //ÖÐ×ÓÍ¼²¿·ÖºÍ¶¥×ÓÍ¼²¿·ÖÂ·Ïß¹æ»®
+            //ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ÖºÍ¶ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½Â·ï¿½ß¹æ»®
             Vertex BinM = GoToMiddile(min_BtoM);
             Floor_2 Route_BtoM=new Floor_2(BinM,V_end);
             path_BtoM_2=Route_BtoM.RoutePlan();
@@ -164,15 +170,19 @@ public class Floor_2 {
 
 
             String path_1, path_2;
-            S_subfloor.AnalyzeVertex(V_start.GetString(), 0);
+            S_subfloor.showPath(V_start, EssentialPoint);
+           /* S_subfloor.AnalyzeVertex(V_start.GetString(), 0);
             S_subfloor.AnalyzeVertex( EssentialPoint.GetString(), 1);
-            S_subfloor.InitializeStartEnd();
-            path_1 = S_subfloor.GetArrList();
+            S_subfloor.InitializeStartEnd();*/
+            path_1 =  S_subfloor.showPath(V_start, EssentialPoint);
+           // path_1 = S_subfloor.GetArrList();
 
-            E_subfloor.AnalyzeVertex(EssentialPoint.GetString(), 0);
+           /* E_subfloor.AnalyzeVertex(EssentialPoint.GetString(), 0);
             E_subfloor.AnalyzeVertex( V_end.GetString(), 1);
             E_subfloor.InitializeStartEnd();
-            path_2 = E_subfloor.GetArrList();
+            path_2 = E_subfloor.GetArrList();*/
+
+            path_2 = E_subfloor.showPath(EssentialPoint, V_end);
 
             final_Output=path_1+path_2;
         }
@@ -181,39 +191,42 @@ public class Floor_2 {
 
     Floor CreateSubFloor(SubNumber sn) {
         if (sn.equals(SubNumber.F2SubTop)) {
-            return new F2SubTopFloor(2);
+           return Floor.getFloor(SubNumber.F2SubTop);
+           // return new F2SubTopFloor(2);
         }
         else if (sn.equals(SubNumber.F2SubCenter)) {
-            return new F2SubCenterFloor(2);
+            return Floor.getFloor(SubNumber.F2SubCenter);
+           // return new F2SubCenterFloor(2);
         }
         else
-            return new F2SubBottomFloor(2);
+            return Floor.getFloor(SubNumber.F2SubBottom);
+        //    return new F2SubBottomFloor(2);
     }
 
     ArrayList<Vertex> CommonPoint(Floor start, Floor end)
     {
         ArrayList<Vertex>  commonList=new ArrayList<Vertex>();
 
-        if(start.GetSubNO().equals(SubNumber.F2SubTop)&&end.GetSubNO().equals(SubNumber.F2SubCenter)
-                ||start.GetSubNO().equals(SubNumber.F2SubCenter)&&end.GetSubNO().equals(SubNumber.F2SubTop))
+        if(start.getSubNO().equals(SubNumber.F2SubTop)&&end.getSubNO().equals(SubNumber.F2SubCenter)
+                ||start.getSubNO().equals(SubNumber.F2SubCenter)&&end.getSubNO().equals(SubNumber.F2SubTop))
         {
-            //Ìí¼Ó¶¥×ÓÍ¼ºÍÖÐ×ÓÍ¼µÄ¹«¹²µã
+            //ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½ï¿½
             commonList.add(new Vertex("SC1" , 0.2009, 0.5018,2));
             commonList.add(new Vertex("SC2" , 0.4992, 0.8001,2));
             commonList.add(new Vertex("SC3" , 0.7975, 0.5018,2));
         }
-        else if((start.GetSubNO().equals(SubNumber.F2SubTop)&&end.GetSubNO().equals(SubNumber.F1SubBottom)
-                ||start.GetSubNO().equals(SubNumber.F1SubBottom)&&end.GetSubNO().equals(SubNumber.F2SubTop)))
+        else if((start.getSubNO().equals(SubNumber.F2SubTop)&&end.getSubNO().equals(SubNumber.F1SubBottom)
+                ||start.getSubNO().equals(SubNumber.F1SubBottom)&&end.getSubNO().equals(SubNumber.F2SubTop)))
         {
-            //ÓÉÓÚ¶¥×ÓÍ¼Óëµ××ÓÍ¼Ã»ÓÐ¹«¹²µã£¬ÒªÏë´Ó¶¥×ÓÍ¼µ½µ××ÓÍ¼£¬±ØÐë¾­¹ýÖÐ×ÓÍ¼
+            //ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Ã»ï¿½Ð¹ï¿½ï¿½ï¿½ï¿½ã£¬Òªï¿½ï¿½Ó¶ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ë¾­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼
             commonList.add(new Vertex("SC1" , 0.2009, 0.5018,2));
             commonList.add(new Vertex("SC2" , 0.4992, 0.8001,2));
             commonList.add(new Vertex("SC3" , 0.7975, 0.5018,2));
         }
-        else if ((start.GetSubNO().equals(SubNumber.F2SubCenter)&&end.GetSubNO().equals(SubNumber.F2SubBottom)
-                ||start.GetSubNO().equals(SubNumber.F2SubBottom)&&end.GetSubNO().equals(SubNumber.F2SubCenter)))
+        else if ((start.getSubNO().equals(SubNumber.F2SubCenter)&&end.getSubNO().equals(SubNumber.F2SubBottom)
+                ||start.getSubNO().equals(SubNumber.F2SubBottom)&&end.getSubNO().equals(SubNumber.F2SubCenter)))
         {
-            //Ìí¼ÓÖÐ×ÓÍ¼ºÍµ××ÓÍ¼µÄ¹«¹²µã
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½Íµï¿½ï¿½ï¿½Í¼ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½ï¿½
             commonList.add(new Vertex("J3",0.4992 ,0.3806,2));
             commonList.add(new Vertex("I3",0.3760,0.3806,2));
             commonList.add(new Vertex("K3",0.6185,0.3806,2));
@@ -235,7 +248,7 @@ public class Floor_2 {
             middleVertex = new Vertex("SC3_mid",0.797,0.5018,2);
         }
         else {
-            middleVertex = new Vertex("bottomInMid", borderVertex.GetX(), borderVertex.GetY()+0.0001, 2);
+            middleVertex = new Vertex("bottomInMid", borderVertex.getX(), borderVertex.getY()+0.0001, 2);
 
         }
 
@@ -245,18 +258,18 @@ public class Floor_2 {
 
         boolean inside = false;
 
-        if(s.GetX() <= e.GetX()){
-            if(v.GetX()>s.GetX() && v.GetX()<e.GetX() && v.GetY()>s.GetY() && v.GetY()<e.GetY()){
+        if(s.getX() <= e.getX()){
+            if(v.getX()>s.getX() && v.getX()<e.getX() && v.getY()>s.getY() && v.getY()<e.getY()){
                 inside = true;
             }
-            else if(v.GetX()>s.GetX() && v.GetX()<e.GetX() && v.GetY()<s.GetY() && v.GetY()>e.GetY() ){
+            else if(v.getX()>s.getX() && v.getX()<e.getX() && v.getY()<s.getY() && v.getY()>e.getY() ){
                 inside =true;
             }
         }
-        else if(s.GetX()>e.GetX()) {
-            if (v.GetX() > e.GetX() && v.GetX() < s.GetX() && v.GetY() < s.GetY() && v.GetY() > e.GetY()) {
+        else if(s.getX()>e.getX()) {
+            if (v.getX() > e.getX() && v.getX() < s.getX() && v.getY() < s.getY() && v.getY() > e.getY()) {
                 inside = true;
-            } else if (v.GetX() > e.GetX() && v.GetX() < s.GetX() && v.GetY() < e.GetY() && v.GetY() > s.GetY()) {
+            } else if (v.getX() > e.getX() && v.getX() < s.getX() && v.getY() < e.getY() && v.getY() > s.getY()) {
                 inside = true;
             }
         }
@@ -264,7 +277,7 @@ public class Floor_2 {
     }
     double GetDistance(Vertex v1, Vertex v2)
     {
-        return Math.sqrt(Math.pow(v1.GetX()-v2.GetX(),2) + Math.pow(v1.GetY()-v2.GetY(),2));
+        return Math.sqrt(Math.pow(v1.getX()-v2.getX(),2) + Math.pow(v1.getY()-v2.getY(),2));
     }
 
     public static void main(String[] args) {

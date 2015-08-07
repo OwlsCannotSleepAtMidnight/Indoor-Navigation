@@ -1,259 +1,370 @@
 package com.Path.Dijkstra.SubGraph;
 
 import com.Obstacle.Cross;
-import com.Path.DefinedVertex.B1Vertex;
+import com.Path.DefinedVertex.F1SubBottom;
 import com.Path.DefinedVertex.SubNumber;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Created by toy on 15-5-10.
  */
 public abstract class Floor {
-    protected int _stair;
     protected SubNumber _sub_no;
+    protected static HashMap<Vertex, List> _set_of_ve = new HashMap<Vertex, List>();
+
     public static final int left_up = 0;
     public static final int left_down = 1;
     public static final int right_up = 2;
     public static final int right_down = 3;
-    //ArrayList<Vertex> B1_vertex= new ArrayList();
-    protected Graph _path;
-    Vertex[] judge_start = new Vertex[5];
-    Vertex[] judge_end = new Vertex[5];
-    
-    public Floor(int stair) {
-        _path = new Graph();
-        _stair = stair;
-        InitializeVertex();
-        InitializeEdge();
 
-    }
-    public abstract int GetStartOrder();
-    public abstract int GetEndOrder();
-    public abstract int GetStartAux1Order();
-    public abstract int GetStartAux2Order();
-    public abstract int GetStartAux3Order();
-    public abstract int GetStartAux4Order();
-    public abstract int GetEndAux1Order();
-    public abstract int GetEndAux2Order();
-    public abstract int GetEndAux3Order();
-    public abstract int GetEndAux4Order();
+    protected static Dictionary _instance = new Hashtable();
 
-
-    public abstract void InitializeVertex();
-    public abstract void InitializeEdge();
-    public void SetStartPosition(double x, double y, double z) {
-        _path.GetVertex(GetStartOrder()).SetXYZ(x, y, z);
-    }
-
-    public void SetEndPosition(double x, double y, double z) {
-        _path.GetVertex(GetEndOrder()).SetXYZ(x, y, z);
-    }
-
-    public void AnalyzeVertex(String str, int point) {
-        str = str.replaceAll("\\[", "");
-        str = str.replaceAll("\\]", "");
-        str = str.replaceAll("\\s", "");
-        String xyz[] = str.split(",");
-        double pos_x = Double.valueOf(xyz[0]);
-        double pos_y = Double.valueOf(xyz[1]);
-        double pos_z = Double.valueOf(xyz[2]);
-        if (point == 0) {
-            SetStartPosition(pos_x, pos_y, pos_z);
-        } else {
-            SetEndPosition(pos_x, pos_y, pos_z);
-        }
-    }
-
-    public void InitializeStartEnd() {
-        _path.GetPin().set(GetStartOrder(), InsertSEVertex(true));
-        _path.GetPin().set(GetEndOrder(), InsertSEVertex(false));
-
-    }
-
-    public Vertex InsertSEVertex(boolean is_start) {
-        Vertex start;
-        int aux, aux2, aux3, aux4;
-        if (is_start) {
-            start = _path.GetVertex(GetStartOrder());
-            aux = GetStartAux1Order();
-            aux2 = GetStartAux2Order();
-            aux3 = GetStartAux3Order();
-            aux4 = GetStartAux4Order();
-        } else {
-            start = _path.GetVertex(GetEndOrder());
-            aux = GetEndAux1Order();
-            aux2 =  GetEndAux2Order();
-            aux3 =  GetEndAux3Order();
-            aux4 =  GetEndAux4Order();
-        }
-
-        Vertex start_near[] = new Vertex[5];
-        start_near = GetNearestVertexes(start);
-        if (start != start_near[4]) {
-            start = start_near[4];
-        }
-        SetSEJudge(start_near, is_start);
-        TouchRoute(aux, aux2, aux3, aux4, start_near);
-        return start;
-    }
-
-    public void TouchRoute(int aux, int aux2, int aux3, int aux4, Vertex[] news) {
-        SetAuxV(aux, aux2, aux3, aux4, news);
-        SetAuxR(news[left_up], _path.GetVertex(aux), true);
-        SetAuxR(news[left_up], _path.GetVertex(aux4), false);
-        SetAuxR(news[left_down], _path.GetVertex(aux3), true);
-        SetAuxR(news[left_down], _path.GetVertex(aux4), false);
-        SetAuxR(news[right_up], _path.GetVertex(aux), true);
-        SetAuxR(news[right_up], _path.GetVertex(aux2), false);
-        SetAuxR(news[right_down], _path.GetVertex(aux3), true);
-        SetAuxR(news[right_down], _path.GetVertex(aux2), false);
-
-        _path.AddRoute(news[4], _path.GetVertex(aux), Math.abs(news[4].GetY() - _path.GetVertex(aux).GetY()));
-        _path.AddRoute(news[4], _path.GetVertex(aux3), Math.abs(news[4].GetY() - _path.GetVertex(aux3).GetY()));
-
-        _path.AddRoute(news[4], _path.GetVertex(aux2), Math.abs(news[4].GetX() - _path.GetVertex(aux2).GetX()));
-        _path.AddRoute(news[4], _path.GetVertex(aux4), Math.abs(news[4].GetX() - _path.GetVertex(aux4).GetX()));
-
-    }
-
-    protected double Distance(Vertex v1, Vertex v2) {
-        return Math.sqrt(Math.pow(v1.GetX() - v2.GetX(), 2) + Math.pow(v1.GetY() - v2.GetY(), 2));
-    }
-
-    public void SetSEJudge(Vertex[] v, boolean is_start) {
-        if (is_start) {
-            judge_start = v;
-        } else {
-            judge_end = v;
-        }
-    }
-
-    protected void SetAuxR(Vertex v1, Vertex v2, boolean is_x) {
-        if (v1 == null || v2 == null)
-            return;
-        if (!Cross.IsOverObstacle(v1, v2)) {
-            _path.AddRoute(v1, v2, Distance(v1, v2));
-        }
-    }
-
-    protected void SetAuxV(int aux, int aux2, int aux3, int aux4, Vertex[] news) {
-        if (NearVExist(left_up, news)) {
-            _path.GetVertex(aux).SetXYZ(news[4].GetX(), news[left_up].GetY(), _stair);
-            _path.GetVertex(aux4).SetXYZ(news[left_up].GetX(), news[4].GetY(), _stair);
-        }
-        if (NearVExist(left_down, news)) {
-            _path.GetVertex(aux3).SetXYZ(news[4].GetX(), news[left_down].GetY(), _stair);
-            if (NearVExist(left_up, news) && (news[left_up].GetX() < news[left_down].GetX()))
-                _path.GetVertex(aux4).SetXYZ(news[left_down].GetX(), news[4].GetY(), _stair);
-        }
-        if (NearVExist(right_up, news)) {
-            if (NearVExist(left_up, news) && (news[left_up].GetY() > news[right_up].GetY()))
-                _path.GetVertex(aux).SetXYZ(news[4].GetX(), news[right_up].GetY(), _stair);
-            _path.GetVertex(aux2).SetXYZ(news[right_up].GetX(), news[4].GetY(), _stair);
-        }
-        if (NearVExist(right_down, news)) {
-            if (NearVExist(right_up, news) && (news[right_up].GetX() > news[right_down].GetX()))
-                _path.GetVertex(aux2).SetXYZ(news[right_down].GetX(), news[4].GetY(), _stair);
-            if (NearVExist(left_down, news) && (news[left_down].GetY() < news[right_down].GetY()))
-                _path.GetVertex(aux3).SetXYZ(news[4].GetX(), news[right_down].GetY(), _stair);
-        }
-    }
-
-    public boolean NearVExist(int direction, Vertex[] v) {
-        return v[direction] != null;
-    }
-
-    public Vertex[] GetNearestVertexes(Vertex v) {
-        Vertex nearest_vertex[] = new Vertex[5];
-        for (int i = 0; i < 4; i++) {
-            nearest_vertex[i] = null;
-        }
-        nearest_vertex[4] = v;
-        double sum[] = {2, 2, 2, 2};
-        for (Vertex vertex : _path.GetPin()) {
-            if (vertex == v)
-                continue;
-            //if (vertex.GetName().equals("Start"))
-            //    continue;
-            if (vertex.GetName().equals("Start_aux2"))
-                continue;
-            if (vertex.GetName().equals("End_aux2"))
-                continue;
-            if (vertex.GetName().equals("Start_aux"))
-                continue;
-            if (vertex.GetName().equals("End_aux"))
-                continue;
-            //if(vertex.GetName().equals("End"))
-            //   continue;
-            if (vertex.GetName().equals("Start_aux3"))
-                continue;
-            if (vertex.GetName().equals("End_aux3"))
-                continue;
-            if (vertex.GetName().equals("Start_aux4"))
-                continue;
-            if (vertex.GetName().equals("End_aux4"))
-                continue;
-            if (v.GetX() == vertex.GetX() && v.GetY() == vertex.GetY()) {
-                nearest_vertex[4] = vertex;
-                for (int i = 0; i < 4; i++) {
-                    nearest_vertex[i] = null;
-                }
-                break;
-            }
-            //����start����������
-            double tmp = Math.abs(v.GetX() - vertex.GetX()) + Math.abs(v.GetY() - vertex.GetY());
-            if (vertex.GetX() < v.GetX()) {
-                if (vertex.GetY() >= v.GetY()) {
-                    if (sum[left_up] > tmp) {
-                        sum[left_up] = tmp;
-                        nearest_vertex[left_up] = vertex;
-                    }
-                }
-                //����start���µĵ�
-                else {
-                    if (sum[left_down] > tmp) {
-                        sum[left_down] = tmp;
-                        nearest_vertex[left_down] = vertex;
-                    }
-                }
-            }
-            //����start���ϵĵ�
-            else {
-                if (vertex.GetY() >= v.GetY()) {
-                    if (sum[right_up] > tmp) {
-                        sum[right_up] = tmp;
-                        nearest_vertex[right_up] = vertex;
-                    }
-                }
-                //����start���µĵ�
-                else {
-                    if (sum[right_down] > tmp) {
-                        sum[right_down] = tmp;
-                        nearest_vertex[right_down] = vertex;
-                    }
-                }
-            }
-        }
-        return nearest_vertex;
-    }
-    public ArrayList<Vertex> GetOutList() {
-        return _path.OutputVxt(_path.GetVertex(GetStartOrder()), _path.GetVertex(GetEndOrder()));
-    }
-
-    public String GetArrList() {
-        return _path.run(_path.GetVertex(GetStartOrder()), _path.GetVertex(GetEndOrder()));
-    }
-
-    public String GetOutString(ArrayList<Vertex> list) {
-        return _path.GetString(list);
-
-    }
-    public SubNumber GetSubNO(){
+    public SubNumber getSubNum(){
         return _sub_no;
     }
-    public Graph GetPath(){
-        return _path;
+
+    protected void store(){
+        _instance.put(this.getSubNum(), this);
     }
+
+    public Floor() {
+
+        // init vertex
+        // init route
+    }
+
+
+    protected abstract List getEdges_();
+
+    public static void initializeRelationships(List<Edge> edges){
+        for(Edge each: edges){
+            if(!_set_of_ve.keySet().contains(each.getFrom())){
+                _set_of_ve.put(each.getFrom(),new ArrayList<Edge>());
+            }
+            _set_of_ve.get(each.getFrom()).add(each);
+        }
+    }
+
+    protected Vertex hasVertex_(Vertex v, HashMap<Vertex, List> ve){
+        for(Vertex each: ve.keySet()){
+            if(each.equalPosition(v, 0.01))
+                return each;
+        }
+        return null;
+    }
+
+    protected static double getDistance(Vertex v1, Vertex v2){
+        return Math.sqrt(Math.pow(v1.getX() - v2.getX(), 2) + Math.pow(v1.getY() - v2.getY(), 2));
+    }
+
+    protected static Vertex minDistance(Vertex v, List<Vertex> v_set){
+        double min_distance = 10000;
+        Vertex closed_vertex = null;
+        double distance;
+        for(Vertex each: v_set){
+            if((distance = getDistance(v, each)) < min_distance){
+                min_distance = distance;
+                closed_vertex = each;
+            }
+        }
+        return closed_vertex;
+    }
+
+    protected static HashMap<Integer, List> classifyVertex(Vertex v, HashMap<Vertex, List> ve){
+        List<Vertex> l_u = new ArrayList<Vertex>();
+        List<Vertex> l_d = new ArrayList<Vertex>();
+        List<Vertex> r_u = new ArrayList<Vertex>();
+        List<Vertex> r_d = new ArrayList<Vertex>();
+
+        for(Vertex each: ve.keySet()){
+            if(each == v)
+                continue;
+            if(each.getX() >= v.getX() && each.getY() >= v.getY()){
+                r_u.add(each);
+            }
+
+            if(each.getX() >= v.getX() && each.getY() < v.getY()){
+                r_d.add(each);
+            }
+
+            if(each.getX() < v.getX() && each.getY() >= v.getY()){
+                l_u.add(each);
+            }
+
+            if(each.getX() < v.getX() && each.getY() < v.getY()){
+                l_d.add(each);
+            }
+        }
+        HashMap<Integer, List> map = new HashMap<Integer, List>();
+        map.put(left_up, l_u);
+        map.put(left_down, l_d);
+        map.put(right_up, r_u);
+        map.put(right_down, r_d);
+        return map;
+
+    }
+
+    static HashMap<Vertex, List> addEdge(Vertex v1, Vertex v2, HashMap<Vertex, List> ve){
+        if(!Cross.IsOverObstacle(v1, v2))
+            ve.get(v1).add(new Edge(v1, v2));
+        return ve;
+    }
+
+    protected HashMap<Vertex, List> setAuxRight(Vertex start, Vertex up, Vertex down, HashMap<Vertex, List> ve){
+
+        Vertex aux_right;
+        if(up.getY() == start.getY()) {
+                ve = addEdge(start, up, ve);
+            // ve =  addEdge((up, start)))
+        }
+
+        else if(up.getX() == down.getX()){
+            aux_right = new Vertex("aux_right", up.getX(), start.getY(), start.getZ());
+            ve.put(aux_right, new ArrayList());
+            ve =  addEdge(start, aux_right, ve);
+            ve =  addEdge(aux_right, up, ve);
+            ve =  addEdge(aux_right, down, ve);
+
+        }
+        else if(up.getX() <= down.getX()){
+            aux_right = new Vertex("aux_right", up.getX(), start.getY(), start.getZ());
+            ve.put(aux_right, new ArrayList());
+            ve =  addEdge(start, aux_right, ve);
+            ve =  addEdge(aux_right, up, ve);
+            Vertex aux_right2 = new Vertex("aux_right2", up.getX(), down.getY(), start.getZ());
+            ve.put(aux_right2, new ArrayList());
+            ve =  addEdge(aux_right, aux_right2, ve);
+            ve =  addEdge(aux_right, down, ve);
+
+
+        }else{
+            aux_right = new Vertex("aux_right", down.getX(), start.getY(), start.getZ());
+            ve.put(aux_right, new ArrayList());
+            ve =  addEdge(start, aux_right, ve);
+            Vertex aux_right2 = new Vertex("aux_right2", down.getX(), up.getY(), start.getZ());
+            ve.put(aux_right2, new ArrayList());
+            ve =  addEdge(aux_right, down, ve);
+            ve =  addEdge(aux_right, aux_right2, ve);
+            ve =  addEdge(aux_right, up, ve);
+        }
+
+        return ve;
+
+    }
+
+    protected HashMap<Vertex, List> setAuxLeft(Vertex start, Vertex up, Vertex down, HashMap<Vertex, List> ve){
+
+        Vertex aux_left;
+        if(up.getY() == start.getY()) {
+            ve =  addEdge(start, up, ve);
+            // ve =  addEdge(up, start, ve);
+        }
+
+        else if(up.getX() == down.getX()){
+            aux_left = new Vertex("aux_left", up.getX(), start.getY(), start.getZ());
+            ve.put(aux_left, new ArrayList());
+            ve =  addEdge(start, aux_left, ve);
+            ve =  addEdge(aux_left, up, ve);
+            ve =  addEdge(aux_left, down, ve);
+
+        }
+        else if(up.getX() >= down.getX()){
+            aux_left = new Vertex("aux_left", up.getX(), start.getY(), start.getZ());
+            ve.put(aux_left, new ArrayList());
+            ve =  addEdge(start, aux_left, ve);
+            Vertex aux_left2 = new Vertex("aux_left2", up.getX(), down.getY(), start.getZ());
+            ve.put(aux_left2, new ArrayList());
+            ve =  addEdge(aux_left, up, ve);
+            ve =  addEdge(aux_left, aux_left2, ve);
+            ve =  addEdge(aux_left, down, ve);
+
+        }else{
+            aux_left = new Vertex("aux_left", down.getX(), start.getY(), start.getZ());
+            ve.put(aux_left, new ArrayList());
+            ve =  addEdge(start, aux_left, ve);
+            Vertex aux_left2 = new Vertex("aux_left2", down.getX(), up.getY(), start.getZ());
+            ve.put(aux_left2, new ArrayList());
+            ve =  addEdge(aux_left, down, ve);
+            ve =  addEdge(aux_left, aux_left2, ve);
+            ve =  addEdge(aux_left, up, ve);
+        }
+
+        return ve;
+
+    }
+    protected HashMap<Vertex, List> setAuxUp(Vertex start, Vertex left, Vertex right, HashMap<Vertex, List> ve){
+
+        Vertex aux_up;
+        if(right.getX() == start.getX()) {
+            ve =  addEdge(start, right, ve);
+            // ve =  addEdge(up, start, ve);
+        }
+
+        else if(right.getY() == left.getY()){
+            aux_up = new Vertex("aux_up", start.getX(), right.getY(), start.getZ());
+            ve.put(aux_up, new ArrayList());
+            ve =  addEdge(start, aux_up, ve);
+            ve =  addEdge(aux_up, right, ve);
+            ve =  addEdge(aux_up, left, ve);
+
+        }
+        else if(right.getY() <= left.getY()){
+            aux_up = new Vertex("aux_up", start.getX(), right.getY(), start.getZ());
+            ve.put(aux_up, new ArrayList());
+            ve =  addEdge(start, aux_up, ve);
+            Vertex aux_up2 = new Vertex("aux_up2", left.getX(), right.getY(), start.getZ());
+            ve.put(aux_up2, new ArrayList());
+            ve =  addEdge(aux_up, right, ve);
+            ve =  addEdge(aux_up, aux_up2, ve);
+            ve =  addEdge(aux_up, left, ve);
+
+        }else{
+            aux_up = new Vertex("aux_up", start.getX(), left.getY(), start.getZ());
+            ve.put(aux_up, new ArrayList());
+            ve =  addEdge(start, aux_up, ve);
+            Vertex aux_up2 = new Vertex("aux_up2", right.getX(), left.getY(), start.getZ());
+            ve.put(aux_up2, new ArrayList());
+            ve =  addEdge(aux_up, left, ve);
+            ve =  addEdge(aux_up, aux_up2, ve);
+            ve =  addEdge(aux_up, right, ve);
+        }
+
+        return ve;
+
+    }
+
+    protected HashMap<Vertex, List> setAuxDown(Vertex start, Vertex left, Vertex right, HashMap<Vertex, List> ve){
+
+        Vertex aux_down;
+        if(right.getX() == start.getX()) {
+            ve =  addEdge(start, right, ve);
+            // ve =  addEdge(up, start, ve);
+        }
+
+        else if(right.getY() == left.getY()){
+            aux_down = new Vertex("aux_down", start.getX(), right.getY(), start.getZ());
+            ve.put(aux_down, new ArrayList());
+            ve =  addEdge(start, aux_down, ve);
+            ve =  addEdge(aux_down, right, ve);
+            ve =  addEdge(aux_down, left, ve);
+
+        }
+        else if(right.getY() >= left.getY()){
+            aux_down = new Vertex("aux_down", start.getX(), right.getY(), start.getZ());
+            ve.put(aux_down, new ArrayList());
+            ve =  addEdge(start, aux_down, ve);
+            Vertex aux_down2 = new Vertex("aux_down2", left.getX(), right.getY(), start.getZ());
+            ve.put(aux_down2, new ArrayList());
+            ve =  addEdge(aux_down, right, ve);
+            ve =  addEdge(aux_down, aux_down2, ve);
+            ve =  addEdge(aux_down, left, ve);
+
+        }else{
+            aux_down = new Vertex("aux_down", start.getX(), left.getY(), start.getZ());
+            ve.put(aux_down, new ArrayList());
+            ve =  addEdge(start, aux_down, ve);
+            Vertex aux_down2 = new Vertex("aux_down2", right.getX(), left.getY(), start.getZ());
+            ve.put(aux_down2, new ArrayList());
+            ve =  addEdge(aux_down, left, ve);
+            ve =  addEdge(aux_down, aux_down2, ve);
+            ve =  addEdge(aux_down, right, ve);
+        }
+        return ve;
+    }
+
+    protected HashMap<Vertex, List> setAuxVandR(Vertex start, HashMap<Vertex, List> ve){
+        HashMap<Integer, List> map = classifyVertex(start, ve);
+        Vertex closed[] = new Vertex[4];
+        closed[right_up] = minDistance(start, map.get(right_up));
+        closed[left_up] = minDistance(start, map.get(left_up));
+        closed[right_down] = minDistance(start, map.get(right_down));
+        closed[left_down] = minDistance(start, map.get(left_down));
+
+        ve = setAuxRight(start, closed[right_up], closed[right_down], ve);
+        ve = setAuxLeft(start, closed[left_up], closed[left_down], ve);
+        ve = setAuxUp(start, closed[left_up], closed[right_up], ve);
+        ve = setAuxDown(start, closed[left_down], closed[right_down], ve);
+
+
+        return ve;
+
+
+    }
+
+
+    protected String calculatePath(Vertex start, Vertex end, HashMap<Vertex, List> ve){
+        Vertex fake_start;
+        Vertex fake_end;
+        if(!Cross.IsOverObstacle(start, end)){
+            return start.getString() +"," + end.getString();
+        }
+
+        if((fake_start = hasVertex_(start, ve)) != null) {
+            start = fake_start;
+        }
+        else {
+            ve.put(start, new ArrayList());
+            ve = setAuxVandR(start, ve);
+
+        }
+        if((fake_end = hasVertex_(end, ve)) != null) {
+            end = fake_end;
+        }
+        else {
+            ve.put(end, new ArrayList());
+            ve = setAuxVandR(end, ve);
+
+        }
+
+        return Graph.showPath(start, end, ve);
+    }
+
+
+    public String showPath(Vertex start, Vertex end){
+       return calculatePath(start, end, _set_of_ve);
+    }
+
+    public static void loadFloor(){
+        initializeRelationships(Edge.Edge_B1());
+        initializeRelationships(Edge.Edge_F1Bottom());
+        initializeRelationships(Edge.Edge_F1Left());
+        initializeRelationships(Edge.Edge_F1Right());
+        initializeRelationships(Edge.Edge_F2Bottom());
+        initializeRelationships(Edge.Edge_F2Top());
+        initializeRelationships(Edge.Edge_F2Center());
+
+        new FloorB1().store();
+        new FloorF1Bottom().store();
+        new FloorF1Left().store();
+        new FloorF1Right().store();
+        new FloorF2Top().store();
+        new FloorF2Bottom().store();
+        new FloorF2Center().store();
+    }
+
+    public static Floor getFloor(SubNumber sub){
+        return (Floor)_instance.get(sub);
+    }
+
+    public static void main(String[] args) {
+        LoadMethod.loadAll();
+        Floor floor = FloorB1.getFloor(SubNumber.B1Sub);
+       // Vertex s = new Vertex("sb", 0.5176, 0.1984, 1);
+       // Vertex e = new Vertex("end", 0.5176, 0.2801, 1);
+        Vertex s = Vertex.getVertex_(F1SubBottom.X3);
+        Vertex e = Vertex.getVertex_(F1SubBottom.Q2);
+        floor.showPath(s, e);
+        floor.showPath(s, e);
+        System.out.println(floor.showPath(s, e));
+
+        System.out.println("done");
+
+    }
+
+    public SubNumber getSubNO(){
+        return _sub_no;
+    }
+
 
 }

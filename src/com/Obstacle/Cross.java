@@ -1,13 +1,7 @@
 package com.Obstacle;
 
-import com.Path.DefinedVertex.B1Vertex;
 import com.Path.DefinedVertex.SubNumber;
-import com.Path.Dijkstra.SubGraph.Floor;
 import com.Path.Dijkstra.SubGraph.Vertex;
-import com.Path.Dijkstra.SubGraph.Graph;
-import com.sun.org.apache.bcel.internal.generic.SWAP;
-
-import javax.print.attribute.standard.MediaSize;
 
 /**
  * Created by toy on 15-5-10.
@@ -43,7 +37,7 @@ public class Cross {
     }
 
     public static boolean IsInScopePartB1(SubNumber no,Vertex v1, Vertex v2){
-        return !(v1.GetY() > 0.38 || v2.GetY() > 0.38);
+        return !(v1.getY() > 0.38 || v2.getY() > 0.38);
     }
 
     public static boolean IsOverObstacleB1Sub(Vertex v1, Vertex v2){
@@ -106,8 +100,8 @@ public class Cross {
     }
 
     public static void main(String[] args) {
-        Vertex v1 = new Vertex("v1", 0.573, 0.666,1);
-        Vertex v2 = new Vertex("v2", 0.573, 0.666,2);
+        Vertex v1 = new Vertex("v1", 0.6185, 0.1746,1);
+        Vertex v2 = new Vertex("v2", 0.6358, 0.2497,2);
         System.out.println(IsOverObstacle(v1,v2));
 
     }

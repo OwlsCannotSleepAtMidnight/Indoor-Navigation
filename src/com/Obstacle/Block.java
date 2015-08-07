@@ -49,50 +49,50 @@ public class Block {
     }
 
     public boolean isInBlock(Vertex v){
-        return (v.GetX() >= getLeft() && v.GetX() <= getRight() && v.GetY() <= getUp() && v.GetY() >= getDown());
+        return (v.getX() >= getLeft() && v.getX() <= getRight() && v.getY() <= getUp() && v.getY() >= getDown());
     }
 
     private boolean isSameSign(double a, double b){
         return  (Math.abs(a + b) == Math.abs(a) + Math.abs(b));
     }
     public boolean isOverBlock(Vertex v1, Vertex v2){
-        if(v1.GetX() > v2.GetX()){
+        if(v1.getX() > v2.getX()){
             Vertex tmp = v1;
             v1 = v2;
             v2 = tmp;
         }
 
-        if(v1.GetX()>=getRight())
+        if(v1.getX()>=getRight())
             return false;
-        if(v2.GetX()<=getRight())
+        if(v2.getX()<=getLeft())
             return false;
-        if(v1.GetY() >= getUp() && v2.GetY() >= getUp())
+        if(v1.getY() >= getUp() && v2.getY() >= getUp())
             return false;
-        if(v1.GetY() <= getDown() && v2.GetY() <= getDown())
+        if(v1.getY() <= getDown() && v2.getY() <= getDown())
             return false;
 
-        if(v1.GetX() == v2.GetX()){
+        if(v1.getX() == v2.getX()){
             double axis_y = (getUp() + getDown()) / 2;
-            if(v1.GetX() >= getLeft() && v1.GetX() <= getRight()
-                    && !isSameSign(axis_y-v1.GetY(),axis_y-v2.GetY()))
+            if(v1.getX() >= getLeft() && v1.getX() <= getRight()
+                    && !isSameSign(axis_y-v1.getY(),axis_y-v2.getY()))
                 return true;
         }
-        if(v1.GetY() == v2.GetY()){
+        if(v1.getY() == v2.getY()){
             double axis_x = (getLeft() + getRight()) / 2;
-            if(v1.GetX() <= axis_x && v2.GetX() >= axis_x
-                    && v1.GetY() <= getUp() && v1.GetY() >= getDown())
+            if(v1.getX() <= axis_x && v2.getX() >= axis_x
+                    && v1.getY() <= getUp() && v1.getY() >= getDown())
                 return true;
         }
-        double k_slope = (v1.GetY() - v2.GetY())/(v1.GetX() - v2.GetX());
-        double b_intercept = v1.GetY() - k_slope*v1.GetX();
+        double k_slope = (v1.getY() - v2.getY())/(v1.getX() - v2.getX());
+        double b_intercept = v1.getY() - k_slope*v1.getX();
         double top_intercept;
         double bottom_intercept;
         if(k_slope > 0){
             top_intercept = getUp() - k_slope*getLeft();
             bottom_intercept = getDown() - k_slope*getRight();
             if(b_intercept < top_intercept && b_intercept > bottom_intercept){
-                if(v2.GetX() >= getLeft() && v2.GetY() >= getDown()
-                        && v1.GetX() <= getRight() && v1.GetY() <= getUp())
+                if(v2.getX() >= getLeft() && v2.getY() >= getDown()
+                        && v1.getX() <= getRight() && v1.getY() <= getUp())
                     return true;
             }
         }
@@ -100,8 +100,8 @@ public class Block {
             top_intercept = getUp() - k_slope*getRight();
             bottom_intercept = getDown() - k_slope*getLeft();
             if(b_intercept < top_intercept && b_intercept > bottom_intercept){
-                if(v2.GetX() >= getLeft() && v2.GetY() <= getUp()
-                        && v1.GetX() <= getRight() && v1.GetY() >= getDown())
+                if(v2.getX() >= getLeft() && v2.getY() <= getUp()
+                        && v1.getX() <= getRight() && v1.getY() >= getDown())
                     return true;
             }
         }
@@ -252,7 +252,7 @@ public class Block {
 
     public static void main(String[] args) {
         Block.loadBlockB1();
-       // Block b = Block.getBlock(BlockB1.EL1);
+        Block b = Block.getBlock(BlockB1.EL1);
 
     }
 

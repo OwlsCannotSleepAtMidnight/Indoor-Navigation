@@ -1,8 +1,9 @@
 package com.soft.MyHTTP;
 
 import com.GetPositionClient.GetPositionClient;
-import com.Path.Dijkstra.SubGraph.B1SubFloor;
+import com.Path.DefinedVertex.SubNumber;
 import com.Path.Dijkstra.SubGraph.Floor;
+import com.Path.Dijkstra.SubGraph.LoadMethod;
 import com.Path.Dijkstra.SubGraph.Vertex;
 
 import javax.servlet.ServletException;
@@ -22,7 +23,7 @@ public class Servlet extends HttpServlet {
     String final_Path = new String();
     @Override
     public void init() throws ServletException {
-
+        LoadMethod.loadAll();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,7 +41,7 @@ public class Servlet extends HttpServlet {
 
 
 
-        Floor graph = new B1SubFloor(0);
+        Floor graph = Floor.getFloor(SubNumber.B1Sub);
 
         if (name.equals("locate")) {
             try {

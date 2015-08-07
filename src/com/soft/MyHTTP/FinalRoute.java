@@ -23,8 +23,8 @@ public class FinalRoute {
         double start_Z, end_Z;
         String finalRoute=null;
 
-        start_Z=start.GetZ();
-        end_Z=end.GetZ();
+        start_Z=start.getZ();
+        end_Z=end.getZ();
 
         if(start_Z==end_Z){
             if(start_Z==0){
@@ -54,7 +54,7 @@ public class FinalRoute {
                     Floor_G1 G1ToF1_1=new Floor_G1(start,nearestEvaluator);
                     temp1_G1ToF1=G1ToF1_1.RoutePlan();
 
-                    Vertex EvalToF1=new Vertex("E_G1toF1",nearestEvaluator.GetX(),nearestEvaluator.GetY(),1);
+                    Vertex EvalToF1=new Vertex("E_G1toF1",nearestEvaluator.getX(),nearestEvaluator.getY(),1);
                     Floor_1 G1ToF1_2=new Floor_1(EvalToF1,end);
                     temp2__G1ToF1=G1ToF1_2.RoutePlan();
 
@@ -72,7 +72,7 @@ public class FinalRoute {
                     Floor_G1 G1ToF2_1=new Floor_G1(start,nearestEvaluator);
                     temp1_G1ToF2=G1ToF2_1.RoutePlan();
 
-                    Vertex EvalToF2=new Vertex("E_G1toF2",nearestEvaluator.GetX(),nearestEvaluator.GetY(),2);
+                    Vertex EvalToF2=new Vertex("E_G1toF2",nearestEvaluator.getX(),nearestEvaluator.getY(),2);
                     Floor_2 G1ToF1_2=new Floor_2(EvalToF2,end);
                     temp2_G1ToF2=G1ToF1_2.RoutePlan();
 
@@ -92,7 +92,7 @@ public class FinalRoute {
                     Floor_1 F1ToG1_1=new Floor_1(start,nearestEvaluator);
                     temp1_F1ToG1=F1ToG1_1.RoutePlan();
 
-                    Vertex EvalToG1=new Vertex("E_G1toF2",nearestEvaluator.GetX(),nearestEvaluator.GetY(),0);
+                    Vertex EvalToG1=new Vertex("E_G1toF2",nearestEvaluator.getX(),nearestEvaluator.getY(),0);
                     Floor_G1 F1ToG1_2=new Floor_G1(EvalToG1,end);
                     temp2_F1ToG1=F1ToG1_2.RoutePlan();
 
@@ -114,7 +114,7 @@ public class FinalRoute {
                     Floor_1 F1ToF2_1=new Floor_1(start,nearestEvaluator);
                     temp1_F1ToF2=F1ToF2_1.RoutePlan();
 
-                    Vertex EvalToF2=new Vertex("E_F1toF2",nearestEvaluator.GetX(),nearestEvaluator.GetY(),2);
+                    Vertex EvalToF2=new Vertex("E_F1toF2",nearestEvaluator.getX(),nearestEvaluator.getY(),2);
                     Floor_2 F1ToF2_2=new Floor_2(EvalToF2,end);
                     temp2_F1ToF2=F1ToF2_2.RoutePlan();
 
@@ -135,7 +135,7 @@ public class FinalRoute {
                     Floor_2 F2ToG1_1=new Floor_2(start,nearestEvaluator);
                     temp1_F2ToG1=F2ToG1_1.RoutePlan();
 
-                    Vertex EvalToG1=new Vertex("E_F2toG1",nearestEvaluator.GetX(),nearestEvaluator.GetY(),0);
+                    Vertex EvalToG1=new Vertex("E_F2toG1",nearestEvaluator.getX(),nearestEvaluator.getY(),0);
                     Floor_G1 F2ToG1_2=new Floor_G1(EvalToG1,end);
                     temp2_F2ToG1=F2ToG1_2.RoutePlan();
 
@@ -157,7 +157,7 @@ public class FinalRoute {
                     Floor_2 F2ToF1_1=new Floor_2(start,nearestEvaluator);
                     temp1_F2ToF1=F2ToF1_1.RoutePlan();
 
-                    Vertex EvalToF1=new Vertex("E_F2toF1",nearestEvaluator.GetX(),nearestEvaluator.GetY(),1);
+                    Vertex EvalToF1=new Vertex("E_F2toF1",nearestEvaluator.getX(),nearestEvaluator.getY(),1);
                     Floor_1 F2ToF1_2=new Floor_1(EvalToF1,end);
                     temp2__F2ToF1=F2ToF1_2.RoutePlan();
 
@@ -195,18 +195,18 @@ public class FinalRoute {
 
         boolean inside = false;
 
-        if(s.GetX() <= e.GetX()){
-            if(v.GetX()>s.GetX() && v.GetX()<e.GetX() && v.GetY()>s.GetY() && v.GetY()<e.GetY()){
+        if(s.getX() <= e.getX()){
+            if(v.getX()>s.getX() && v.getX()<e.getX() && v.getY()>s.getY() && v.getY()<e.getY()){
                 inside = true;
             }
-             else if(v.GetX()>s.GetX() && v.GetX()<e.GetX() && v.GetY()<s.GetY() && v.GetY()>e.GetY() ){
+             else if(v.getX()>s.getX() && v.getX()<e.getX() && v.getY()<s.getY() && v.getY()>e.getY() ){
                 inside =true;
             }
         }
-        else if(s.GetX()>e.GetX()) {
-            if (v.GetX() > e.GetX() && v.GetX() < s.GetX() && v.GetY() < s.GetY() && v.GetY() > e.GetY()) {
+        else if(s.getX()>e.getX()) {
+            if (v.getX() > e.getX() && v.getX() < s.getX() && v.getY() < s.getY() && v.getY() > e.getY()) {
                 inside = true;
-            } else if (v.GetX() > e.GetX() && v.GetX() < s.GetX() && v.GetY() < e.GetY() && v.GetY() > s.GetY()) {
+            } else if (v.getX() > e.getX() && v.getX() < s.getX() && v.getY() < e.getY() && v.getY() > s.getY()) {
                 inside = true;
             }
         }
@@ -214,6 +214,6 @@ public class FinalRoute {
     }
     double GetDistance(Vertex v1, Vertex v2)
     {
-        return Math.sqrt(Math.pow(v1.GetX()-v2.GetX(),2) + Math.pow(v1.GetY()-v2.GetY(),2));
+        return Math.sqrt(Math.pow(v1.getX()-v2.getX(),2) + Math.pow(v1.getY()-v2.getY(),2));
     }
 }

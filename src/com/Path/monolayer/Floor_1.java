@@ -28,10 +28,11 @@ public class Floor_1 {
 
         if (Division.GetSubGraphNum(V_start).equals(Division.GetSubGraphNum(V_end))) {
             Floor subfloor = CreateSubFloor(Division.GetSubGraphNum(V_start));
-            subfloor.AnalyzeVertex(V_start.GetString(), 0);
-            subfloor.AnalyzeVertex(V_end.GetString(), 1);
-            subfloor.InitializeStartEnd();
-            path = subfloor.GetArrList();
+            path = subfloor.showPath(V_start, V_end);
+            //subfloor.AnalyzeVertex(V_start.GetString(), 0);
+           // subfloor.AnalyzeVertex(V_end.GetString(), 1);
+           // subfloor.InitializeStartEnd();
+           // path = subfloor.GetArrList();
 
             System.out.print(path);
             final_Output = path;
@@ -67,15 +68,17 @@ public class Floor_1 {
 
 
             String path_1, path_2;
-            S_subfloor.AnalyzeVertex(V_start.GetString(), 0);
-            S_subfloor.AnalyzeVertex( EssentialPoint.GetString(), 1);
-            S_subfloor.InitializeStartEnd();
-            path_1 = S_subfloor.GetArrList();
+            path_1 = S_subfloor.showPath(V_start, V_end);
+            //S_subfloor.AnalyzeVertex(V_start.GetString(), 0);
+            //S_subfloor.AnalyzeVertex( EssentialPoint.GetString(), 1);
+            //S_subfloor.InitializeStartEnd();
+            //path_1 = S_subfloor.GetArrList();
 
-            E_subfloor.AnalyzeVertex(EssentialPoint.GetString(), 0);
-            E_subfloor.AnalyzeVertex( V_end.GetString(), 1);
-            E_subfloor.InitializeStartEnd();
-            path_2 = E_subfloor.GetArrList();
+            path_2 = E_subfloor.showPath(V_start, V_end);
+           // E_subfloor.AnalyzeVertex(EssentialPoint.GetString(), 0);
+          //  E_subfloor.AnalyzeVertex( V_end.GetString(), 1);
+         //   E_subfloor.InitializeStartEnd();
+         //   path_2 = E_subfloor.GetArrList();
 
             final_Output=path_1+path_2;
         }
@@ -84,21 +87,24 @@ public class Floor_1 {
 
     Floor CreateSubFloor(SubNumber sn) {
         if (sn.equals(SubNumber.F1SubRight)) {
-            return new F1SubRightFloor(1);
+            return Floor.getFloor(SubNumber.F1SubRight);
+           // return new F1SubRightFloor(1);
         }
         else if (sn.equals(SubNumber.F1SubLeft)) {
-            return new F1SubLeftFloor(1);
+            return Floor.getFloor(SubNumber.F1SubLeft);
+          //  return new F1SubLeftFloor(1);
         }
         else
-            return new F1SubBottomFloor(1);
+            return Floor.getFloor(SubNumber.F1SubBottom);
+           // return new F1SubBottomFloor(1);
     }
 
     ArrayList<Vertex> CommonPoint(Floor start, Floor end)
     {
         ArrayList<Vertex>  commonList=new ArrayList<Vertex>();
 
-        if(start.GetSubNO().equals(SubNumber.F1SubLeft)&&end.GetSubNO().equals(SubNumber.F1SubRight)
-                ||start.GetSubNO().equals(SubNumber.F1SubRight)&&end.GetSubNO().equals(SubNumber.F1SubLeft))
+        if(start.getSubNO().equals(SubNumber.F1SubLeft)&&end.getSubNO().equals(SubNumber.F1SubRight)
+                ||start.getSubNO().equals(SubNumber.F1SubRight)&&end.getSubNO().equals(SubNumber.F1SubLeft))
         {
             //左子图与右子图的公共点
             commonList.add(new Vertex("K1",0.4992,0.6942,1));
@@ -108,14 +114,14 @@ public class Floor_1 {
             commonList.add(new Vertex("EBP1", 0.4992, 0.5018,1));
             commonList.add(new Vertex ("EBP2",0.4492, 0.8636, 1));
         }
-        else if((start.GetSubNO().equals(SubNumber.F1SubLeft)&&end.GetSubNO().equals(SubNumber.F1SubBottom)
-                ||start.GetSubNO().equals(SubNumber.F1SubBottom)&&end.GetSubNO().equals(SubNumber.F1SubLeft)))
+        else if((start.getSubNO().equals(SubNumber.F1SubLeft)&&end.getSubNO().equals(SubNumber.F1SubBottom)
+                ||start.getSubNO().equals(SubNumber.F1SubBottom)&&end.getSubNO().equals(SubNumber.F1SubLeft)))
         {
             //左子图与底子图的公共点
             commonList.add(new Vertex("Z3",0.4992,0.3806,1));
         }
-        else if ((start.GetSubNO().equals(SubNumber.F1SubRight)&&end.GetSubNO().equals(SubNumber.F1SubBottom)
-                ||start.GetSubNO().equals(SubNumber.F1SubBottom)&&end.GetSubNO().equals(SubNumber.F1SubRight)))
+        else if ((start.getSubNO().equals(SubNumber.F1SubRight)&&end.getSubNO().equals(SubNumber.F1SubBottom)
+                ||start.getSubNO().equals(SubNumber.F1SubBottom)&&end.getSubNO().equals(SubNumber.F1SubRight)))
         {
             //右子图与底子图的公共点
             commonList.add(new Vertex("Z3",0.4992,0.3806,1));
@@ -127,18 +133,18 @@ public class Floor_1 {
 
         boolean inside = false;
 
-        if(s.GetX() <= e.GetX()){
-            if(v.GetX()>s.GetX() && v.GetX()<e.GetX() && v.GetY()>s.GetY() && v.GetY()<e.GetY()){
+        if(s.getX() <= e.getX()){
+            if(v.getX()>s.getX() && v.getX()<e.getX() && v.getY()>s.getY() && v.getY()<e.getY()){
                 inside = true;
             }
-            else if(v.GetX()>s.GetX() && v.GetX()<e.GetX() && v.GetY()<s.GetY() && v.GetY()>e.GetY() ){
+            else if(v.getX()>s.getX() && v.getX()<e.getX() && v.getY()<s.getY() && v.getY()>e.getY() ){
                 inside =true;
             }
         }
-        else if(s.GetX()>e.GetX()) {
-            if (v.GetX() > e.GetX() && v.GetX() < s.GetX() && v.GetY() < s.GetY() && v.GetY() > e.GetY()) {
+        else if(s.getX()>e.getX()) {
+            if (v.getX() > e.getX() && v.getX() < s.getX() && v.getY() < s.getY() && v.getY() > e.getY()) {
                 inside = true;
-            } else if (v.GetX() > e.GetX() && v.GetX() < s.GetX() && v.GetY() < e.GetY() && v.GetY() > s.GetY()) {
+            } else if (v.getX() > e.getX() && v.getX() < s.getX() && v.getY() < e.getY() && v.getY() > s.getY()) {
                 inside = true;
             }
         }
@@ -148,6 +154,6 @@ public class Floor_1 {
 
     double GetDistance(Vertex v1, Vertex v2)
     {
-        return Math.sqrt(Math.pow(v1.GetX()-v2.GetX(),2) + Math.pow(v1.GetY()-v2.GetY(),2));
+        return Math.sqrt(Math.pow(v1.getX()-v2.getX(),2) + Math.pow(v1.getY()-v2.getY(),2));
     }
 }
