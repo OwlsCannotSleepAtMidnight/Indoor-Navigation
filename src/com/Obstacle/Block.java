@@ -64,7 +64,7 @@ public class Block {
 
         if(v1.GetX()>=getRight())
             return false;
-        if(v2.GetX()<=getRight())
+        if(v2.GetX()<=getLeft())
             return false;
         if(v1.GetY() >= getUp() && v2.GetY() >= getUp())
             return false;
