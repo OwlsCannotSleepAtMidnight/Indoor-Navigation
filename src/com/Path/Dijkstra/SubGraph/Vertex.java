@@ -16,7 +16,6 @@ public class Vertex {
     protected double _x;
     protected double _y;
     protected double _z;
-    protected double _cost;
 
     protected static Dictionary _instance = new Hashtable();
 
@@ -50,21 +49,13 @@ public class Vertex {
     public static ArrayList Vertex_F2Bottom(){
         return _sub_f2_bottom;
     }
-
-    public static void initializeCost(){
-        Enumeration e2 = _instance.elements();
-        while(e2.hasMoreElements()){
-            Vertex v = (Vertex)e2.nextElement();
-            v.setCost(9999);
-        }
-    }
+    
 
     public Vertex(){
         _name = "None";
         _x = 99;
         _y = 99;
         _z = 99;
-        _cost = 9999;
         _id = null;
     }
 
@@ -74,7 +65,6 @@ public class Vertex {
         _x = v.getX();
         _y = v.getY();
         _z = v.getZ();
-        _cost = v.getCost();
     }
 
     public Vertex(String n, double x, double y, double z){
@@ -92,7 +82,6 @@ public class Vertex {
         _x = x;
         _y = y;
         _z = z;
-        _cost = 9999;
     }
     public void setName(String n){
         _name = n;
@@ -136,13 +125,6 @@ public class Vertex {
         return _z;
     }
 
-    public void setCost(double c){
-        _cost = c;
-    }
-
-    public double getCost(){
-        return _cost;
-    }
     public String getString(){
         return _x+","+_y+","+_z;
     }

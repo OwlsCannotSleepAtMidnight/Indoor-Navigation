@@ -7,51 +7,89 @@ import java.util.*;
  */
 public class Graph {
 
-    protected static HashMap link;
-    public static Edge min_value(HashSet set){
-        double min = 9999;
-        Edge min_edge = null;
-        Iterator<Vertex> it=set.iterator();
-        while(it.hasNext()) {
-            Vertex current_v = it.next();
-            ArrayList<Edge> list = (ArrayList)link.get(current_v);
-            for (int i=0;i<list.size();i++) {
-                Vertex to = list.get(i).getTo();
-                    if (!set.contains(to)) {
-                        double to_cost = list.get(i).getWeight()+current_v.getCost();
-                        if (to.getCost() > to_cost) {
-                            to.setCost(to_cost);
+    protected HashMap<Vertex, ArrayList<Edge>> _link;
+    protected HashMap<Vertex, Double> _sel_points;
+    protected Set _added_vertex;
+    protected Stack<Edge> _sel_path;
 
-                        }
-                        if(min>to_cost) {
-                            min = to.getCost();
-                            min_edge = list.get(i);
-                        }
-                    }
-
-            }
-        }
-        return min_edge;
+    private Graph(HashMap map){
+        _link = map;
+        _sel_points = new HashMap<Vertex, Double>();
+        _sel_path = new Stack<Edge>();
+        _added_vertex = new HashSet<Vertex>();
     }
 
+    public Set getaddedSet(){
+        return _added_vertex;
+    }
+
+    public void addAddedSet(Vertex v){
+        _added_vertex.add(v);
+    }
+
+    public void updateAddedSet(){
+        for(Vertex each: _sel_points.keySet()){
+            _added_vertex.add(each);
+        }
+    }
+
+    public Stack<Edge> getSelEdge(){
+        return _sel_path;
+
+    }
+
+    public void addSelEdge(Edge edge){
+        if(!_sel_path.contains(edge))
+            _sel_path.push(edge);
+    }
+
+
+    public HashMap getSelPoints(){
+        return _sel_points;
+    }
+
+    public Edge getMinEdge(){
+        double min_val = 9999;
+        Edge min_e = null;
+        for(Object each: _added_vertex){
+            ArrayList<Edge> edge_list = _link.get(each);
+            for(Edge this_edge: edge_list){
+                Vertex  to = this_edge.getTo();
+                if(!_added_vertex.contains(to)
+                        || _sel_points.get(to) > _sel_points.get(each) + this_edge.getWeight()) {
+                    _sel_points.put(to, _sel_points.get(each) + this_edge.getWeight());
+                }
+                if(min_val > _sel_points.get(to) && !_added_vertex.contains(to)){
+                    min_e = this_edge;
+                    min_val = _sel_points.get(to);
+                }
+            }
+
+        }
+        return min_e;
+    }
+
+
     public static Stack<Edge> dijkstra_algorithm(Vertex start, Vertex end, HashMap map){
-        Stack<Edge> shortestpath = new Stack<Edge>();
-        link = map;
-        HashSet<Vertex> set = new HashSet<Vertex>();
+        Graph graph = new Graph(map);
+        HashMap sel_point = graph.getSelPoints();
+
+        sel_point.put(start, 0.0);
+        graph.addAddedSet(start);
         Vertex p = start;
-        start.setCost(0);
-        int counter=0;
+
+      //  start.setCost(0);
         while(p != end){
-            set.add(p);
-            Edge min_edge = min_value(set);
-            shortestpath.push(min_edge);
+            Edge min_edge = graph.getMinEdge();
+            graph.addSelEdge(min_edge);
             p = min_edge.getTo();
+            graph.addAddedSet(p);
             if(p==null) {
                 break;
             }
         }
-        Vertex.initializeCost();
-        return shortestpath;
+       // Vertex.initializeCost();
+        return graph.getSelEdge();
 
     }
     public static ArrayList<Vertex> shortest_path(Vertex start,Vertex end,Stack<Edge> sp){
@@ -72,7 +110,7 @@ public class Graph {
     }
 
     public static String getString(ArrayList<Vertex> list){
-        String path = new String();
+        String path = "";
         for(int i = list.size()-1;i>=0;i--){
             path += list.get(i).getString();
             path += ",";
@@ -91,9 +129,10 @@ public class Graph {
 
     public static void main(String[] args) {
         System.out.println("hello sb");
-        int _stair =2;
-        Graph _path = new Graph();
-
+        HashMap<String, Integer> abs = new HashMap<String, Integer>();
+        abs.put("asd", 1);
+        abs.put("asd", 2);
+        System.out.println(abs.get("asd"));
    }
 
 }
