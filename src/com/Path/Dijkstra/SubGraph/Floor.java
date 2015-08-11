@@ -118,6 +118,8 @@ public abstract class Floor {
     protected HashMap<Vertex, List> setAuxRight(Vertex start, Vertex up, Vertex down, HashMap<Vertex, List> ve){
 
         Vertex aux_right;
+        if(down == null || up == null)
+            return ve;
         if(up.getY() == start.getY()) {
                 ve = addEdge(start, up, ve);
             // ve =  addEdge((up, start)))
@@ -160,6 +162,8 @@ public abstract class Floor {
     protected HashMap<Vertex, List> setAuxLeft(Vertex start, Vertex up, Vertex down, HashMap<Vertex, List> ve){
 
         Vertex aux_left;
+        if(up == null || down == null)
+            return ve;
         if(up.getY() == start.getY()) {
             ve =  addEdge(start, up, ve);
             // ve =  addEdge(up, start, ve);
@@ -200,6 +204,8 @@ public abstract class Floor {
     protected HashMap<Vertex, List> setAuxUp(Vertex start, Vertex left, Vertex right, HashMap<Vertex, List> ve){
 
         Vertex aux_up;
+        if(left == null || right == null)
+            return ve;
         if(right.getX() == start.getX()) {
             ve =  addEdge(start, right, ve);
             // ve =  addEdge(up, start, ve);
@@ -241,6 +247,8 @@ public abstract class Floor {
     protected HashMap<Vertex, List> setAuxDown(Vertex start, Vertex left, Vertex right, HashMap<Vertex, List> ve){
 
         Vertex aux_down;
+        if(left == null || right == null)
+            return ve;
         if(right.getX() == start.getX()) {
             ve =  addEdge(start, right, ve);
             // ve =  addEdge(up, start, ve);

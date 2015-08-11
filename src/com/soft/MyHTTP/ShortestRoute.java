@@ -1,5 +1,6 @@
 package com.soft.MyHTTP;
 
+import com.Path.Dijkstra.SubGraph.LoadMethod;
 import com.Path.Dijkstra.SubGraph.Vertex;
 
 import java.util.ArrayList;
@@ -42,7 +43,6 @@ public class ShortestRoute {
               //  System.out.print(target.get(i).GetName() + "  ");
                 fullList.add(target.get(i));
             }
-            System.out.println();
 
         }
     }
@@ -128,20 +128,30 @@ public class ShortestRoute {
 
 
     public static void main(String[] args) {
+        LoadMethod.loadAll();
 
         ArrayList<Vertex>  commonList=new ArrayList<Vertex>();
         commonList.add(new Vertex("Q1",0.3799,0.1746,1));
         commonList.add(new Vertex("S8",0.6358,0.2497,1));
-        commonList.add(new Vertex("S2",0.3991,0.0746,1));
-        commonList.add(new Vertex("B2",0.3279,0.5711,1));
-        commonList.add(new Vertex("B6",0.7878,0.5711,1));
+        commonList.add(new Vertex("S2", 0.3991, 0.0746, 1));
+        commonList.add(new Vertex("B2", 0.3279, 0.5711, 1));
+        commonList.add(new Vertex("B6", 0.7878, 0.5711, 1));
+
 
         ShortestRoute stR = new ShortestRoute(commonList);
+
         stR.fullSort(stR.sortArray, new ArrayList<Vertex>());
+
+
         ArrayList<Vertex> ll =stR.fullList;
         //System.out.println(ll.size());
         ArrayList<Vertex> llT=stR.CalculateShortesrt(ll);
+        System.out.println("assert1");
+
+
         String LLTRoute = stR.getPlannedRoute();
+        System.out.println("assert2");
+
         System.out.println("The shortest Route is :");
        // System.out.println(llT.size());
         for(int i= 0; i<llT.size(); i++){

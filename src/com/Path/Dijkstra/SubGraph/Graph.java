@@ -81,6 +81,8 @@ public class Graph {
       //  start.setCost(0);
         while(p != end){
             Edge min_edge = graph.getMinEdge();
+            if(min_edge == null)
+                break;
             graph.addSelEdge(min_edge);
             p = min_edge.getTo();
             graph.addAddedSet(p);
