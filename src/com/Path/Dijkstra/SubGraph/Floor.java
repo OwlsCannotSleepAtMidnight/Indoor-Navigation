@@ -2,6 +2,7 @@ package com.Path.Dijkstra.SubGraph;
 
 import com.Obstacle.Cross;
 import com.Path.DefinedVertex.F1SubBottom;
+import com.Path.DefinedVertex.F1SubRight;
 import com.Path.DefinedVertex.SubNumber;
 
 import java.util.*;
@@ -11,7 +12,7 @@ import java.util.*;
  */
 public abstract class Floor {
     protected SubNumber _sub_no;
-    protected static HashMap<Vertex, List> _set_of_ve = new HashMap<Vertex, List>();
+    protected  HashMap<Vertex, List> _set_of_ve = new HashMap<Vertex, List>();
 
     public static final int left_up = 0;
     public static final int left_down = 1;
@@ -37,7 +38,7 @@ public abstract class Floor {
 
     protected abstract List getEdges_();
 
-    public static void initializeRelationships(List<Edge> edges){
+    public void initializeRelationships(List<Edge> edges){
         for(Edge each: edges){
             if(!_set_of_ve.keySet().contains(each.getFrom())){
                 _set_of_ve.put(each.getFrom(),new ArrayList<Edge>());
@@ -106,8 +107,11 @@ public abstract class Floor {
     }
 
     static HashMap<Vertex, List> addEdge(Vertex v1, Vertex v2, HashMap<Vertex, List> ve){
-        if(!Cross.IsOverObstacle(v1, v2))
+        if(!Cross.IsOverObstacle(v1, v2)) {
             ve.get(v1).add(new Edge(v1, v2));
+            ve.get(v2).add(new Edge(v2, v1));
+
+        }
         return ve;
     }
 
@@ -326,14 +330,6 @@ public abstract class Floor {
     }
 
     public static void loadFloor(){
-        initializeRelationships(Edge.Edge_B1());
-        initializeRelationships(Edge.Edge_F1Bottom());
-        initializeRelationships(Edge.Edge_F1Left());
-        initializeRelationships(Edge.Edge_F1Right());
-        initializeRelationships(Edge.Edge_F2Bottom());
-        initializeRelationships(Edge.Edge_F2Top());
-        initializeRelationships(Edge.Edge_F2Center());
-
         new FloorB1().store();
         new FloorF1Bottom().store();
         new FloorF1Left().store();
@@ -341,6 +337,17 @@ public abstract class Floor {
         new FloorF2Top().store();
         new FloorF2Bottom().store();
         new FloorF2Center().store();
+
+        ((Floor)_instance.get(SubNumber.B1Sub)).initializeRelationships(Edge.Edge_B1());
+        ((Floor)_instance.get(SubNumber.F1SubBottom)).initializeRelationships(Edge.Edge_F1Bottom());
+        ((Floor)_instance.get(SubNumber.F1SubLeft)).initializeRelationships(Edge.Edge_F1Left());
+        ((Floor)_instance.get(SubNumber.F1SubRight)).initializeRelationships(Edge.Edge_F1Right());
+        ((Floor)_instance.get(SubNumber.F2SubBottom)).initializeRelationships(Edge.Edge_F2Bottom());
+        ((Floor)_instance.get(SubNumber.F2SubCenter)).initializeRelationships(Edge.Edge_F2Center());
+        ((Floor)_instance.get(SubNumber.F2SubTop)).initializeRelationships(Edge.Edge_F2Top());
+
+
+
     }
 
     public static Floor getFloor(SubNumber sub){

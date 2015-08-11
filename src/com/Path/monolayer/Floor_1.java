@@ -68,13 +68,13 @@ public class Floor_1 {
 
 
             String path_1, path_2;
-            path_1 = S_subfloor.showPath(V_start, V_end);
+            path_1 = S_subfloor.showPath(V_start, EssentialPoint);
             //S_subfloor.AnalyzeVertex(V_start.GetString(), 0);
             //S_subfloor.AnalyzeVertex( EssentialPoint.GetString(), 1);
             //S_subfloor.InitializeStartEnd();
             //path_1 = S_subfloor.GetArrList();
 
-            path_2 = E_subfloor.showPath(V_start, V_end);
+            path_2 = E_subfloor.showPath(EssentialPoint , V_end);
            // E_subfloor.AnalyzeVertex(EssentialPoint.GetString(), 0);
           //  E_subfloor.AnalyzeVertex( V_end.GetString(), 1);
          //   E_subfloor.InitializeStartEnd();

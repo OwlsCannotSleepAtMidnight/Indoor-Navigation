@@ -56,10 +56,6 @@ public class Servlet extends HttpServlet {
         }
         if (name.equals("test")) {
             try {
-//                graph.AnalyzeVertex("[0.11, 0.1, 0.0]",0);
-//                graph.AnalyzeVertex("[0.72, 0.37, 0.0]",1);
-//                graph.InitializeStartEnd();
-//                out.println(graph.GetArrList());
                 out.print("0.1,0.2,0.0");
 
             } catch (Exception e) {
@@ -76,11 +72,6 @@ public class Servlet extends HttpServlet {
                 String arr_str[] = request.getParameter("Points").split("/");
                 start = arr_str[0].replaceAll("\\s", "");
                 end = arr_str[1].replaceAll("\\s", "");
-                //graph.AnalyzeVertex(start, 0);
-               // graph.AnalyzeVertex(end, 1);
-               // graph.InitializeStartEnd();
-                //final_Path = graph.GetArrList();
-               // out.print(final_Path);
                 Vertex final_Start, final_End;
                 final_Start=String2Vertex(start,"ThisPoint");
                 final_End=String2Vertex(end,"Destination");
