@@ -13,7 +13,7 @@ public class ShortestRoute {
     public ArrayList<Vertex> sortArray = new ArrayList();
     public String plannedRoute;
     public int ArrageSize;
-    ArrayList<Vertex> fullList = new ArrayList<>();
+    ArrayList<Vertex> fullList = new ArrayList<Vertex>();
 
     public ShortestRoute(ArrayList<Vertex> inArray){
 
@@ -53,8 +53,8 @@ public class ShortestRoute {
         Vertex start = inArrayList.get(0);
         Vertex end = inArrayList.get(inArrayList.size()-1);
 
-        ArrayList<Vertex> tempList = new ArrayList<>();
-        ArrayList<Vertex> shortestList =new ArrayList<>();
+        ArrayList<Vertex> tempList = new ArrayList<Vertex>();
+        ArrayList<Vertex> shortestList =new ArrayList<Vertex>();
 
         for(int i = 0; i<allArray.size();){
             if(i%ArrageSize==0){
@@ -98,8 +98,8 @@ public class ShortestRoute {
 
 
             for(int j = 0; j<StoArray.size()-1;j++) {
-                 deltaX = Math.pow((StoArray.get(j).GetX() - StoArray.get(j + 1).GetX()), 2);
-                 deltaY = Math.pow((StoArray.get(j).GetY() - StoArray.get(j + 1).GetY()), 2);
+                 deltaX = Math.pow((StoArray.get(j).getX() - StoArray.get(j + 1).getX()), 2);
+                 deltaY = Math.pow((StoArray.get(j).getY() - StoArray.get(j + 1).getY()), 2);
                  tempDist = Math.sqrt(deltaX+deltaY);
                  shortestDistance += tempDist;
             }
@@ -109,7 +109,7 @@ public class ShortestRoute {
     }
 
     public ArrayList<Vertex> strToArrayList(String s){
-        ArrayList<Vertex> strArray= new ArrayList<>();
+        ArrayList<Vertex> strArray= new ArrayList<Vertex>();
         String[] tempString =s.split(",");
 
         for(int i =0; i<tempString.length; i+=3){
@@ -145,7 +145,7 @@ public class ShortestRoute {
         System.out.println("The shortest Route is :");
        // System.out.println(llT.size());
         for(int i= 0; i<llT.size(); i++){
-            System.out.print(llT.get(i).GetName() + " ");
+            System.out.print(llT.get(i).getName() + " ");
         }
         System.out.println();
         System.out.println("All points of shortest Route are :");
