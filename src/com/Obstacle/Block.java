@@ -64,11 +64,7 @@ public class Block {
 
         if(v1.getX()>=getRight())
             return false;
-<<<<<<< HEAD
         if(v2.getX()<=getLeft())
-=======
-        if(v2.GetX()<=getLeft())
->>>>>>> ebabc4306a9f003025927e1ac09bfffbc360cfec
             return false;
         if(v1.getY() >= getUp() && v2.getY() >= getUp())
             return false;
