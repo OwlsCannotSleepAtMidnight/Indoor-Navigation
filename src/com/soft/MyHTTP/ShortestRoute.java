@@ -11,6 +11,7 @@ public class ShortestRoute {
 
     public ArrayList<Vertex> inArrayList=new ArrayList();
     public ArrayList<Vertex> sortArray = new ArrayList();
+    public String plannedRoute;
     public int ArrageSize;
     ArrayList<Vertex> fullList = new ArrayList<>();
 
@@ -38,7 +39,7 @@ public class ShortestRoute {
 
         if (target.size() ==ArrageSize) {
             for (int i=0; i<target.size();i++) {
-                System.out.print(target.get(i).GetName() + "  ");
+              //  System.out.print(target.get(i).GetName() + "  ");
                 fullList.add(target.get(i));
             }
             System.out.println();
@@ -80,14 +81,19 @@ public class ShortestRoute {
         return shortestList;
     }
 
+    public String getPlannedRoute(){
+        return plannedRoute;
+    }
+
     public double getDistance(ArrayList<Vertex> shortestArray){
         double shortestDistance = 0;
-
+        plannedRoute ="";
         for (int i =0; i<shortestArray.size()-1;i++){
 
             double deltaX, deltaY, tempDist;
             FinalRoute tempFinal = new FinalRoute(shortestArray.get(i),shortestArray.get(i+1));
             String tempRoute = tempFinal.CreateFinalPath();
+            plannedRoute += tempRoute;
             ArrayList<Vertex> StoArray = strToArrayList(tempRoute);
 
 
@@ -135,11 +141,17 @@ public class ShortestRoute {
         ArrayList<Vertex> ll =stR.fullList;
         //System.out.println(ll.size());
         ArrayList<Vertex> llT=stR.CalculateShortesrt(ll);
+        String LLTRoute = stR.getPlannedRoute();
         System.out.println("The shortest Route is :");
        // System.out.println(llT.size());
         for(int i= 0; i<llT.size(); i++){
             System.out.print(llT.get(i).GetName() + " ");
         }
+        System.out.println();
+        System.out.println("All points of shortest Route are :");
+        System.out.println(LLTRoute);
+
+
 
     }
 
