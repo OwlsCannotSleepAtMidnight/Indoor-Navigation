@@ -34,7 +34,7 @@ public class Floor_1 {
            // subfloor.InitializeStartEnd();
            // path = subfloor.GetArrList();
 
-            System.out.print(path);
+           // System.out.print(path);
             final_Output = path;
         }
         else {

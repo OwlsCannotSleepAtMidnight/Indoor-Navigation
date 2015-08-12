@@ -118,8 +118,13 @@ public abstract class Floor {
     protected HashMap<Vertex, List> setAuxRight(Vertex start, Vertex up, Vertex down, HashMap<Vertex, List> ve){
 
         Vertex aux_right;
-        if(down == null || up == null)
+        if(down == null && up == null)
             return ve;
+        if(down == null)
+            down = new Vertex("down", 99,-99,-1);
+        if(up == null)
+            up = new Vertex("up", 99, 99, -1);
+
         if(up.getY() == start.getY()) {
                 ve = addEdge(start, up, ve);
             // ve =  addEdge((up, start)))
@@ -162,8 +167,14 @@ public abstract class Floor {
     protected HashMap<Vertex, List> setAuxLeft(Vertex start, Vertex up, Vertex down, HashMap<Vertex, List> ve){
 
         Vertex aux_left;
-        if(up == null || down == null)
+        if(up == null && down == null)
             return ve;
+
+        if(down == null)
+            down = new Vertex("down", -99,-99,-1);
+        if(up == null)
+            up = new Vertex("up", -99, 99, -1);
+
         if(up.getY() == start.getY()) {
             ve =  addEdge(start, up, ve);
             // ve =  addEdge(up, start, ve);
@@ -204,8 +215,14 @@ public abstract class Floor {
     protected HashMap<Vertex, List> setAuxUp(Vertex start, Vertex left, Vertex right, HashMap<Vertex, List> ve){
 
         Vertex aux_up;
-        if(left == null || right == null)
+        if(left == null && right == null)
             return ve;
+        if(left == null)
+            left = new Vertex("left", -99, 99, -1);
+        if(right == null)
+            right = new Vertex("right", 99, 99, -1);
+
+
         if(right.getX() == start.getX()) {
             ve =  addEdge(start, right, ve);
             // ve =  addEdge(up, start, ve);
@@ -247,8 +264,13 @@ public abstract class Floor {
     protected HashMap<Vertex, List> setAuxDown(Vertex start, Vertex left, Vertex right, HashMap<Vertex, List> ve){
 
         Vertex aux_down;
-        if(left == null || right == null)
+        if(left == null && right == null)
             return ve;
+        if(left == null)
+            left = new Vertex("left", -99, -99, -1);
+        if(right == null)
+            right = new Vertex("right", 99, -99, -1);
+
         if(right.getX() == start.getX()) {
             ve =  addEdge(start, right, ve);
             // ve =  addEdge(up, start, ve);

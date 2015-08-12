@@ -150,7 +150,6 @@ public class ShortestRoute {
 
 
         String LLTRoute = stR.getPlannedRoute();
-        System.out.println("assert2");
 
         System.out.println("The shortest Route is :");
        // System.out.println(llT.size());
