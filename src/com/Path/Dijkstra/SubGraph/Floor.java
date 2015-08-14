@@ -331,7 +331,7 @@ public abstract class Floor {
         Vertex fake_start;
         Vertex fake_end;
         if(!Cross.IsOverObstacle(start, end)){
-            return start.getString() +"," + end.getString();
+            return start.getString() +"," + end.getString()+",";
         }
 
         if((fake_start = hasVertex_(start, ve)) != null) {
