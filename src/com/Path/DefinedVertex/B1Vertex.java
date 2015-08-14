@@ -30,7 +30,7 @@ public enum B1Vertex{
     ES2NE,
     ES2SE,
     ES3NE,
-    ES3SE,
+    ES3SE, /* p 038_ 023_ 0*/
     ES4NW,
     ES4SW,
     start_auxiliary_pos2,
@@ -38,7 +38,7 @@ public enum B1Vertex{
     start_auxiliary_pos3,
     end_auxiliary_pos3,
     start_auxiliary_pos4,
-    end_auxiliary_pos4;
-
+    end_auxiliary_pos4,
+    p0_0_0,
 }
 

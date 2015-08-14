@@ -23,7 +23,7 @@ public class Vertex {
 
     protected static Dictionary _instance = new Hashtable();
 
-    private static ArrayList _sub_b1 = new ArrayList();
+    /*private static ArrayList _sub_b1 = new ArrayList();
     private static ArrayList _sub_f1_left = new ArrayList();
     private static ArrayList _sub_f1_right = new ArrayList();
     private static ArrayList _sub_f1_bottom = new ArrayList();
@@ -32,7 +32,7 @@ public class Vertex {
     private static ArrayList _sub_f2_bottom = new ArrayList();
 
 
-    public static ArrayList Vertex_B1(){
+    public static ArrayList Vertex_B1x(){
         return _sub_b1;
     }
     public static ArrayList Vertex_F1Left(){
@@ -53,7 +53,7 @@ public class Vertex {
     public static ArrayList Vertex_F2Bottom(){
         return _sub_f2_bottom;
     }
-
+*/
 
     public Vertex(){
         _name = "None";
