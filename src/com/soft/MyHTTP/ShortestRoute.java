@@ -64,7 +64,7 @@ public class ShortestRoute {
                 }
                 tempList.add(0,start);
                 tempList.add(end);
-                System.out.println("SB");
+              //  System.out.println("SB");
             }
 
             if(getDistance(tempList)<shortestRoute) {
@@ -131,11 +131,12 @@ public class ShortestRoute {
         LoadMethod.loadAll();
 
         ArrayList<Vertex>  commonList=new ArrayList<Vertex>();
-        commonList.add(new Vertex("Q1",0.3799,0.1746,1));
-        commonList.add(new Vertex("S8",0.6358,0.2497,1));
-        commonList.add(new Vertex("S2", 0.3991, 0.0746, 1));
-        commonList.add(new Vertex("B2", 0.3279, 0.5711, 1));
-        commonList.add(new Vertex("B6", 0.7878, 0.5711, 1));
+        commonList.add(new Vertex("D1",0.2606, 0.0419, 2));
+        commonList.add(new Vertex("E6",0.0316, 0.8636, 2));
+        commonList.add(new Vertex("S32", 0.8436, 0.7404, 2));
+        commonList.add(new Vertex("E8", 0.3183, 0.9713, 1));
+        commonList.add(new Vertex("SC1", 0.2009, 0.5018, 2));
+        commonList.add(new Vertex("C6",  0.6666, 0.5711, 2));
 
 
         ShortestRoute stR = new ShortestRoute(commonList);
@@ -144,10 +145,7 @@ public class ShortestRoute {
 
 
         ArrayList<Vertex> ll =stR.fullList;
-        //System.out.println(ll.size());
         ArrayList<Vertex> llT=stR.CalculateShortesrt(ll);
-        System.out.println("assert1");
-
 
         String LLTRoute = stR.getPlannedRoute();
 
@@ -159,8 +157,6 @@ public class ShortestRoute {
         System.out.println();
         System.out.println("All points of shortest Route are :");
         System.out.println(LLTRoute);
-
-
 
     }
 

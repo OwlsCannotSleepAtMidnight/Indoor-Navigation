@@ -47,7 +47,7 @@ public class FinalRoute {
                     Evaluator.add(new Vertex("EL2", 0.8552,0.0553,0));
                     Evaluator.add(new Vertex("EL3", 0.3087,0.3344,0));
                     Evaluator.add(new Vertex("EL4", 0.6916,0.3344,0));
-                    nearestEvaluator=nearEvaluator(Evaluator,start,end);
+                    nearestEvaluator=nearEvaluator(Evaluator,start);
 
                     String temp1_G1ToF1;
                     String temp2__G1ToF1;
@@ -65,7 +65,7 @@ public class FinalRoute {
                     Evaluator.add(new Vertex("EL2", 0.8552,0.0553,0));
                     Evaluator.add(new Vertex("EL3", 0.3087,0.3344,0));
                     Evaluator.add(new Vertex("EL4", 0.6916,0.3344,0));
-                    nearestEvaluator=nearEvaluator(Evaluator,start,end);
+                    nearestEvaluator=nearEvaluator(Evaluator,start);
 
                     String temp1_G1ToF2;
                     String temp2_G1ToF2;
@@ -85,7 +85,7 @@ public class FinalRoute {
                     Evaluator.add(new Vertex("EL2", 0.8552,0.0553,1));
                     Evaluator.add(new Vertex("EL3", 0.3087,0.3344,1));
                     Evaluator.add(new Vertex("EL4", 0.6916,0.3344,1));
-                    nearestEvaluator=nearEvaluator(Evaluator,start,end);
+                    nearestEvaluator=nearEvaluator(Evaluator,start);
 
                     String temp1_F1ToG1;
                     String temp2_F1ToG1;
@@ -107,7 +107,7 @@ public class FinalRoute {
                     Evaluator.add(new Vertex("EL6",0.6878,0.6750,1));
                     Evaluator.add(new Vertex("EL7", 0.1432,0.902,1));
                     Evaluator.add(new Vertex("EL8", 0.8552,0.9559,1));
-                    nearestEvaluator=nearEvaluator(Evaluator,start,end);
+                    nearestEvaluator=nearEvaluator(Evaluator,start);
 
                     String temp1_F1ToF2;
                     String temp2_F1ToF2;
@@ -128,7 +128,7 @@ public class FinalRoute {
                     Evaluator.add(new Vertex("EL2", 0.8552,0.0553,2));
                     Evaluator.add(new Vertex("EL3", 0.3087,0.3344,2));
                     Evaluator.add(new Vertex("EL4", 0.6916,0.3344,2));
-                    nearestEvaluator=nearEvaluator(Evaluator,start,end);
+                    nearestEvaluator=nearEvaluator(Evaluator,start);
 
                     String temp1_F2ToG1;
                     String temp2_F2ToG1;
@@ -150,7 +150,7 @@ public class FinalRoute {
                     Evaluator.add(new Vertex("EL6",0.6878,0.6750,2));
                     Evaluator.add(new Vertex("EL7", 0.1432,0.902,2));
                     Evaluator.add(new Vertex("EL8", 0.8552,0.9559,2));
-                    nearestEvaluator=nearEvaluator(Evaluator,start,end);
+                    nearestEvaluator=nearEvaluator(Evaluator,start);
 
                     String temp1_F2ToF1;
                     String temp2__F2ToF1;
@@ -167,17 +167,20 @@ public class FinalRoute {
         }
         return  finalRoute;
     }
-    public Vertex nearEvaluator(ArrayList<Vertex> arrList, Vertex vStart, Vertex vEnd){
+    public Vertex nearEvaluator(ArrayList<Vertex> arrList, Vertex vStart){
         double min=9999;
         Vertex nearEval=new Vertex();
         ArrayList<Vertex> tmpInside = new ArrayList<Vertex>();
-        for(int i=0;i<arrList.size();i++ ) {
-            if (inRectangle(arrList.get(i), vStart, vEnd))
-                tmpInside.add(arrList.get(i));
-            if (GetDistance(vStart, arrList.get(i)) < min) {
-                min = GetDistance(vStart, arrList.get(i));
+        double initDistance = getDistance(vStart,arrList.get(0));
+        for(int i=1;i<arrList.size();i++ ) {
+            if(getDistance(vStart,arrList.get(i))<initDistance){
                 nearEval = arrList.get(i);
             }
+            else {
+                nearEval = arrList.get(0);
+            }
+
+
         }
             if (!tmpInside.isEmpty()) {
                 for (int i = 0; i < tmpInside.size(); i++) {
@@ -187,31 +190,41 @@ public class FinalRoute {
                     }
                 }
             }
-
         return  nearEval;
     }
 
-    boolean inRectangle(Vertex v, Vertex s, Vertex e){
 
-        boolean inside = false;
+    public double getDistance(Vertex startToeval,Vertex evaluator){
 
-        if(s.getX() <= e.getX()){
-            if(v.getX()>s.getX() && v.getX()<e.getX() && v.getY()>s.getY() && v.getY()<e.getY()){
-                inside = true;
+        double shortestDistance = 0;
+        double deltaX, deltaY, tempDist;
+        FinalRoute tempFinal = new FinalRoute(startToeval,evaluator);
+        String tempRoute = tempFinal.CreateFinalPath();
+        ArrayList<Vertex> StoArray = strToArrayList(tempRoute);
+
+        for(int j = 0; j<StoArray.size()-1;j++) {
+            deltaX = Math.pow((StoArray.get(j).getX() - StoArray.get(j + 1).getX()), 2);
+            deltaY = Math.pow((StoArray.get(j).getY() - StoArray.get(j + 1).getY()), 2);
+            tempDist = Math.sqrt(deltaX+deltaY);
+            shortestDistance += tempDist;
             }
-             else if(v.getX()>s.getX() && v.getX()<e.getX() && v.getY()<s.getY() && v.getY()>e.getY() ){
-                inside =true;
-            }
-        }
-        else if(s.getX()>e.getX()) {
-            if (v.getX() > e.getX() && v.getX() < s.getX() && v.getY() < s.getY() && v.getY() > e.getY()) {
-                inside = true;
-            } else if (v.getX() > e.getX() && v.getX() < s.getX() && v.getY() < e.getY() && v.getY() > s.getY()) {
-                inside = true;
-            }
-        }
-        return inside;
+        return shortestDistance;
     }
+
+    public ArrayList<Vertex> strToArrayList(String s){
+        ArrayList<Vertex> strArray= new ArrayList<Vertex>();
+        String[] tempString =s.split(",");
+
+        for(int i =0; i<tempString.length; i+=3){
+
+            Vertex tempVertex = new Vertex("tempV",Double.parseDouble(tempString[i]),
+                    Double.parseDouble(tempString[i+1]),Double.parseDouble(tempString[i+2]));
+            strArray.add(tempVertex);
+        }
+
+        return strArray;
+    }
+
     double GetDistance(Vertex v1, Vertex v2)
     {
         return Math.sqrt(Math.pow(v1.getX()-v2.getX(),2) + Math.pow(v1.getY()-v2.getY(),2));
