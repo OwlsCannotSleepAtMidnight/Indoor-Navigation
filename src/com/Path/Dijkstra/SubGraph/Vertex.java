@@ -21,7 +21,7 @@ public class Vertex {
     protected double _z;
 
     protected static Dictionary _instance = new Hashtable();
-    public static final String file_path = "/home/toy/ProgramProjects/IdeaProjects/CNSoft/Indoor-Navigation/data/";
+    public static final String file_path = "/opt/data/";
 
     public Vertex(){
         _name = "None";

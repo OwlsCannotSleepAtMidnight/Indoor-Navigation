@@ -17,7 +17,7 @@ public class Edge {
     protected double _weight;
 
     private static Dictionary _instance = new Hashtable();
-    public static final String file_path = "/home/toy/ProgramProjects/IdeaProjects/CNSoft/Indoor-Navigation/data/";
+    public static final String file_path = "/opt/data/";
 
     private static ArrayList<Edge> _sub_b1 = new ArrayList<Edge>();
     private static ArrayList<Edge> _sub_f1_left = new ArrayList<Edge>();
