@@ -55,8 +55,9 @@ public class Servlet extends HttpServlet {
             }
         }
         if (name.equals("test")) {
+            String nowpath=System.getProperty("user.dir");
             try {
-                out.print("0.1,0.2,0.0");
+                out.println(nowpath);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -64,6 +65,7 @@ public class Servlet extends HttpServlet {
         }
 
         if(name.equals("getPath")){
+
             String tmp = request.getParameter("Points");
             if(same.equals(tmp)){
                 out.print(final_Path);

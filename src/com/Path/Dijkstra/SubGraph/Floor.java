@@ -48,11 +48,10 @@ public abstract class Floor {
     }
 
     protected Vertex hasVertex_(Vertex v, HashMap<Vertex, List> ve){
-        for(Vertex each: ve.keySet()){
-            if(each.equalPosition(v, 0.01))
-                return each;
-        }
-        return null;
+        if(v == null)
+            return null;
+
+        return Vertex.pinPosition(v);
     }
 
     protected static double getDistance(Vertex v1, Vertex v2){
@@ -330,7 +329,20 @@ public abstract class Floor {
     protected String calculatePath(Vertex start, Vertex end, HashMap<Vertex, List> ve){
         Vertex fake_start;
         Vertex fake_end;
-        if(!Cross.IsOverObstacle(start, end)){
+
+        if((fake_start = hasVertex_(start, ve)) != null) {
+            start = fake_start;
+        }
+
+        if((fake_end = hasVertex_(end, ve)) != null) {
+            end = fake_end;
+        }
+        else
+        {
+            end = start;
+        }
+
+        /*if(!Cross.IsOverObstacle(start, end)){
             return start.getString() +"," + end.getString() + ",";
         }
 
@@ -349,7 +361,7 @@ public abstract class Floor {
             ve.put(end, new ArrayList());
             ve = setAuxVandR(end, ve);
 
-        }
+        }*/
 
         return Graph.showPath(start, end, ve);
     }
@@ -389,11 +401,11 @@ public abstract class Floor {
         Floor floor = FloorB1.getFloor(SubNumber.B1Sub);
        // Vertex s = new Vertex("sb", 0.5176, 0.1984, 1);
        // Vertex e = new Vertex("end", 0.5176, 0.2801, 1);
-        Vertex s = Vertex.getVertex_(F1SubBottom.X3);
-        Vertex e = Vertex.getVertex_(F1SubBottom.Q2);
-        floor.showPath(s, e);
-        floor.showPath(s, e);
-        System.out.println(floor.showPath(s, e));
+        //Vertex s = Vertex.getVertex_(F1SubBottom.X3);
+      //  Vertex e = Vertex.getVertex_(F1SubBottom.Q2);
+       // floor.showPath(s, e);
+       // floor.showPath(s, e);
+      //  System.out.println(floor.showPath(s, e));
 
         System.out.println("done");
 
