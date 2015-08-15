@@ -156,4 +156,16 @@ public class Floor_1 {
     {
         return Math.sqrt(Math.pow(v1.getX()-v2.getX(),2) + Math.pow(v1.getY()-v2.getY(),2));
     }
+
+
+    public static void main(String[] args) {
+        LoadMethod.loadAll();
+        Vertex s1 = new Vertex("S25",0.1509,0.8212,1);
+        Vertex e1 = new Vertex("S10",0.2490,0.2247 ,1);
+        Floor_1 fl = new Floor_1(s1,e1);
+        String route = fl.RoutePlan();
+        System.out.println(route);
+    }
+
+
 }

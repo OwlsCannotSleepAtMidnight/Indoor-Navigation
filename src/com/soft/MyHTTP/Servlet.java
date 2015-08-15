@@ -83,6 +83,24 @@ public class Servlet extends HttpServlet {
             }
         }
 
+        if(name.equals("getPartPath")){
+            String tmp = request.getParameter("Points");
+            if(same.equals(tmp)){
+                out.print(final_Path);
+            } else {
+                same = tmp;
+                String arr_str[] = request.getParameter("Points").split("/");
+                start = arr_str[0].replaceAll("\\s", "");
+                end = arr_str[1].replaceAll("\\s", "");
+                Vertex final_Start, final_End;
+                final_Start=String2Vertex(start,"ThisPoint");
+                final_End=String2Vertex(end,"Destination");
+                FinalMonoRoute  finalPartRoute=new FinalMonoRoute (final_Start,final_End);
+                final_Path=finalPartRoute.CreateFinalPath();
+                out.print(final_Path);
+            }
+        }
+
     }
 
     protected Vertex String2Vertex(String str,String name){
