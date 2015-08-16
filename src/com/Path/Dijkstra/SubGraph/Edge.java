@@ -90,7 +90,7 @@ public class Edge {
 
     }
 
-    protected static void selectAddList(Edge edge){
+    /*protected static void selectAddLists(Edge edge){
         Vertex v = edge.getFrom();
         if(Division.GetSubGraphNum(v) == SubNumber.B1Sub)
             _sub_b1.add(edge);
@@ -115,7 +115,7 @@ public class Edge {
             selectAddList(edge);
         }
 
-    }
+    }*/
 
     public static void createBothSides(Vertex f, Vertex t){
         if(Edge.getEdge_(f, t) == null) {
@@ -123,6 +123,11 @@ public class Edge {
         }
         if(Edge.getEdge_(t, f) == null) {
             new Edge(t, f).store();
+        }
+    }
+    public static void createEdges(ArrayList<Edge> list){
+        for(Edge each: list){
+            each.store();
         }
     }
 
@@ -150,37 +155,43 @@ public class Edge {
         loadEdge_F2Center();
         loadEdge_F2Top();
 
-        addlist(); // for sub graph
     }
     
     
     
     public static void loadEdge_B1(){
-        LoadEdge.LoadEdges(file_path+"EdgeB1.txt");
+        _sub_b1 = LoadEdge.LoadEdges(file_path + "EdgeB1.txt");
+        createEdges(_sub_b1);
     }
 
     public static void loadEdge_F1Left(){
-        LoadEdge.LoadEdges(file_path+"EdgeF1left.txt");
+        _sub_f1_left = LoadEdge.LoadEdges(file_path + "EdgeF1left.txt");
+        createEdges(_sub_f1_left);
     }
     
     public static void loadEdge_F1Right(){
-        LoadEdge.LoadEdges(file_path+"EdgeF1right.txt");
+        _sub_f1_right = LoadEdge.LoadEdges(file_path + "EdgeF1right.txt");
+        createEdges(_sub_f1_right);
     }
     
     public static void loadEdge_F1Bottom(){
-        LoadEdge.LoadEdges(file_path+"EdgeF1bottom.txt");
+        _sub_f1_bottom =LoadEdge.LoadEdges(file_path + "EdgeF1bottom.txt");
+        createEdges(_sub_f1_bottom);
     }
     
     public static void loadEdge_F2Bottom(){
-        LoadEdge.LoadEdges(file_path+"EdgeF2bottom.txt");
+        _sub_f2_bottom = LoadEdge.LoadEdges(file_path + "EdgeF2bottom.txt");
+        createEdges(_sub_f2_bottom);
     }
     
     public static void loadEdge_F2Center(){
-        LoadEdge.LoadEdges(file_path+"EdgeF2center.txt");
+        _sub_f2_center = LoadEdge.LoadEdges(file_path + "EdgeF2center.txt");
+        createEdges(_sub_f2_center);
     }
     
     public static void loadEdge_F2Top(){
-        LoadEdge.LoadEdges(file_path+"EdgeF2top.txt");
+        _sub_f2_top = LoadEdge.LoadEdges(file_path + "EdgeF2top.txt");
+        createEdges(_sub_f2_top);
     }
     public static void findFilePath(String str){
         file_path = str;
@@ -189,6 +200,5 @@ public class Edge {
     public static void main(String[] args) {
         Vertex.loadVertex_();
         loadEdge_();
-        addlist();
     }
 }
