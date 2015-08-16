@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by toy on 4/22/15.
@@ -165,9 +167,11 @@ public class Vertex {
     
     
     public static void main(String[] args){
-        loadVertex_();
-        Vertex v = Vertex.getVertex_("P06_12_0");
-        System.out.println(v.getString());
+        String str = "0.01,0.24324%2C0.4%2F0.5234,0.4%2C0.5";
+        String start, end;
+        String sb[] = str.split(",|%2[CF]");
+        for(String each: sb)
+            System.out.println(each);
     }
 
 }

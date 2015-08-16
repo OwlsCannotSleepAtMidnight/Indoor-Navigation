@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by toy on 15-4-6.
@@ -92,7 +95,7 @@ public class Servlet extends HttpServlet {
                 out.print(final_Path);
             } else {
                 same = tmp;
-                String arr_str[] = request.getParameter("Points").split("/");
+                String arr_str[] = request.getParameter("Points").split("/|%2F");
                 start = arr_str[0].replaceAll("\\s", "");
                 end = arr_str[1].replaceAll("\\s", "");
                 Vertex final_Start, final_End;
@@ -110,12 +113,11 @@ public class Servlet extends HttpServlet {
         str = str.replaceAll("\\[", "");
         str = str.replaceAll("\\]", "");
         str = str.replaceAll("\\s", "");
-        String xyz[] = str.split(",");
+        String xyz[] = str.split(",|%2C");
         double pos_x = Double.valueOf(xyz[0]);
         double pos_y = Double.valueOf(xyz[1]);
         double pos_z = Double.valueOf(xyz[2]);
         return new Vertex(name,pos_x, pos_y, pos_z);
     }
-
 
 }
