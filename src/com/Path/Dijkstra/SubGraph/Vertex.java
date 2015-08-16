@@ -93,7 +93,7 @@ public class Vertex {
     public static Vertex pinPosition(Vertex v){
         int px = (int)(v.getX() * 100);
         int py = (int)(v.getY() * 100);
-        int pz = (int)(v.getZ() * 10);
+        int pz = (int)(v.getZ());
         if(px%2 == 1)
             px ++;
         if(py%2 == 1)

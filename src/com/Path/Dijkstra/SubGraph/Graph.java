@@ -53,6 +53,8 @@ public class Graph {
         Edge min_e = null;
         for(Object each: _added_vertex){
             ArrayList<Edge> edge_list = _link.get(each);
+            if(edge_list == null)
+                continue;
             for(Edge this_edge: edge_list){
                 Vertex  to = this_edge.getTo();
                 if(!_added_vertex.contains(to)
