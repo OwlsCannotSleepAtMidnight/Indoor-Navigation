@@ -21,7 +21,7 @@ public class Vertex {
     protected double _z;
 
     protected static Dictionary _instance = new Hashtable();
-    public static final String file_path = "/opt/data/";
+    public static String file_path = "/opt/data/";
 
     public Vertex(){
         _name = "None";
@@ -120,7 +120,10 @@ public class Vertex {
     public static void createVertex(String name, double x, double y, double z){
         new Vertex(name,x, y, z).store();
     }
-    
+
+    public static void findFilePath(String str){
+        file_path = str;
+    }
     public static void loadVertex_(){
         loadVertex_B1();
         loadVertex_F1Bottom();

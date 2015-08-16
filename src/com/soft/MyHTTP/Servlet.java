@@ -2,9 +2,7 @@ package com.soft.MyHTTP;
 
 import com.GetPositionClient.GetPositionClient;
 import com.Path.DefinedVertex.SubNumber;
-import com.Path.Dijkstra.SubGraph.Floor;
-import com.Path.Dijkstra.SubGraph.LoadMethod;
-import com.Path.Dijkstra.SubGraph.Vertex;
+import com.Path.Dijkstra.SubGraph.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,6 +21,11 @@ public class Servlet extends HttpServlet {
     String final_Path = new String();
     @Override
     public void init() throws ServletException {
+       String filename = "WEB-INF/classes/data/";
+        String path = this.getServletContext().getRealPath("/")+filename;
+        System.out.println(path);
+        Vertex.findFilePath(path);
+        Edge.findFilePath(path);
         LoadMethod.loadAll();
     }
 
