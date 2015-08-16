@@ -17,8 +17,8 @@ public class GetPositionClient {
 
     public String GetPosition() throws IOException {
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        //String url = "http://172.18.3.57:8001/loc";    //remote server
-        String url = "http://172.18.4.46:8001/loc";     //localhost:  172.18.4.46
+        String url = "http://172.18.3.57:8001/loc";    //remote server
+       // String url = "http://172.18.4.46:8001/loc";     //localhost:  172.18.4.46
 
         try {
 
