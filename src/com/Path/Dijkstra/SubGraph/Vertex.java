@@ -23,7 +23,7 @@ public class Vertex {
     protected double _z;
 
     protected static Dictionary _instance = new Hashtable();
-    public static String file_path = "/opt/data/";
+    public static String file_path = "data/";
 
     public Vertex(){
         _name = "None";
@@ -167,11 +167,10 @@ public class Vertex {
     
     
     public static void main(String[] args){
-        String str = "0.01,0.24324%2C0.4%2F0.5234,0.4%2C0.5";
-        String start, end;
-        String sb[] = str.split(",|%2[CF]");
-        for(String each: sb)
-            System.out.println(each);
+        loadVertex_();
+        Vertex v = Vertex.getVertex_("P@#$123");
+        if(v == null)
+            System.out.println("not exist");
     }
 
 }

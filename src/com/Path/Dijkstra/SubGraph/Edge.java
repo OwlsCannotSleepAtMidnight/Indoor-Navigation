@@ -1,5 +1,6 @@
 package com.Path.Dijkstra.SubGraph;
 
+import com.Obstacle.Cross;
 import com.Obstacle.Division;
 import com.Path.DefinedVertex.*;
 
@@ -17,7 +18,7 @@ public class Edge {
     protected double _weight;
 
     private static Dictionary _instance = new Hashtable();
-    public static String file_path = "/opt/data/";
+    public static String file_path = "data/";
 
     private static ArrayList<Edge> _sub_b1 = new ArrayList<Edge>();
     private static ArrayList<Edge> _sub_f1_left = new ArrayList<Edge>();
@@ -197,8 +198,18 @@ public class Edge {
         file_path = str;
     }
 
+
     public static void main(String[] args) {
         Vertex.loadVertex_();
         loadEdge_();
+        testEdge();
+    }
+    public static void testEdge(){
+        ArrayList<Edge> list = Edge_F2Center();
+        for(Edge edge: list)
+        {
+            if(Cross.IsOverObstacle(edge.getFrom(), edge.getTo()))
+                System.out.println(edge.getFrom().getName() + " " + edge.getTo().getName());
+        }
     }
 }
