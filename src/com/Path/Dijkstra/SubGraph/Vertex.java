@@ -168,9 +168,12 @@ public class Vertex {
     
     public static void main(String[] args){
         loadVertex_();
-        Vertex v = Vertex.getVertex_("P@#$123");
-        if(v == null)
-            System.out.println("not exist");
+        ArrayList<Vertex> list = new ArrayList<Vertex>();
+        for(Vertex each: list){
+            Vertex.pinPosition(each);
+               // System.out.println(each.getString());
+        }
+
     }
 
 }

@@ -21,6 +21,11 @@ public class LoadEdge {
             String tempString = null;
             while ((tempString = reader.readLine()) != null) {
                 temp = tempString.split(" ");
+
+                if(Vertex.getVertex_(temp[0]) == null)
+                    System.out.println(temp[0]);
+                if(Vertex.getVertex_(temp[1]) == null)
+                    System.out.println(temp[1]);
                 //Edge.createBothSides(Vertex.getVertex_(temp[0]), Vertex.getVertex_(temp[1]));
                 if(Edge.getEdge_(Vertex.getVertex_(temp[0]), Vertex.getVertex_(temp[1])) == null) {
                     alist.add(new Edge(Vertex.getVertex_(temp[0]), Vertex.getVertex_(temp[1])));

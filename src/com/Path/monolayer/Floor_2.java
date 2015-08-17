@@ -125,7 +125,7 @@ public class Floor_2 {
             String path_BtoM_1, path_BtoM_2;
             //����ͼ����·�߹滮
             //Floor  sub_top=new F2SubBottomFloor(2);
-            Floor sub_top = Floor.getFloor(SubNumber.F2SubTop);
+            Floor sub_top = Floor.getFloor(SubNumber.F2SubBottom);
            /* sub_top.AnalyzeVertex(V_start.GetString(), 0);
             sub_top.AnalyzeVertex(min_BtoM.GetString(), 1);
             sub_top.InitializeStartEnd();*/

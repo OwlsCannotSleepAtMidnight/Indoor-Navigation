@@ -202,14 +202,5 @@ public class Edge {
     public static void main(String[] args) {
         Vertex.loadVertex_();
         loadEdge_();
-        testEdge();
-    }
-    public static void testEdge(){
-        ArrayList<Edge> list = Edge_F2Center();
-        for(Edge edge: list)
-        {
-            if(Cross.IsOverObstacle(edge.getFrom(), edge.getTo()))
-                System.out.println(edge.getFrom().getName() + " " + edge.getTo().getName());
-        }
     }
 }
